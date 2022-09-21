@@ -79,6 +79,18 @@
       },
       "type": "decimal",
       "default": 0
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecommerce-category.ecommerce-category",
+      "inversedBy": "products"
+    },
+    "metadata": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecommerce-metadata.ecommerce-metadata",
+      "inversedBy": "products"
     }
   }
 }
