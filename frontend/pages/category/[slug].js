@@ -5,17 +5,17 @@ import Seo from "../../components/seo"
 
 const Category = ({ category, categories }) => {
   const seo = {
-    metaTitle: category.attributes.name,
-    metaDescription: `All ${category.attributes.name} articles`,
+    metaTitle: category?.attributes?.name,
+    metaDescription: `All ${category?.attributes?.name} articles`,
   }
 
   return (
-    <Layout categories={categories.data}>
+    <Layout categories={categories?.data ?? []}>
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <h1>{category.attributes.name}</h1>
-          <Articles articles={category.attributes.articles.data} />
+          <h1>{category?.attributes?.name}</h1>
+          <Articles articles={category?.attributes?.articles?.data ?? []} />
         </div>
       </div>
     </Layout>

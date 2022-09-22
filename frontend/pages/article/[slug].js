@@ -7,17 +7,17 @@ import Seo from "../../components/seo"
 import { getStrapiMedia } from "../../lib/media"
 
 const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.attributes.image)
+  const imageUrl = getStrapiMedia(article?.attributes?.image)
 
   const seo = {
-    metaTitle: article.attributes.title,
-    metaDescription: article.attributes.description,
-    shareImage: article.attributes.image,
+    metaTitle: article?.attributes?.title,
+    metaDescription: article?.attributes?.description,
+    shareImage: article?.attributes?.image,
     article: true,
   }
 
   return (
-    <Layout categories={categories.data}>
+    <Layout categories={categories?.data ?? []}>
       <Seo seo={seo} />
       <div
         id="banner"
@@ -26,28 +26,28 @@ const Article = ({ article, categories }) => {
         data-srcset={imageUrl}
         data-uk-img
       >
-        <h1>{article.attributes.title}</h1>
+        <h1>{article?.attributes?.title}</h1>
       </div>
       <div className="uk-section">
         <div className="uk-container uk-container-small">
           <ReactMarkdown
-            source={article.attributes.content}
+            source={article?.attributes?.content}
             escapeHtml={false}
           />
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
-              {article.attributes.author.picture && (
-                <NextImage image={article.attributes.author.picture} />
+              {article?.attributes?.author?.picture && (
+                <NextImage image={article?.attributes?.author?.picture} />
               )}
             </div>
             <div className="uk-width-expand">
               <p className="uk-margin-remove-bottom">
-                By {article.attributes.author.name}
+                By {article?.attributes?.author?.name}
               </p>
               <p className="uk-text-meta uk-margin-remove-top">
                 <Moment format="MMM Do YYYY">
-                  {article.attributes.published_at}
+                  {article?.attributes?.published_at}
                 </Moment>
               </p>
             </div>
@@ -64,7 +64,7 @@ export async function getStaticPaths() {
   return {
     paths: articlesRes.data.map((article) => ({
       params: {
-        slug: article.attributes.slug,
+        slug: article?.attributes?.slug,
       },
     })),
     fallback: false,
