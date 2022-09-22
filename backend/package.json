@@ -1,11 +1,13 @@
 {
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^1.1.2",
     "@strapi/plugin-graphql": "^4.0.0",
+    "@strapi/plugin-i18n": "4.3.9",
+    "@strapi/plugin-users-permissions": "4.3.9",
+    "@strapi/provider-email-nodemailer": "^4.3.9",
+    "@strapi/strapi": "4.3.9",
     "lodash.set": "^4.3.2",
     "mime-types": "^2.1.27",
-    "@strapi/strapi": "4.3.9",
-    "@strapi/plugin-users-permissions": "4.3.9",
-    "@strapi/plugin-i18n": "4.3.9",
     "pg": "8.6.0"
   },
   "name": "backend",
@@ -18,7 +20,6 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "author": {
     "name": "A Strapi developer"
   },
