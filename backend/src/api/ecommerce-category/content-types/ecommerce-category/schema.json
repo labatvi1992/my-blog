@@ -45,10 +45,10 @@
       "target": "api::ecommerce-product.ecommerce-product",
       "mappedBy": "category"
     },
-    "metadata": {
+    "metadataTypes": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::ecommerce-metadata.ecommerce-metadata",
+      "target": "api::ecommerce-metadata-type.ecommerce-metadata-type",
       "inversedBy": "categories"
     }
   }

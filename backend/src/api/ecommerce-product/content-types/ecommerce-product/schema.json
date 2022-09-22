@@ -91,6 +91,12 @@
       "relation": "manyToMany",
       "target": "api::ecommerce-metadata.ecommerce-metadata",
       "inversedBy": "products"
+    },
+    "supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecommerce-supplier.ecommerce-supplier",
+      "inversedBy": "products"
     }
   }
 }

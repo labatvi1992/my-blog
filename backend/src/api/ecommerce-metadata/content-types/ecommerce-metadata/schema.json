@@ -16,14 +16,11 @@
     }
   },
   "attributes": {
-    "name": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecommerce-metadata-type.ecommerce-metadata-type",
+      "inversedBy": "metadata"
     },
     "value": {
       "pluginOptions": {
@@ -33,17 +30,11 @@
       },
       "type": "text"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::ecommerce-category.ecommerce-category",
-      "mappedBy": "metadata"
-    },
     "products": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::ecommerce-product.ecommerce-product",
-      "inversedBy": "metadata"
+      "mappedBy": "metadata"
     }
   }
 }

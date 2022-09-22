@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_metadata_project_metadata",
+  "info": {
+    "displayName": "Metadata.project",
+    "icon": "bookmark",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
