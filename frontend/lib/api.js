@@ -37,9 +37,8 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
   const response = await axios.get(requestUrl, mergedOptions)
 
   // Handle response
-  if (!response.status !== 200) {
+  if (response.status !== 200) {
     return { data: null };
   }
-  const data = response.data;
-  return data;
+  return response.data;
 }

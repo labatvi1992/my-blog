@@ -1,22 +1,25 @@
 import { getStrapiMedia } from "../lib/media"
 import NextImage from "next/image"
+import { PictureOutlined } from "@ant-design/icons"
 
-const Image = ({ image, style }) => {
-  const { url, alternativeText, width, height } = image.data.attributes
-
-  // const loader = () => {
-  //   return getStrapiMedia(image)
-  // }
-
+const Image = ({ image }) => {
+  const { alternativeText, width, height } = image?.data?.attributes ?? {};
+  const src = getStrapiMedia(image);
+  if (src) {
+    return (
+      <NextImage
+        layout="responsive"
+        width={width || "100%"}
+        height={height || "100%"}
+        objectFit="contain"
+        src={src}
+        alt={alternativeText || ""}
+      />
+    )
+  }
   return (
-    <NextImage
-      // loader={loader}
-      layout="responsive"
-      width={width || "100%"}
-      height={height || "100%"}
-      objectFit="contain"
-      src={getStrapiMedia(image)}
-      alt={alternativeText || ""}
+    <PictureOutlined
+      style={{ fontSize: "24px" }}
     />
   )
 }
