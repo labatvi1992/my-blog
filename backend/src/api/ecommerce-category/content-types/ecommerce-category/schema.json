@@ -36,8 +36,15 @@
     },
     "parent": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::ecommerce-category.ecommerce-category"
+      "relation": "manyToOne",
+      "target": "api::ecommerce-category.ecommerce-category",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecommerce-category.ecommerce-category",
+      "mappedBy": "parent"
     },
     "products": {
       "type": "relation",
