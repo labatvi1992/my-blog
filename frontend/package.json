@@ -12,8 +12,6 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "antd": "^4.23.2",
     "axios": "^0.27.2",
     "moment": "^2.24.0",
     "next": "^11.0.0",
@@ -25,11 +23,14 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^17.0.0",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "^7.30.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.1"
+    "prettier": "^2.3.1",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.3"
   }
 }

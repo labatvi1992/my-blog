@@ -1,6 +1,5 @@
-import { getStrapiMedia } from "../lib/media"
+import { getStrapiMedia } from "@/common/helpers/media"
 import NextImage from "next/image"
-import { PictureOutlined } from "@ant-design/icons"
 
 const Image = ({ image }) => {
   const { alternativeText, width, height } = image?.data?.attributes ?? {};
@@ -17,11 +16,7 @@ const Image = ({ image }) => {
       />
     )
   }
-  return (
-    <PictureOutlined
-      style={{ fontSize: "24px" }}
-    />
-  )
+  return null;
 }
 
 export default Image
