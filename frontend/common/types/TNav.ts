@@ -1,14 +1,14 @@
 type TNavProp = {
     title: string;
-    data?: TNavItem[];
 }
 
 type TNavItem = {
+    id: number;
     name: string;
     slug: string;
-    level: number;
     icon?: string;
-    space?: boolean;
+    className?: string;
+    parent?: number;
     children?: TNavItem[];
 }
 

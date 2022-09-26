@@ -1,0 +1,10 @@
+{
+  "Home": "Home",
+  "About": "About",
+  "Blog": "Blog",
+  "Store": "Store",
+  "HomeUrl": "/",
+  "AboutUrl": "/about",
+  "BlogUrl": "/blog",
+  "StoreUrl": "/store"
+}

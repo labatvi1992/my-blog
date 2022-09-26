@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { TNavItem } from "@/common/types/TNav";
+import NavRootLeafItem from "./NavRootLeafItem";
+import NavLeafItem from "./NavLeafItem";
 
 const NavItem = (prop: TNavItem) => {
-  const { name, slug, level, icon, space, children } = prop || {};
+  const { name, slug, icon, parent, children } = prop || {};
 
   if (children && children.length > 0) {
-    if (level === 0) {
+    if (parent === undefined || parent === null) {
       return (
         <li className="nav-item dropdown dropdown-hover mx-2">
           <Link href={slug}>
@@ -26,7 +28,7 @@ const NavItem = (prop: TNavItem) => {
           >
             <div className="d-none d-lg-block">
               {(children || []).map((item: TNavItem, itemIndex: number) => (
-                <NavItem key={itemIndex} {...item} level={item.level + 1} />
+                <NavItem key={itemIndex} {...item} />
               ))}
             </div>
           </ul>
@@ -54,34 +56,19 @@ const NavItem = (prop: TNavItem) => {
         </Link>
         <div className="dropdown-menu mt-0 py-3 px-2 mt-3">
           {(children || []).map((item: TNavItem, itemIndex: number) => (
-            <NavItem key={itemIndex} {...item} level={item.level + 1} />
+            <NavItem key={itemIndex} {...item} />
           ))}
         </div>
       </li>
     );
   }
 
-  if (level === 0) {
-    return (
-      <li className={`nav-item ${space ? "ms-lg-auto" : "my-auto mx-2"}`}>
-        <Link href={slug}>
-          <a className="nav-link nav-link-icon ps-2">
-            {icon && (<i className={icon} />)}
-            <p className="d-inline text-sm z-index-1">
-              {name}
-            </p>
-          </a>
-        </Link>
-      </li>
-    );
+  if (parent === undefined) {
+    return <NavRootLeafItem {...prop} className="nav-item my-auto mx-2" />
   }
 
   return (
-    <Link href={slug}>
-      <a className="dropdown-item ps-3 border-radius-md mb-1">
-        {name}
-      </a>
-    </Link>
+    <NavLeafItem {...prop} />
   );
 };
 

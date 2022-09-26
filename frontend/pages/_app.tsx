@@ -5,6 +5,8 @@ import React, { createContext } from "react"
 import { fetchAPI } from "@/common/helpers/api"
 import { getStrapiMedia } from "@/common/helpers/media"
 
+import "../i18n";
+
 import "../assets/scss/soft-design-system.scss"
 
 // Store Strapi Global object in context
