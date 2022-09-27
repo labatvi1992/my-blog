@@ -3,8 +3,8 @@
   "About": "Về tôi",
   "Blog": "Bài viết",
   "Store": "Cửa hàng",
-  "HomeUrl": "/vi",
-  "AboutUrl": "/vi/ve-toi",
-  "BlogUrl": "/vi/bai-viet",
-  "StoreUrl": "/vi/cua-hang"
+  "HomeUrl": "/",
+  "AboutUrl": "/ve-toi",
+  "BlogUrl": "/bai-viet",
+  "StoreUrl": "/cua-hang"
 }

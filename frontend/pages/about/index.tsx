@@ -1,8 +1,15 @@
 import React from "react";
+import Layout from "@/components/layout";
+import Seo from "@/components/seo";
 
-const About = () => {
+const About = ({ global }) => {
   return (
-    <div>About</div>
+    <Layout global={global}>
+      <Seo seo={global?.attributes?.seo} />
+      <div>
+        About
+      </div>
+    </Layout>
   );
 };
 

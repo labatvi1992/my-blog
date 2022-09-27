@@ -1,9 +1,14 @@
 import React from "react"
-import { Nav } from "./navigation";
+import NavData, { LanguageData } from "assets/data/NavData"
+import { Nav } from "./navigation"
 
 const Layout = ({ children, global }) => (
   <>
-    <Nav title={global?.attributes?.siteName} />
+    <Nav
+      title={global?.attributes?.siteName}
+      navigation={NavData}
+      languages={LanguageData}
+    />
     {children}
   </>
 )
