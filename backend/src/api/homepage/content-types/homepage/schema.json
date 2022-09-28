@@ -29,16 +29,15 @@
         }
       }
     },
-    "hero": {
+    "welcome": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.hero",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "sections.section-welcome"
     }
   }
 }

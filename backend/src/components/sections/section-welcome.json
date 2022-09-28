@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_sections_section_welcomes",
+  "info": {
+    "displayName": "Section.welcome",
+    "icon": "bookmark",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text"
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    }
+  }
+}

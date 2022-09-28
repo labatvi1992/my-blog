@@ -50,6 +50,14 @@
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "category"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }
