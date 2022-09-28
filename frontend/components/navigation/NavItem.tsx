@@ -1,11 +1,14 @@
-import React from "react";
-import Link from "next/link";
-import { TNavItem } from "@/common/types/TNav";
-import NavRootLeafItem from "./NavRootLeafItem";
-import NavLeafItem from "./NavLeafItem";
+import React from "react"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { TNavItem } from "@/common/types/TNav"
+import NavRootLeafItem from "./NavRootLeafItem"
+import NavLeafItem from "./NavLeafItem"
 
 const NavItem = (prop: TNavItem) => {
-  const { name, slug, icon, parent, children } = prop || {};
+  const { name, slug, icon, parent, children } = prop || {}
+
+  const router = useRouter()
 
   if (children && children.length > 0) {
     if (parent === undefined || parent === null) {
@@ -19,7 +22,11 @@ const NavItem = (prop: TNavItem) => {
               aria-expanded="false"
             >
               {name}
-              <img src="/img/down-arrow-dark.svg" alt="down-arrow" className="arrow ms-1" />
+              <img
+                src="/img/down-arrow-dark.svg"
+                alt="down-arrow"
+                className="arrow ms-1"
+              />
             </a>
           </Link>
           <ul
@@ -33,7 +40,7 @@ const NavItem = (prop: TNavItem) => {
             </div>
           </ul>
         </li>
-      );
+      )
     }
     return (
       <li className="nav-item dropdown dropdown-hover dropdown-subitem">
@@ -47,9 +54,15 @@ const NavItem = (prop: TNavItem) => {
               )}
               <div className="w-100 d-flex align-items-center justify-content-between">
                 <div>
-                  <h6 className="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">{name}</h6>
+                  <h6 className="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                    {name}
+                  </h6>
                 </div>
-                <img src="/img/down-arrow.svg" alt="down-arrow" className="arrow" />
+                <img
+                  src="/img/down-arrow.svg"
+                  alt="down-arrow"
+                  className="arrow"
+                />
               </div>
             </div>
           </a>
@@ -60,16 +73,21 @@ const NavItem = (prop: TNavItem) => {
           ))}
         </div>
       </li>
-    );
+    )
   }
 
   if (parent === undefined) {
-    return <NavRootLeafItem {...prop} className="nav-item my-auto mx-2" />
+    return (
+      <NavRootLeafItem
+        {...prop}
+        className={`nav-item my-auto mx-2 my-0 py-0 ${
+          router.pathname === slug ? "btn bg-gradient-info" : ""
+        }`}
+      />
+    )
   }
 
-  return (
-    <NavLeafItem {...prop} />
-  );
-};
+  return <NavLeafItem {...prop} />
+}
 
-export default NavItem;
+export default NavItem

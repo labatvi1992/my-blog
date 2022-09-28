@@ -6,5 +6,7 @@
   "HomeUrl": "/",
   "AboutUrl": "/about",
   "BlogUrl": "/blog",
-  "StoreUrl": "/store"
+  "StoreUrl": "/store",
+  "Contact": "Find me on",
+  "About me": "About me"
 }

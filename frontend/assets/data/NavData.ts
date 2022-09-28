@@ -8,8 +8,8 @@ const NavData: TNavItem[] = [
 ]
 
 export const LanguageData: TLanguageItem[] = [
-  { id: "en-US", name: "English", icon: "/img/lang/english.png" },
-  { id: "vi-VN", name: "Vietnamese", icon: "/img/lang/vietnamese.png" },
+  { id: "en-US", name: "English", icon: "/img/lang/english.svg" },
+  { id: "vi-VN", name: "Vietnamese", icon: "/img/lang/vietnamese.svg" },
 ]
 
 export default NavData

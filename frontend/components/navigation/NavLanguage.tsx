@@ -43,7 +43,7 @@ const NavLanguage = (prop: TLanguageProp) => {
                 >
                   <div className="d-flex align-items-center">
                     {item.icon && (
-                      <div className="icon-sm h-10 me-3 d-flex mt-1">
+                      <div className="icon-xs me-3 d-flex mt-1">
                         <img src={item.icon} className="d-block" />
                       </div>
                     )}
