@@ -8,7 +8,7 @@ const Section = (prop: TSectionProp) => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-12">
-            <div className="position-relative border-radius-xl overflow-hidden shadow-lg mb-7">
+            <div className="position-relative border-radius-xl overflow-hidden shadow-lg mb-3">
               <div className="container px-2">
                 <div className="row py-3">
                   <div className="col-md-8 text-start">

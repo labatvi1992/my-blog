@@ -35,7 +35,7 @@ function animate() {
   if (inView()) {
     if (animateComplete) {
       if (document.getElementById('state1')) {
-        const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+        const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("data-count-to"));
         if (!countUp.error) {
           countUp.start();
         } else {
@@ -43,7 +43,7 @@ function animate() {
         }
       }
       if (document.getElementById('state2')) {
-        const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+        const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("data-count-to"));
         if (!countUp1.error) {
           countUp1.start();
         } else {
@@ -51,7 +51,7 @@ function animate() {
         }
       }
       if (document.getElementById('state3')) {
-        const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+        const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("data-count-to"));
         if (!countUp2.error) {
           countUp2.start();
         } else {

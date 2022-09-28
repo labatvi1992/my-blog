@@ -7,7 +7,7 @@ const Welcome = (prop: TWelcomeProp) => {
   const { title, content, background, facebook, github, linkedin } = prop || {}
   const { t } = useTranslation("common", { useSuspense: false })
   return (
-    <header className="bg-gradient-dark">
+    <header className="bg-gradient-dark mb-4">
       <div
         className="page-header min-vh-75"
         style={{

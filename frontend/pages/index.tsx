@@ -4,6 +4,7 @@ import Layout from "@/components/layout"
 import Seo from "@/components/seo"
 import Welcome from "@/components/welcome"
 import EcommerceAds from "@/components/ecommerceAds"
+import BlogAds from "@/components/blogAds"
 import { fetchAPI } from "@/common/helpers/api"
 
 const Home = ({ global, articles, homepage }) => {
@@ -13,6 +14,7 @@ const Home = ({ global, articles, homepage }) => {
       <Seo seo={homepage?.attributes?.seo} />
       <Welcome {...welcome} />
       <EcommerceAds />
+      <BlogAds />
       <section className="py-7">
         <div className="container">
           <div className="row align-items-center">
