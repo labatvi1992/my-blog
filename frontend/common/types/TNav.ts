@@ -11,6 +11,7 @@ type TNavItem = {
   name: string
   slug: string
   icon?: string
+  active?: boolean
   className?: string
   parent?: string
   children?: TNavItem[]

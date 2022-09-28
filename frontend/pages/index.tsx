@@ -1,13 +1,13 @@
 import React from "react"
-import Articles from "@/components/articles"
 import Layout from "@/components/layout"
 import Seo from "@/components/seo"
 import Welcome from "@/components/welcome"
 import EcommerceAds from "@/components/ecommerceAds"
 import BlogAds from "@/components/blogAds"
+import Subscribe from "@/components/subscribe"
 import { fetchAPI } from "@/common/helpers/api"
 
-const Home = ({ global, articles, homepage }) => {
+const Home = ({ global, homepage }) => {
   const welcome = homepage?.attributes?.welcome ?? {}
   return (
     <Layout global={global}>
@@ -15,15 +15,7 @@ const Home = ({ global, articles, homepage }) => {
       <Welcome {...welcome} />
       <EcommerceAds />
       <BlogAds />
-      <section className="py-7">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-12">
-              <Articles articles={articles} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Subscribe />
     </Layout>
   )
 }

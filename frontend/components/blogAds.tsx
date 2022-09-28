@@ -1,4 +1,5 @@
 import React from "react"
+import Carousel from "./carousel"
 
 const BlogAds = () => {
   return (
@@ -33,62 +34,14 @@ const BlogAds = () => {
                 Featured Blog
               </h3>
               <p className="text-white opacity-8 mb-0">
-                One of the best way to improve your skills is sharing your
-                knowledge. You will get more than what you expect.
+                Top 10 latest articles on my blog
               </p>
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6 col-12">
-              <div className="card card-profile overflow-hidden z-index-2">
-                <div className="row">
-                  <div className="col-lg-4 col-md-6 col-12 pe-lg-0">
-                    <a href="javascript:;">
-                      <div className="p-3 pe-md-0">
-                        <img
-                          className="w-100 border-radius-md"
-                          src="/img/team-4.jpg"
-                          alt="image"
-                        />
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-8 col-md-6 col-12 ps-lg-0 my-auto">
-                    <div className="card-body">
-                      <h5 className="mb-0">Ivana Flow</h5>
-                      <p>
-                        Artist is a term applied to a person who engages in an
-                        activity deemed to be an art.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 col-12">
-              <div className="card card-profile mt-lg-0 mt-5 overflow-hidden z-index-2">
-                <div className="row">
-                  <div className="col-lg-4 col-md-6 col-12 pe-lg-0">
-                    <a href="javascript:;">
-                      <div className="p-3 pe-md-0">
-                        <img
-                          className="w-100 border-radius-md"
-                          src="/img/ivana-square.jpg"
-                          alt="image"
-                        />
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-8 col-md-6 col-12 ps-lg-0 my-auto">
-                    <div className="card-body">
-                      <h5 className="mb-0">Sophia Garcia</h5>
-                      <p>
-                        Artist is a term applied to a person who engages in an
-                        activity deemed to be an art.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            <div className="col-12">
+              <div className="card card-profile overflow-hidden z-index-2 p-1 rounded-2">
+                <Carousel id={"blogArticles"} height={400} showIndicators />
               </div>
             </div>
           </div>

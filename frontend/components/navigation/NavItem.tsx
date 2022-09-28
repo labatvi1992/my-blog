@@ -81,8 +81,11 @@ const NavItem = (prop: TNavItem) => {
       <NavRootLeafItem
         {...prop}
         className={`nav-item my-auto mx-2 my-0 py-0 ${
-          router.pathname === slug ? "btn bg-gradient-info" : ""
+          router.pathname === slug
+            ? "bg-gradient-info shadow-lg rounded-2 px-3"
+            : ""
         }`}
+        active={router.pathname === slug}
       />
     )
   }

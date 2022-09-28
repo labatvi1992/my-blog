@@ -10,12 +10,7 @@ const EcommerceAds = () => {
     <>
       <Section
         header={{
-          title: (
-            <span className="badge bg-light text-dark">
-              <i className="fas fa-magic me-1" aria-hidden="true" />{" "}
-              {t("Featured products")}
-            </span>
-          ),
+          title: <h3 className="text-dark">{t("Featured products")}</h3>,
           right: (
             <Link href={t("StoreUrl", "/")}>
               <a className="text-info icon-move-right">

@@ -5,6 +5,7 @@ type TSectionProp = {
     title?: string | JSX.Element | JSX.Element[] | React.Component
     right?: JSX.Element | JSX.Element[] | React.Component
   }
+  shadow?: boolean
   children?: JSX.Element | JSX.Element[] | React.Component
 }
 
