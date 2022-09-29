@@ -2,10 +2,12 @@ import { useTranslation } from "react-i18next"
 import Link from "next/link"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { TWelcomeProp } from "@/common/types/TWelcome"
+import AnimatedText from "./animatedText"
 
 const Welcome = (prop: TWelcomeProp) => {
   const { title, content, background, facebook, github, linkedin } = prop || {}
   const { t } = useTranslation("common", { useSuspense: false })
+
   return (
     <header className="bg-gradient-dark mb-4">
       <div
@@ -18,7 +20,9 @@ const Welcome = (prop: TWelcomeProp) => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">
-              <h1 className="text-white">{title}</h1>
+              <h1 id="welcome-title" className="text-white">
+                <AnimatedText text={title.split(".")} loop />
+              </h1>
               <p className="lead mb-4 text-white opacity-8">{content}</p>
               <h6 className="text-white mb-2">{t("Contact")}</h6>
               <div className="d-flex justify-content-center">

@@ -5,6 +5,7 @@ import { TEcommerceAdsProp } from "@/common/types/TEcommerceAds"
 import Section from "./section"
 import Carousel from "./carousel/carousel"
 import CarouselItem from "./carousel/carouselItem"
+import { getStrapiMedia } from "@/common/helpers/media"
 
 const EcommerceAds = (prop: TEcommerceAdsProp) => {
   const { galleryAds, productAds } = prop.attributes || {}
@@ -52,11 +53,32 @@ const EcommerceAds = (prop: TEcommerceAdsProp) => {
               </Carousel>
             </div>
             <div className="col-md-4 p-1">
-              <Carousel
-                id={"ecommerceProductAds"}
-                height={300}
-                showIndicators
-              />
+              <Carousel id={"ecommerceProductAds"} height={300} showIndicators>
+                {(productAds.data || []).map((item, itemIndex) => {
+                  return (
+                    <CarouselItem key={itemIndex} active={itemIndex === 0}>
+                      <div className="d-flex flex-column align-items-center">
+                        <img
+                          src={getStrapiMedia(item?.attributes.image)}
+                          className="d-block"
+                          style={{ width: 220, objectFit: "cover" }}
+                          height={220}
+                          alt=""
+                        />
+                        <div
+                          className="d-flex flex-column justify-content-end"
+                          style={{ height: 80 }}
+                        >
+                          <div className="text-bold">
+                            {item?.attributes?.name}
+                          </div>
+                          <div>{item?.attributes?.price}</div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  )
+                })}
+              </Carousel>
             </div>
           </div>
         </div>
