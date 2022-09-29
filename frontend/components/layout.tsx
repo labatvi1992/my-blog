@@ -2,6 +2,7 @@ import React from "react"
 import NavData, { LanguageData } from "assets/data/NavData"
 import { Nav } from "./navigation"
 import Footer from "./footer"
+import ScrollToTop from "./scrollToTop"
 
 const Layout = ({ children, global }) => (
   <>
@@ -11,6 +12,7 @@ const Layout = ({ children, global }) => (
       languages={LanguageData}
     />
     {children}
+    <ScrollToTop />
     <Footer />
   </>
 )

@@ -34,7 +34,8 @@ const BlogAds = () => {
                 Featured Blog
               </h3>
               <p className="text-white opacity-8 mb-0">
-                Top 10 latest articles on my blog
+                One of the best way to improve your skills is sharing your
+                knowledge. By this way, you will get more than what you expect.
               </p>
             </div>
           </div>
