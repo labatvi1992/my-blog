@@ -15,9 +15,7 @@ const Section = (prop: TSectionProp) => {
             >
               <div className="container px-2">
                 <div className="row py-3">
-                  <div className="col-md-8 text-start">
-                    <p className="text-dark pt-1 mb-0">{title}</p>
-                  </div>
+                  <div className="col-md-8 text-start">{title}</div>
                   <div className="d-none col-md-4 text-end my-auto d-sm-block">
                     {right}
                   </div>

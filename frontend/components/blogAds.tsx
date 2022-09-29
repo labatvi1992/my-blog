@@ -1,5 +1,5 @@
 import React from "react"
-import Carousel from "./carousel"
+import Carousel from "./carousel/carousel"
 
 const BlogAds = () => {
   return (
@@ -14,8 +14,8 @@ const BlogAds = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
           >
             <title>wave-down</title>
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g fill="#FFFFFF" fill-rule="nonzero">
+            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+              <g fill="#FFFFFF" fillRule="nonzero">
                 <g id="wave-down">
                   <path
                     d="M0,60.8320331 C299.333333,115.127115 618.333333,111.165365 959,47.8320321 C1299.66667,-15.5013009 1620.66667,-15.2062179 1920,47.8320331 L1920,156.389409 L0,156.389409 L0,60.8320331 Z"
@@ -29,7 +29,7 @@ const BlogAds = () => {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-md-8 text-start mb-5 mt-5">
+            <div className="col-md-12 text-start mb-5 mt-5">
               <h3 className="text-white z-index-1 position-relative">
                 Featured Blog
               </h3>
@@ -56,11 +56,11 @@ const BlogAds = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
           >
             <title>wave-up</title>
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <g
                 transform="translate(0.000000, 5.000000)"
                 fill="#FFFFFF"
-                fill-rule="nonzero"
+                fillRule="nonzero"
               >
                 <g id="wave-up" transform="translate(0.000000, -5.000000)">
                   <path

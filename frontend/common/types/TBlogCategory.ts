@@ -1,14 +1,12 @@
 type TBlogCategory = {
-    id: number;
-    attributes: {
-        name: string;
-        slug: string;
-        children: {
-            data: TBlogCategory[]
-        }
+  id: number
+  attributes: {
+    name: string
+    slug: string
+    children: {
+      data: TBlogCategory[]
     }
+  }
 }
 
-export type {
-    TBlogCategory
-}
+export type { TBlogCategory }
