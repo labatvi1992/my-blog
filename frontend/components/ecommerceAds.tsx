@@ -8,13 +8,13 @@ import CarouselItem from "./carousel/carouselItem"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const EcommerceAds = (prop: TEcommerceAdsProp) => {
-  const { galleryAds, productAds } = prop.attributes || {}
+  const { title, galleryAds, productAds } = prop.attributes || {}
   const { t } = useTranslation("common", { useSuspense: false })
   return (
     <>
       <Section
         header={{
-          title: <h3 className="text-dark">{t("Featured Products")}</h3>,
+          title: <h3 className="text-dark">{title}</h3>,
           right: (
             <Link href={t("StoreUrl", "/")}>
               <a className="text-info icon-move-right">

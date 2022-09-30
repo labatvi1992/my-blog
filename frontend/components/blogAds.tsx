@@ -6,7 +6,7 @@ import IncreaseNumber from "./increaseNumber"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const BlogAds = (prop: TBlogAdsProp) => {
-  const { title, description, articles } = prop?.attributes ?? {}
+  const { title, description, articles, banner } = prop?.attributes ?? {}
   return (
     <>
       <section className="pt-sm-8 pb-5 position-relative bg-gradient-dark">
@@ -63,9 +63,9 @@ const BlogAds = (prop: TBlogAdsProp) => {
                           <div className="container-fluid">
                             <div className="row">
                               <div className="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
-                                <h1 className="text-gradient text-primary">
+                                <h3 className="text-gradient text-primary">
                                   {title}
-                                </h1>
+                                </h3>
                                 <p className="lead pe-5 me-5">{description}</p>
                                 <div className="buttons">
                                   <button
@@ -115,49 +115,19 @@ const BlogAds = (prop: TBlogAdsProp) => {
       </section>
       <section className="pt-2 pb-6 bg-gray-100">
         <div className="container">
-          <div className="row mb-7">
-            <div className="col-lg-2 col-md-4 col-6 mb-4">
-              <img
-                className="w-100 opacity-7"
-                src="/img/logos/gray-logos/logo-coinbase.svg"
-                alt="logo"
-              />
-            </div>
-            <div className="col-lg-2 col-md-4 col-6 mb-4">
-              <img
-                className="w-100 opacity-7"
-                src="/img/logos/gray-logos/logo-nasa.svg"
-                alt="logo"
-              />
-            </div>
-            <div className="col-lg-2 col-md-4 col-6 mb-4">
-              <img
-                className="w-100 opacity-7"
-                src="/img/logos/gray-logos/logo-netflix.svg"
-                alt="logo"
-              />
-            </div>
-            <div className="col-lg-2 col-md-4 col-6 mb-4">
-              <img
-                className="w-100 opacity-7"
-                src="/img/logos/gray-logos/logo-pinterest.svg"
-                alt="logo"
-              />
-            </div>
-            <div className="col-lg-2 col-md-4 col-6 mb-4">
-              <img
-                className="w-100 opacity-7"
-                src="/img/logos/gray-logos/logo-spotify.svg"
-                alt="logo"
-              />
-            </div>
-            <div className="col-lg-2 col-md-4 col-6 mb-4">
-              <img
-                className="w-100 opacity-7"
-                src="/img/logos/gray-logos/logo-vodafone.svg"
-                alt="logo"
-              />
-            </div>
+          <div className="row mx-auto mb-4 text-center">
+            {(banner?.data || []).map((item, itemIndex) => {
+              const { url } = item?.attributes || {}
+              return (
+                <div key={itemIndex} className="col mb-4">
+                  <img
+                    style={{ width: 100, height: 50, objectFit: "contain" }}
+                    src={url}
+                    alt="logo"
+                  />
+                </div>
+              )
+            })}
           </div>
           <div className="row justify-content-center text-center">
             <div className="col-md-3">

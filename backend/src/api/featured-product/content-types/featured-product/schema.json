@@ -4,7 +4,8 @@
   "info": {
     "singularName": "featured-product",
     "pluralName": "featured-products",
-    "displayName": "Featured Product"
+    "displayName": "Featured Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,15 +16,20 @@
     }
   },
   "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
     "galleryAds": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
       "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"],
       "pluginOptions": {
         "i18n": {
           "localized": true

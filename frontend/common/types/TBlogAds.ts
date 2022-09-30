@@ -1,4 +1,5 @@
 import { TBlogArticleItem } from "./TBlogArticle"
+import { TMediaItem } from "./TMedia"
 
 type TBlogAdsProp = {
   id: number
@@ -7,6 +8,9 @@ type TBlogAdsProp = {
     description?: string
     articles: {
       data: TBlogArticleItem[]
+    }
+    banner: {
+      data: TMediaItem[]
     }
   }
 }

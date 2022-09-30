@@ -38,6 +38,7 @@ export async function getStaticProps() {
     fetchAPI("/featured-blog", {
       populate: {
         articles: { populate: "*" },
+        banner: { populate: "*" },
       },
     }),
   ])

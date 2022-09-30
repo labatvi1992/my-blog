@@ -4,7 +4,8 @@
   "info": {
     "singularName": "featured-blog",
     "pluralName": "featured-blogs",
-    "displayName": "Featured Blog"
+    "displayName": "Featured Blog",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -36,6 +37,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }

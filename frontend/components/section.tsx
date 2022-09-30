@@ -4,7 +4,7 @@ const Section = (prop: TSectionProp) => {
   const { header, shadow, children } = prop || {}
   const { title, right } = header || {}
   return (
-    <section className="py-5">
+    <section className="py-4">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-12">

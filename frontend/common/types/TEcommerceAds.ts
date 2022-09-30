@@ -4,6 +4,7 @@ import { TMediaItem } from "./TMedia"
 type TEcommerceAdsProp = {
   id: number
   attributes: {
+    title: string
     galleryAds: {
       data: TMediaItem[]
     }
