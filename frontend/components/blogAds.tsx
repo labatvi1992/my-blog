@@ -6,7 +6,8 @@ import IncreaseNumber from "./increaseNumber"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const BlogAds = (prop: TBlogAdsProp) => {
-  const { title, description, articles, banner } = prop?.attributes ?? {}
+  const { title, description, articles, banner, postNumber, visiterNumber } =
+    prop?.attributes ?? {}
   return (
     <>
       <section className="pt-sm-8 pb-5 position-relative bg-gradient-dark">
@@ -132,13 +133,13 @@ const BlogAds = (prop: TBlogAdsProp) => {
           <div className="row justify-content-center text-center">
             <div className="col-md-3">
               <h1 className="text-gradient text-info">
-                <IncreaseNumber initValue={0} countTo={5234} />
+                <IncreaseNumber initValue={0} countTo={postNumber || 0} />
               </h1>
               <h5>Posts</h5>
             </div>
             <div className="col-md-3">
               <h1 className="text-gradient text-info">
-                <IncreaseNumber initValue={0} countTo={3400} />+
+                <IncreaseNumber initValue={0} countTo={visiterNumber || 0} />+
               </h1>
               <h5>Visiters</h5>
             </div>

@@ -11,7 +11,14 @@ const Footer = () => {
           <div className="col-lg-12">
             <p className="text-center text-sm text-white opacity-8 mb-0">
               All rights reserved. Copyright ©{" "}
-              <strong>{new Date().getFullYear()}</strong> by VIPRO
+              <strong>{new Date().getFullYear()}</strong> by{" "}
+              <a
+                className="text-bold text-white"
+                href="https://www.creative-tim.com/product/soft-ui-design-system"
+                target="_blank"
+              >
+                Creative Tim Soft UI Design
+              </a>
             </p>
           </div>
         </div>

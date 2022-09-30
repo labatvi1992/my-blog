@@ -12,6 +12,8 @@ type TBlogAdsProp = {
     banner: {
       data: TMediaItem[]
     }
+    postNumber: number
+    visiterNumber: number
   }
 }
 
