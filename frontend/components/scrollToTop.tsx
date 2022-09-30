@@ -26,7 +26,7 @@ const ScrollToTop = (prop: TScrollToTopProp) => {
       {visible && (
         <button
           style={{ width: 48, height: 48 }}
-          className="position-fixed d-flex justify-content-center align-items-center bottom-4 end-2 btn bg-gradient-info z-index-2 mb-0"
+          className="position-fixed d-flex justify-content-center align-items-center bottom-4 end-3 btn bg-gradient-info z-index-2 mb-0"
           onClick={scrollTop}
           data-bs-toggle="tooltip"
           data-bs-placement="top"

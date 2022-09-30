@@ -79,7 +79,6 @@ const About = ({ global, profile }) => {
                   height: "100vh",
                   backgroundSize: "cover",
                   backgroundImage: `url('${getStrapiMedia(background)}')`,
-                  backgroundAttachment: "fixed",
                 }}
                 className="d-flex flex-column justify-content-center px-3"
               >

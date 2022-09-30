@@ -4,7 +4,7 @@ const Subscribe = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <div className="card overflow-hidden mb-5">
+            <div className="card overflow-hidden">
               <div className="row">
                 <div className="col-lg-7">
                   <form className="p-3" id="contact-form" method="post">

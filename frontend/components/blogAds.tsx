@@ -44,7 +44,7 @@ const BlogAds = (prop: TBlogAdsProp) => {
           </div>
           <div className="row">
             <div className="col-12">
-              <div className="card card-profile overflow-hidden z-index-2 p-1 rounded-2">
+              <div className="card card-profile overflow-hidden z-index-2 p-3 rounded-2">
                 <Carousel id={"blogArticles"} height={300} showIndicators>
                   {(articles?.data || []).map((item, itemIndex) => {
                     const { title, description, image } = item?.attributes ?? {}
