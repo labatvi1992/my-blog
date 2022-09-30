@@ -7,14 +7,14 @@ import BlogAds from "@/components/blogAds"
 import Subscribe from "@/components/subscribe"
 import { fetchAPI } from "@/common/helpers/api"
 
-const Home = ({ global, homepage, featuredProduct }) => {
+const Home = ({ global, homepage, featuredProduct, featuredBlog }) => {
   const welcome = homepage?.attributes?.welcome ?? {}
   return (
     <Layout global={global}>
       <Seo seo={homepage?.attributes?.seo} />
       <Welcome {...welcome} />
       <EcommerceAds {...featuredProduct} />
-      <BlogAds />
+      <BlogAds {...featuredBlog} />
       <Subscribe />
     </Layout>
   )
@@ -22,30 +22,31 @@ const Home = ({ global, homepage, featuredProduct }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes, featuredProductRes] =
-    await Promise.all([
-      fetchAPI("/articles", { populate: "*" }),
-      fetchAPI("/categories", { populate: "*" }),
-      fetchAPI("/homepage", {
-        populate: {
-          seo: { populate: "*" },
-          welcome: { populate: "*" },
-        },
-      }),
-      fetchAPI("/featured-product", {
-        populate: {
-          galleryAds: { populate: "*" },
-          productAds: { populate: "*" },
-        },
-      }),
-    ])
+  const [homepageRes, featuredProductRes, featuredBlogRes] = await Promise.all([
+    fetchAPI("/homepage", {
+      populate: {
+        seo: { populate: "*" },
+        welcome: { populate: "*" },
+      },
+    }),
+    fetchAPI("/featured-product", {
+      populate: {
+        galleryAds: { populate: "*" },
+        productAds: { populate: "*" },
+      },
+    }),
+    fetchAPI("/featured-blog", {
+      populate: {
+        articles: { populate: "*" },
+      },
+    }),
+  ])
 
   return {
     props: {
-      articles: articlesRes.data,
-      categories: categoriesRes.data,
       homepage: homepageRes.data,
       featuredProduct: featuredProductRes.data,
+      featuredBlog: featuredBlogRes.data,
     },
     revalidate: 1,
   }

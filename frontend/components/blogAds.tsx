@@ -1,7 +1,12 @@
 import React from "react"
+import { TBlogAdsProp } from "@/common/types/TBlogAds"
 import Carousel from "./carousel/carousel"
+import CarouselItem from "./carousel/carouselItem"
+import IncreaseNumber from "./increaseNumber"
+import { getStrapiMedia } from "@/common/helpers/media"
 
-const BlogAds = () => {
+const BlogAds = (prop: TBlogAdsProp) => {
+  const { title, description, articles } = prop?.attributes ?? {}
   return (
     <>
       <section className="pt-sm-8 pb-5 position-relative bg-gradient-dark">
@@ -31,18 +36,53 @@ const BlogAds = () => {
           <div className="row">
             <div className="col-md-12 text-start mb-5 mt-5">
               <h3 className="text-white z-index-1 position-relative">
-                Featured Blog
+                {title}
               </h3>
-              <p className="text-white opacity-8 mb-0">
-                One of the best way to improve your skills is sharing your
-                knowledge. By this way, you will get more than what you expect.
-              </p>
+              <p className="text-white opacity-8 mb-0">{description}</p>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
               <div className="card card-profile overflow-hidden z-index-2 p-1 rounded-2">
-                <Carousel id={"blogArticles"} height={400} showIndicators />
+                <Carousel id={"blogArticles"} height={300} showIndicators>
+                  {(articles?.data || []).map((item, itemIndex) => {
+                    const { title, description, image } = item?.attributes ?? {}
+                    return (
+                      <CarouselItem key={itemIndex} active={itemIndex === 0}>
+                        <div className="page-header" style={{ height: 300 }}>
+                          <div className="oblique position-absolute top-0 h-100 d-md-block d-none">
+                            <div
+                              className="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
+                              style={{
+                                backgroundImage: `url('${getStrapiMedia(
+                                  image
+                                )}')`,
+                              }}
+                            ></div>
+                          </div>
+                          <div className="container-fluid">
+                            <div className="row">
+                              <div className="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
+                                <h1 className="text-gradient text-primary">
+                                  {title}
+                                </h1>
+                                <p className="lead pe-5 me-5">{description}</p>
+                                <div className="buttons">
+                                  <button
+                                    type="button"
+                                    className="btn bg-gradient-primary mt-4"
+                                  >
+                                    Read more
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    )
+                  })}
+                </Carousel>
               </div>
             </div>
           </div>
@@ -73,7 +113,7 @@ const BlogAds = () => {
           </svg>
         </div>
       </section>
-      <section className="pt-2 pb-6 bg-gray-100" id="count-stats">
+      <section className="pt-2 pb-6 bg-gray-100">
         <div className="container">
           <div className="row mb-7">
             <div className="col-lg-2 col-md-4 col-6 mb-4">
@@ -121,28 +161,16 @@ const BlogAds = () => {
           </div>
           <div className="row justify-content-center text-center">
             <div className="col-md-3">
-              <h1
-                className="text-gradient text-info"
-                id="state1"
-                data-count-to="5234"
-              >
-                0
+              <h1 className="text-gradient text-info">
+                <IncreaseNumber initValue={0} countTo={5234} />
               </h1>
-              <h5>Projects</h5>
-              <p>
-                Of “high-performing” level are led by a certified project
-                manager
-              </p>
+              <h5>Posts</h5>
             </div>
             <div className="col-md-3">
               <h1 className="text-gradient text-info">
-                <span id="state2" data-count-to="3400">
-                  0
-                </span>
-                +
+                <IncreaseNumber initValue={0} countTo={3400} />+
               </h1>
-              <h5>Hours</h5>
-              <p>That meets quality standards required by our users</p>
+              <h5>Visiters</h5>
             </div>
           </div>
         </div>

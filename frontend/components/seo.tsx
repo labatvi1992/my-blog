@@ -4,8 +4,7 @@ import { GlobalContext } from "../pages/_app"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const Seo = ({ seo }) => {
-  const state = useContext(GlobalContext);
-  const { defaultSeo, siteName } = state || {};
+  const { defaultSeo, siteName } = useContext(GlobalContext)
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

@@ -1,6 +1,6 @@
 import { TMediaItem } from "./TMedia"
 
-type TBlogProductItem = {
+type TEcommerceProductItem = {
   id: number
   attributes: {
     name: string
@@ -12,6 +12,4 @@ type TBlogProductItem = {
   }
 }
 
-type TBlogProductProp = {}
-
-export type { TBlogProductItem, TBlogProductProp }
+export type { TEcommerceProductItem }

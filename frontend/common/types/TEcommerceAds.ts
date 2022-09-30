@@ -1,4 +1,4 @@
-import { TBlogProductItem } from "./TBlogProduct"
+import { TEcommerceProductItem } from "./TEcommerceProduct"
 import { TMediaItem } from "./TMedia"
 
 type TEcommerceAdsProp = {
@@ -8,7 +8,7 @@ type TEcommerceAdsProp = {
       data: TMediaItem[]
     }
     productAds: {
-      data: TBlogProductItem[]
+      data: TEcommerceProductItem[]
     }
   }
 }

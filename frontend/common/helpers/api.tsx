@@ -7,8 +7,9 @@ import axios from "axios"
  * @returns {string} Full Strapi URL
  */
 export function getStrapiURL(path = "") {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
-    }${path}`
+  return `${
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+  }${path}`
 }
 
 /**
@@ -38,7 +39,7 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
 
   // Handle response
   if (response.status !== 200) {
-    return { data: null };
+    return { data: null }
   }
-  return response.data;
+  return response.data
 }

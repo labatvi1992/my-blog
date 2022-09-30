@@ -2,8 +2,8 @@ import { getStrapiMedia } from "@/common/helpers/media"
 import NextImage from "next/image"
 
 const Image = ({ image }) => {
-  const { alternativeText, width, height } = image?.data?.attributes ?? {};
-  const src = getStrapiMedia(image);
+  const { alternativeText, width, height } = image?.data?.attributes ?? {}
+  const src = getStrapiMedia(image)
   if (src) {
     return (
       <NextImage
@@ -16,7 +16,7 @@ const Image = ({ image }) => {
       />
     )
   }
-  return null;
+  return null
 }
 
 export default Image
