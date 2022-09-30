@@ -46,7 +46,20 @@
         }
       }
     },
-    "information": {
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "personal": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -71,22 +84,6 @@
       "type": "richtext"
     },
     "education": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext"
-    },
-    "certificates": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext"
-    },
-    "interest": {
       "pluginOptions": {
         "i18n": {
           "localized": true

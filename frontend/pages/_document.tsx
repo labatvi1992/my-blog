@@ -13,6 +13,8 @@ class MyDocument extends Document {
           />
           <link href="/css/nucleo-icons.css" rel="stylesheet" />
           <link href="/css/nucleo-svg.css" rel="stylesheet" />
+          <link href="/css/aos.css" rel="stylesheet" />
+          <link href="/css/swiper-bundle.min.css" rel="stylesheet" />
           <script
             src="https://kit.fontawesome.com/42d5adcbca.js"
             crossOrigin="anonymous"
@@ -41,6 +43,8 @@ class MyDocument extends Document {
             type="text/javascript"
             async
           ></script>
+          <script src="/js/plugins/aos.js" async></script>
+          <script src="/js/plugins/swiper-bundle.min.js" async></script>
           <script src="/js/custom.js" type="text/javascript" async></script>
         </body>
       </Html>
