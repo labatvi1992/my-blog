@@ -1,13 +1,13 @@
 import { TProfileProp } from "@/common/types/TProfile"
 import { getStrapiMedia } from "@/common/helpers/media"
 import ProfileHeader from "@/components/profile/profileHeader"
-import Welcome from "../welcome"
+import ProfileWelcome from "./profileWelcome"
 
 const Profile = (prop: TProfileProp) => {
   const { name, jobTitle, avatar, welcome } = prop.attributes || {}
   return (
     <>
-      <Welcome data={welcome} />
+      <ProfileWelcome data={welcome} />
       <section className="py-sm-5 py-5 position-relative">
         <div className="container">
           <div className="row">
@@ -19,6 +19,7 @@ const Profile = (prop: TProfileProp) => {
               />
             </div>
             <div className="col-lg-9 col-md-8">
+              <section id="overview"></section>
               <section id="about" className="about">
                 <div className="container">
                   <div className="section-title">

@@ -15,7 +15,7 @@ const ProfileHeader = (prop: TProfileHeaderProp) => {
           className="img-fluid rounded-circle border border-5 border-dark mt-3"
         />
         <h4 className="text-dark text-center mt-3">{name}</h4>
-        <h6 className="text-bold mb-4">{jobTitle}</h6>
+        <h6 className="text-bold text-gradient text-info mb-4">{jobTitle}</h6>
       </div>
       <div className="nav-wrapper position-relative end-0 mb-4">
         <ProfileNav />
