@@ -38,14 +38,13 @@ class MyDocument extends Document {
           <script src="/js/plugins/countup.min.js" async></script>
           <script src="/js/plugins/parallax.min.js" async></script>
           <script src="/js/plugins/typedjs.js" async></script>
+          <script src="/js/plugins/aos.js" async></script>
+          <script src="/js/plugins/swiper-bundle.min.js" async></script>
           <script
             src="/js/soft-design-system.min.js?v=1.0.9"
             type="text/javascript"
             async
           ></script>
-          <script src="/js/plugins/aos.js" async></script>
-          <script src="/js/plugins/swiper-bundle.min.js" async></script>
-          <script src="/js/custom.js" type="text/javascript" async></script>
         </body>
       </Html>
     )

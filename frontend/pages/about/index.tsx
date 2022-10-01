@@ -4,6 +4,7 @@ import Seo from "@/components/seo"
 import { fetchAPI } from "@/common/helpers/api"
 import AnimatedText from "@/components/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
+import ProfileHeader from "@/components/profile/profileHeader"
 
 const About = ({ global, profile }) => {
   console.log("profile: ", profile)
@@ -15,82 +16,7 @@ const About = ({ global, profile }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-4">
-              <div
-                className="position-sticky d-flex flex-column"
-                style={{ top: 100 }}
-              >
-                <div className="d-flex flex-column align-items-center">
-                  <img
-                    style={{ width: 160, height: 160 }}
-                    width={160}
-                    height={160}
-                    src={getStrapiMedia(avatar)}
-                    alt=""
-                    className="img-fluid rounded-circle border border-5 border-dark mt-3"
-                  />
-                  <h4 className="text-dark text-center">{name}</h4>
-                  <div className="d-flex justify-content-center my-4">
-                    <a href={""} target="_blank">
-                      <i
-                        className="fab fa-facebook text-lg text-dark me-4"
-                        aria-hidden
-                      />
-                    </a>
-                    <a href={""} target="_blank">
-                      <i
-                        className="fab fa-github text-lg text-dark me-4"
-                        aria-hidden
-                      />
-                    </a>
-                    <a href={""} target="_blank">
-                      <i
-                        className="fab fa-linkedin text-lg text-dark"
-                        aria-hidden
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div className="nav-wrapper position-relative end-0 mb-4">
-                  <ul className="nav nav-pills flex-column">
-                    <li className="nav-item px-3">
-                      <a href="#hero" className="nav-link scrollto active">
-                        <i
-                          className="fas fa-fw fa-home me-1"
-                          aria-hidden="true"
-                        ></i>{" "}
-                        <span>Home</span>
-                      </a>
-                    </li>
-                    <li className="nav-item px-3">
-                      <a href="#about" className="nav-link scrollto">
-                        <i
-                          className="fas fa-fw fa-user me-1"
-                          aria-hidden="true"
-                        ></i>{" "}
-                        <span>About</span>
-                      </a>
-                    </li>
-                    <li className="nav-item px-3">
-                      <a href="#resume" className="nav-link scrollto">
-                        <i
-                          className="fas fa-fw fa-file me-1"
-                          aria-hidden="true"
-                        ></i>{" "}
-                        <span>Resume</span>
-                      </a>
-                    </li>
-                    <li className="nav-item px-3">
-                      <a href="#services" className="nav-link scrollto">
-                        <i
-                          className="fas fa-fw fa-server me-1"
-                          aria-hidden="true"
-                        ></i>{" "}
-                        <span>Services</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <ProfileHeader name={name} avatar={getStrapiMedia(avatar)} />
             </div>
             <div className="col-lg-9 col-md-8">
               <section
