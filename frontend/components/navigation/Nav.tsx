@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 import { TNavProp } from "@/common/types/TNav"
@@ -12,7 +12,7 @@ const Nav = (prop: TNavProp) => {
   const { title, navigation, languages } = prop || {}
   const navRef = useRef<HTMLElement>(null)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let lastScrollTop = 0
     const onScroll = () => {
       const navHeight = navRef?.current?.offsetHeight ?? 0
