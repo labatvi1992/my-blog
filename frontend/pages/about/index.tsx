@@ -11,19 +11,22 @@ const About = ({ global, profile }) => {
   return (
     <Layout global={global}>
       <Seo seo={global?.attributes?.seo} />
-      <section className="py-sm-7 py-5 position-relative">
+      <section className="py-sm-7 py-7 position-relative">
         <div className="container">
           <div className="row">
-            <div className="d-none d-lg-block col-lg-2">
-              <div className="position-fixed top-20 start-30 d-flex flex-column">
-                <div className="profile">
+            <div className="col-lg-3 col-md-4">
+              <div
+                className="position-sticky d-flex flex-column"
+                style={{ top: 100 }}
+              >
+                <div className="d-flex flex-column align-items-center">
                   <img
                     style={{ width: 160, height: 160 }}
                     width={160}
                     height={160}
                     src={getStrapiMedia(avatar)}
                     alt=""
-                    className="img-fluid rounded-circle"
+                    className="img-fluid rounded-circle border border-5 border-dark mt-3"
                   />
                   <h4 className="text-dark text-center">{name}</h4>
                   <div className="d-flex justify-content-center my-4">
@@ -47,7 +50,7 @@ const About = ({ global, profile }) => {
                     </a>
                   </div>
                 </div>
-                <div className="nav-wrapper position-relative end-0">
+                <div className="nav-wrapper position-relative end-0 mb-4">
                   <ul className="nav nav-pills flex-column">
                     <li className="nav-item px-3">
                       <a href="#hero" className="nav-link scrollto active">
@@ -89,7 +92,7 @@ const About = ({ global, profile }) => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-10 col-md-12">
+            <div className="col-lg-9 col-md-8">
               <section
                 id="hero"
                 style={{
@@ -298,106 +301,6 @@ const About = ({ global, profile }) => {
                       nemo qui impedit suscipit alias ea. Quia fugiat sit in
                       iste officiis commodi quidem hic quas.
                     </p>
-                  </div>
-
-                  <div className="row skills-content">
-                    <div className="col-lg-6" data-aos="fade-up">
-                      <div className="progress">
-                        <span className="skill">
-                          HTML <i className="val">100%</i>
-                        </span>
-                        <div className="progress-bar-wrap">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            aria-valuenow={100}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="progress">
-                        <span className="skill">
-                          CSS <i className="val">90%</i>
-                        </span>
-                        <div className="progress-bar-wrap">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            aria-valuenow={90}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          ></div>
-                        </div>
-                      </div>
-
-                      <div className="progress">
-                        <span className="skill">
-                          JavaScript <i className="val">75%</i>
-                        </span>
-                        <div className="progress-bar-wrap">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            aria-valuenow={75}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      className="col-lg-6"
-                      data-aos="fade-up"
-                      data-aos-delay="100"
-                    >
-                      <div className="progress">
-                        <span className="skill">
-                          PHP <i className="val">80%</i>
-                        </span>
-                        <div className="progress-bar-wrap">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            aria-valuenow={80}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          ></div>
-                        </div>
-                      </div>
-
-                      <div className="progress">
-                        <span className="skill">
-                          WordPress/CMS <i className="val">90%</i>
-                        </span>
-                        <div className="progress-bar-wrap">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            aria-valuenow={90}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          ></div>
-                        </div>
-                      </div>
-
-                      <div className="progress">
-                        <span className="skill">
-                          Photoshop <i className="val">55%</i>
-                        </span>
-                        <div className="progress-bar-wrap">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            aria-valuenow={55}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </section>
