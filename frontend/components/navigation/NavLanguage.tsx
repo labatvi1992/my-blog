@@ -12,14 +12,19 @@ const NavLanguage = (prop: TLanguageProp) => {
   }
 
   return (
-    <li className="nav-item dropdown dropdown-hover mx-2">
+    <li className="nav-item dropdown dropdown-hover ms-lg-auto mx-2">
       <a
         className="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
         id="dropdownMenuLanguage"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        {i18n.t("Language")}: {language}
+        <img
+          src={data[language].icon}
+          alt="down-arrow"
+          className="icon-xs me-1 d-block"
+        />
+        {data[language].name}
         <img
           src="/img/down-arrow-dark.svg"
           alt="down-arrow"
@@ -27,12 +32,12 @@ const NavLanguage = (prop: TLanguageProp) => {
         />
       </a>
       <ul
-        className="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
+        className="dropdown-menu dropdown-menu-animation dropdown mt-0 mt-lg-3 p-3 border-radius-lg"
         aria-labelledby="dropdownMenuDocs"
       >
         <div className="d-block">
           <ul className="list-group">
-            {(data || []).map((item, itemIndex) => (
+            {(Object.values(data) || []).map((item, itemIndex) => (
               <li
                 key={itemIndex}
                 className="nav-item list-group-item border-0 p-0"
