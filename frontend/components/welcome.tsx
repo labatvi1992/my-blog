@@ -5,7 +5,8 @@ import { TWelcomeProp } from "@/common/types/TWelcome"
 import AnimatedText from "./animatedText"
 
 const Welcome = (prop: TWelcomeProp) => {
-  const { title, content, background, facebook, github, linkedin } = prop || {}
+  const { data } = prop || {}
+  const { title, content, background, facebook, github, linkedin } = data || {}
   const { t } = useTranslation("common", { useSuspense: false })
 
   return (
@@ -20,9 +21,9 @@ const Welcome = (prop: TWelcomeProp) => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">
-              <h1 id="welcome-title" className="text-white">
+              <h2 id="welcome-title" className="text-white">
                 <AnimatedText text={title.split(".")} loop />
-              </h1>
+              </h2>
               <p className="lead mb-4 text-white opacity-8">{content}</p>
               <Link href={t("AboutUrl")}>
                 <button type="submit" className="btn bg-white text-dark my-3">

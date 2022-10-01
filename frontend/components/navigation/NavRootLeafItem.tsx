@@ -10,10 +10,10 @@ const NavRootItem = (prop: TNavItem) => {
     <li className={className}>
       <Link href={slug}>
         <a className="nav-link nav-link-icon ps-2">
-          {icon && <i className={`${icon} ${active ? "text-white" : ""}`} />}
+          {icon && <i className={`${icon} ${active ? "fw-bolder" : ""}`} />}
           <p
             className={`d-inline text-sm text-uppercase ${
-              active ? "text-white" : ""
+              active ? "fw-bolder" : ""
             } z-index-1`}
           >
             {name}

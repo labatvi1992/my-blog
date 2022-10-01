@@ -14,7 +14,7 @@ const NavLanguage = (prop: TLanguageProp) => {
   return (
     <li className="nav-item dropdown dropdown-hover ms-lg-auto mx-2">
       <a
-        className="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+        className="nav-link ps-2 d-flex justify-content-stretch cursor-pointer align-items-center"
         id="dropdownMenuLanguage"
         data-bs-toggle="dropdown"
         aria-expanded="false"
@@ -22,17 +22,17 @@ const NavLanguage = (prop: TLanguageProp) => {
         <img
           src={data[language].icon}
           alt="down-arrow"
-          className="icon-xs me-1 d-block"
+          className="icon-xs me-2 d-block"
         />
-        {data[language].name}
+        <span className="flex-fill">{data[language].name}</span>
         <img
           src="/img/down-arrow-dark.svg"
           alt="down-arrow"
-          className="arrow ms-1 d-block"
+          className="arrow ms-2 d-block"
         />
       </a>
       <ul
-        className="dropdown-menu dropdown-menu-animation dropdown mt-0 mt-lg-3 p-3 border-radius-lg"
+        className="dropdown-menu dropdown-menu-animation dropdown-menu-end mt-0 mt-lg-3 p-3 border-radius-lg"
         aria-labelledby="dropdownMenuDocs"
       >
         <div className="d-block">

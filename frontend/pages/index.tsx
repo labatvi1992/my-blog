@@ -12,7 +12,7 @@ const Home = ({ global, homepage, featuredProduct, featuredBlog }) => {
   return (
     <Layout global={global}>
       <Seo seo={homepage?.attributes?.seo} />
-      <Welcome {...welcome} />
+      <Welcome data={welcome} />
       <EcommerceAds {...featuredProduct} />
       <BlogAds {...featuredBlog} />
       <Subscribe />

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useLayoutEffect, useRef } from "react"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 import { TNavProp } from "@/common/types/TNav"
@@ -10,15 +10,39 @@ const defaultSlug = "/"
 const Nav = (prop: TNavProp) => {
   const { t, i18n } = useTranslation("common", { useSuspense: false })
   const { title, navigation, languages } = prop || {}
+  const navRef = useRef<HTMLElement>(null)
+
+  useLayoutEffect(() => {
+    let lastScrollTop = 0
+    const onScroll = () => {
+      const navHeight = navRef?.current?.offsetHeight ?? 0
+      document.body.style.paddingTop = navHeight + "px"
+      let scroll_top = window.scrollY
+      if (scroll_top <= lastScrollTop) {
+        navRef?.current?.classList?.remove("scrolled-down")
+        navRef?.current?.classList?.add("scrolled-up")
+      } else {
+        navRef?.current?.classList?.remove("scrolled-up")
+        navRef?.current?.classList?.add("scrolled-down")
+      }
+      lastScrollTop = scroll_top
+    }
+    onScroll()
+    document.addEventListener("scroll", onScroll)
+    return () => document.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
     <div className="container position-sticky z-index-sticky top-0">
       <div className="row">
         <div className="col-12">
-          <nav className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <nav
+            ref={navRef}
+            className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow-none position-absolute start-0 end-0 mx-4"
+          >
             <div className="container-fluid px-0">
               <Link href={t("HomeUrl", defaultSlug)}>
-                <a className="navbar-brand font-weight-bolder ms-sm-3">
+                <a className="navbar-brand font-weight-bolder ms-sm-3 h6">
                   {title}
                 </a>
               </Link>

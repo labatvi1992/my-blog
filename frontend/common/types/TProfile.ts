@@ -1,9 +1,20 @@
+import { TMediaItem } from "./TMedia"
+import { TWelcomeData } from "./TWelcome"
+
 type TProfileHeaderProp = {
   name: string
   avatar?: string
-  facebookUrl?: string
-  githubUrl?: string
-  linkedinUrl?: string
+  jobTitle: string
 }
 
-export type { TProfileHeaderProp }
+type TProfileProp = {
+  id: number
+  attributes: {
+    name: string
+    jobTitle: string
+    avatar?: TMediaItem
+    welcome?: TWelcomeData
+  }
+}
+
+export type { TProfileHeaderProp, TProfileProp }

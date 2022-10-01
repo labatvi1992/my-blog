@@ -1,10 +1,18 @@
-type TWelcomeProp = {
+import { TMediaItem } from "./TMedia"
+
+type TWelcomeData = {
   title: string
   content: string
-  background: string
+  background: {
+    data: TMediaItem
+  }
   facebook: string
   github: string
   linkedin: string
 }
 
-export type { TWelcomeProp }
+type TWelcomeProp = {
+  data?: TWelcomeData
+}
+
+export type { TWelcomeData, TWelcomeProp }
