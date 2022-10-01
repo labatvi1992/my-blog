@@ -63,7 +63,7 @@
 
   .nav-link {
     margin-bottom: calc(var(--#{$prefix}nav-tabs-border-width) * -1); // stylelint-disable-line function-disallowed-list
-    background: none;
+    background-color: none;
     border: var(--#{$prefix}nav-tabs-border-width) solid transparent;
     @include border-top-radius(var(--#{$prefix}nav-tabs-border-radius));
 

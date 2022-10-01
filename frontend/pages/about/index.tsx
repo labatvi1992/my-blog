@@ -26,49 +26,67 @@ const About = ({ global, profile }) => {
                     className="img-fluid rounded-circle"
                   />
                   <h4 className="text-dark text-center">{name}</h4>
-                  <div className="social-links mt-3 text-center">
-                    <a href="#" className="twitter">
-                      <i className="bx bxl-twitter"></i>
+                  <div className="d-flex justify-content-center my-4">
+                    <a href={""} target="_blank">
+                      <i
+                        className="fab fa-facebook text-lg text-dark me-4"
+                        aria-hidden
+                      />
                     </a>
-                    <a href="#" className="facebook">
-                      <i className="bx bxl-facebook"></i>
+                    <a href={""} target="_blank">
+                      <i
+                        className="fab fa-github text-lg text-dark me-4"
+                        aria-hidden
+                      />
                     </a>
-                    <a href="#" className="instagram">
-                      <i className="bx bxl-instagram"></i>
-                    </a>
-                    <a href="#" className="google-plus">
-                      <i className="bx bxl-skype"></i>
-                    </a>
-                    <a href="#" className="linkedin">
-                      <i className="bx bxl-linkedin"></i>
+                    <a href={""} target="_blank">
+                      <i
+                        className="fab fa-linkedin text-lg text-dark"
+                        aria-hidden
+                      />
                     </a>
                   </div>
                 </div>
-
-                <nav id="navbar" className="nav-menu navbar">
-                  <ul>
-                    <li>
+                <div className="nav-wrapper position-relative end-0">
+                  <ul className="nav nav-pills flex-column">
+                    <li className="nav-item px-3">
                       <a href="#hero" className="nav-link scrollto active">
-                        <i className="bx bx-home"></i> <span>Home</span>
+                        <i
+                          className="fas fa-fw fa-home me-1"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        <span>Home</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="nav-item px-3">
                       <a href="#about" className="nav-link scrollto">
-                        <i className="bx bx-user"></i> <span>About</span>
+                        <i
+                          className="fas fa-fw fa-user me-1"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        <span>About</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="nav-item px-3">
                       <a href="#resume" className="nav-link scrollto">
-                        <i className="bx bx-file-blank"></i> <span>Resume</span>
+                        <i
+                          className="fas fa-fw fa-file me-1"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        <span>Resume</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="nav-item px-3">
                       <a href="#services" className="nav-link scrollto">
-                        <i className="bx bx-server"></i> <span>Services</span>
+                        <i
+                          className="fas fa-fw fa-server me-1"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        <span>Services</span>
                       </a>
                     </li>
                   </ul>
-                </nav>
+                </div>
               </div>
             </div>
             <div className="col-lg-10 col-md-12">

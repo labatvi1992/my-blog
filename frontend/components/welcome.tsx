@@ -24,7 +24,12 @@ const Welcome = (prop: TWelcomeProp) => {
                 <AnimatedText text={title.split(".")} loop />
               </h1>
               <p className="lead mb-4 text-white opacity-8">{content}</p>
-              <h6 className="text-white mb-2">{t("Contact")}</h6>
+              <Link href={t("AboutUrl")}>
+                <button type="submit" className="btn bg-white text-dark my-3">
+                  {t("About me")}
+                </button>
+              </Link>
+              <h6 className="text-white mt-4 mb-2">{t("Contact")}</h6>
               <div className="d-flex justify-content-center">
                 <a href={facebook} target="_blank">
                   <i
@@ -45,11 +50,6 @@ const Welcome = (prop: TWelcomeProp) => {
                   />
                 </a>
               </div>
-              <Link href={t("AboutUrl")}>
-                <button type="submit" className="btn bg-white text-dark mt-3">
-                  {t("About me")}
-                </button>
-              </Link>
             </div>
           </div>
         </div>
