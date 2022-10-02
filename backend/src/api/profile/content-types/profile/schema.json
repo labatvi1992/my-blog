@@ -37,9 +37,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -55,6 +53,14 @@
         }
       },
       "component": "sections.section-welcome"
+    },
+    "personal": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     },
     "overview": {
       "pluginOptions": {

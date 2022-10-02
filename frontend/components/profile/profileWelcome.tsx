@@ -18,13 +18,15 @@ const ProfileWelcome = (prop: TWelcomeProp) => {
         }}
       >
         <span className="mask bg-gradient-info opacity-3"></span>
-        <div className="container">
+        <div className="container mt-10">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">
               <h2 id="welcome-title" className="text-white text-truncate">
                 <AnimatedText text={title.split(".")} loop />
               </h2>
-              <p className="lead mb-4 text-white opacity-9">{content}</p>
+              <p className="d-none d-lg-block lead mb-4 text-white opacity-9">
+                {content}
+              </p>
               <a href="#overview">
                 <button type="submit" className="btn bg-white text-dark my-3">
                   {t("View more")}

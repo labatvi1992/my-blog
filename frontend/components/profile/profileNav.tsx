@@ -2,7 +2,13 @@ const ProfileNav = () => {
   return (
     <ul className="nav nav-pills flex-column">
       <li className="nav-item px-3">
-        <a href="#overview" className="nav-link scrollto active">
+        <a href="#personal" className="nav-link scrollto active">
+          <i className="fas fa-fw fa-info-circle me-1" aria-hidden="true" />
+          Personal
+        </a>
+      </li>
+      <li className="nav-item px-3">
+        <a href="#overview" className="nav-link scrollto">
           <i className="fas fa-fw fa-home me-1" aria-hidden="true" />
           Overview
         </a>

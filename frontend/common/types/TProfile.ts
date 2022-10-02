@@ -21,6 +21,7 @@ type TProfileProp = {
     jobTitle: string
     avatar?: TMediaItem
     welcome?: TWelcomeData
+    personal?: string
     overview?: string
     education?: string
     workExperiences?: string

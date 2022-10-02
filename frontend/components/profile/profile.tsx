@@ -10,6 +10,7 @@ const Profile = (prop: TProfileProp) => {
     jobTitle,
     avatar,
     welcome,
+    personal,
     overview,
     education,
     workExperiences,
@@ -29,6 +30,18 @@ const Profile = (prop: TProfileProp) => {
               />
             </div>
             <div className="col-lg-9 col-md-8">
+              <section id="personal">
+                <div className="container">
+                  <div className="section-title">
+                    <h2>Personal</h2>
+                  </div>
+                  <ReactMarkdown
+                    className="text-dark"
+                    source={personal}
+                    escapeHtml={false}
+                  />
+                </div>
+              </section>
               <section id="overview">
                 <div className="container">
                   <div className="section-title">
