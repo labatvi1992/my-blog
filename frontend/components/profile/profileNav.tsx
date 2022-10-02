@@ -4,13 +4,13 @@ const ProfileNav = () => {
       <li className="nav-item px-3">
         <a href="#overview" className="nav-link scrollto active">
           <i className="fas fa-fw fa-home me-1" aria-hidden="true" />
-          Home
+          Overview
         </a>
       </li>
       <li className="nav-item px-3">
-        <a href="#about" className="nav-link scrollto">
+        <a href="#education" className="nav-link scrollto">
           <i className="fas fa-fw fa-user me-1" aria-hidden="true" />
-          About
+          Education
         </a>
       </li>
       <li className="nav-item px-3">
