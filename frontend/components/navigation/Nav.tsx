@@ -38,7 +38,7 @@ const Nav = (prop: TNavProp) => {
         <div className="col-12">
           <nav
             ref={navRef}
-            className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow-none position-absolute start-0 end-0 mx-4"
+            className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow-lg position-absolute start-0 end-0 mx-4"
           >
             <div className="container-fluid px-0">
               <Link href={t("HomeUrl", defaultSlug)}>

@@ -14,15 +14,15 @@ const ProfileNav = () => {
         </a>
       </li>
       <li className="nav-item px-3">
-        <a href="#resume" className="nav-link scrollto">
+        <a href="#workExperiences" className="nav-link scrollto">
           <i className="fas fa-fw fa-file me-1" aria-hidden="true" />
-          Resume
+          Work Experiences
         </a>
       </li>
       <li className="nav-item px-3">
-        <a href="#services" className="nav-link scrollto">
+        <a href="#projects" className="nav-link scrollto">
           <i className="fas fa-fw fa-server me-1" aria-hidden="true" />
-          Services
+          Projects
         </a>
       </li>
     </ul>
