@@ -18,3 +18,10 @@ body {
     overflow: auto;
   }
 }
+
+.profile-nav {
+  .scrollto.active {
+    background-image: $text-gradient-bg-info;
+    color: $white;
+  }
+}
