@@ -27,7 +27,7 @@ const ProfileWelcome = (prop: TWelcomeProp) => {
               <p className="d-none d-lg-block lead mb-4 text-white opacity-9">
                 {content}
               </p>
-              <a href="#overview">
+              <a href="#personal">
                 <button
                   type="submit"
                   className="btn bg-white text-dark my-3"

@@ -3,6 +3,7 @@ import { TBlogAdsProp } from "@/common/types/TBlogAds"
 import Carousel from "./carousel/carousel"
 import CarouselItem from "./carousel/carouselItem"
 import IncreaseNumber from "./increaseNumber"
+import Swiper from "./swiper"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const BlogAds = (prop: TBlogAdsProp) => {
@@ -117,18 +118,26 @@ const BlogAds = (prop: TBlogAdsProp) => {
       <section className="pt-2 pb-6 bg-gray-100">
         <div className="container">
           <div className="row mx-auto mb-4 text-center">
-            {(banner?.data || []).map((item, itemIndex) => {
-              const { url } = item?.attributes || {}
-              return (
-                <div key={itemIndex} className="col mb-4">
-                  <img
-                    style={{ width: 100, height: 50, objectFit: "contain" }}
-                    src={url}
-                    alt="logo"
-                  />
-                </div>
-              )
-            })}
+            <div className="col-lg-12">
+              <Swiper id="bannerBlogAds" height={150} slidesPerView={3}>
+                {(banner?.data || []).map((item, itemIndex) => {
+                  const { url } = item?.attributes || {}
+                  return (
+                    <div key={itemIndex} className="swiper-slide">
+                      <img
+                        style={{
+                          width: 200,
+                          height: 100,
+                          objectFit: "contain",
+                        }}
+                        src={url}
+                        alt="logo"
+                      />
+                    </div>
+                  )
+                })}
+              </Swiper>
+            </div>
           </div>
           <div className="row justify-content-center text-center">
             <div className="col-md-3">
