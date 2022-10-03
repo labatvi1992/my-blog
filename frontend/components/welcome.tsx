@@ -24,7 +24,9 @@ const Welcome = (prop: TWelcomeProp) => {
               <h2 id="welcome-title" className="text-white text-truncate">
                 <AnimatedText text={title.split(".")} loop />
               </h2>
-              <p className="lead mb-4 text-white opacity-8">{content}</p>
+              <p className="d-none d-lg-block lead mb-4 text-white opacity-8">
+                {content}
+              </p>
               <Link href={t("AboutUrl")}>
                 <button type="submit" className="btn bg-white text-dark my-3">
                   {t("About me")}
