@@ -12,12 +12,12 @@ const ProfileWelcome = (prop: TWelcomeProp) => {
   return (
     <header className="bg-gradient-dark mb-4">
       <div
-        className="page-header min-vh-100"
+        className="page-header min-vh-75"
         style={{
           backgroundImage: `url('${getStrapiMedia(background)}')`,
         }}
       >
-        <span className="mask bg-gradient-info opacity-3"></span>
+        <span className="mask bg-gradient-info opacity-6"></span>
         <div className="container mt-10">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">
@@ -28,7 +28,11 @@ const ProfileWelcome = (prop: TWelcomeProp) => {
                 {content}
               </p>
               <a href="#overview">
-                <button type="submit" className="btn bg-white text-dark my-3">
+                <button
+                  type="submit"
+                  className="btn bg-white text-dark my-3"
+                  autoFocus
+                >
                   {t("View more")}
                 </button>
               </a>

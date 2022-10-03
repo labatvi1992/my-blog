@@ -3,6 +3,8 @@ import { TProfileProp } from "@/common/types/TProfile"
 import { getStrapiMedia } from "@/common/helpers/media"
 import ProfileHeader from "@/components/profile/profileHeader"
 import ProfileWelcome from "./profileWelcome"
+import ProfileProject from "./profileProject"
+import IncreaseNumber from "../increaseNumber"
 
 const Profile = (prop: TProfileProp) => {
   const {
@@ -31,59 +33,58 @@ const Profile = (prop: TProfileProp) => {
             </div>
             <div className="col-lg-9 col-md-8">
               <section id="personal">
-                <div className="container">
-                  <div className="section-title">
-                    <h2>Personal</h2>
-                  </div>
-                  <ReactMarkdown
-                    className="text-dark"
-                    source={personal}
-                    escapeHtml={false}
-                  />
+                <div className="section-title">
+                  <h2>Personal</h2>
                 </div>
+                <ReactMarkdown
+                  className="text-dark"
+                  source={personal}
+                  escapeHtml={false}
+                />
               </section>
               <section id="overview">
-                <div className="container">
-                  <div className="section-title">
-                    <h2>Overview</h2>
-                  </div>
-                  <ReactMarkdown
-                    className="text-dark"
-                    source={overview}
-                    escapeHtml={false}
-                  />
+                <div className="section-title">
+                  <h2>Overview</h2>
                 </div>
+                <ReactMarkdown
+                  className="text-dark"
+                  source={overview}
+                  escapeHtml={false}
+                />
               </section>
               <section id="education">
-                <div className="container">
-                  <div className="section-title">
-                    <h2>Education</h2>
-                  </div>
-                  <ReactMarkdown
-                    className="text-dark"
-                    source={education}
-                    escapeHtml={false}
-                  />
+                <div className="section-title">
+                  <h2>Education</h2>
                 </div>
+                <ReactMarkdown
+                  className="text-dark"
+                  source={education}
+                  escapeHtml={false}
+                />
               </section>
               <section id="workExperiences">
-                <div className="container">
-                  <div className="section-title">
-                    <h2>Work Experiences</h2>
-                  </div>
-                  <ReactMarkdown
-                    className="text-dark"
-                    source={workExperiences}
-                    escapeHtml={false}
-                  />
+                <div className="section-title">
+                  <h2>Work Experiences</h2>
                 </div>
+                <ReactMarkdown
+                  className="text-dark"
+                  source={workExperiences}
+                  escapeHtml={false}
+                />
               </section>
               <section id="projects">
-                <div className="container">
-                  <div className="section-title">
-                    <h2>Projects</h2>
-                  </div>
+                <div className="section-title">
+                  <h2 className="mb-4">
+                    Projects:
+                    <strong className="ms-3 text-gradient text-info">
+                      <IncreaseNumber
+                        initValue={0}
+                        countTo={projects?.length ?? 0}
+                      />
+                    </strong>
+                  </h2>
                 </div>
+                <ProfileProject data={projects || []} />
               </section>
             </div>
           </div>
