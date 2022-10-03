@@ -8,3 +8,13 @@ body {
 .scrolled-up{
   transform:translateY(0); transition: all 0.2s ease-in-out;
 }
+
+.timeline-main-wrapper {
+  padding: 0 !important;
+  > div.euzbmD {
+    padding: 10px 0 !important;
+  }
+  figure.table {
+    overflow: auto;
+  }
+}

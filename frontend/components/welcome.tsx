@@ -12,7 +12,7 @@ const Welcome = (prop: TWelcomeProp) => {
   return (
     <header className="bg-gradient-dark mb-4">
       <div
-        className="page-header min-vh-75"
+        className="page-header min-vh-100"
         style={{
           backgroundImage: `url('${getStrapiMedia(background)}')`,
         }}
