@@ -24,7 +24,7 @@ const NavLanguage = (prop: TLanguageProp) => {
           alt="down-arrow"
           className="icon-xs me-2 d-block"
         />
-        <span className="flex-fill">{data[language].name}</span>
+        <span className="flex-fill">{i18n.t(data[language].name)}</span>
         <img
           src="/img/down-arrow-dark.svg"
           alt="down-arrow"

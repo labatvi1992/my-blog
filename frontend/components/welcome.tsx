@@ -17,7 +17,7 @@ const Welcome = (prop: TWelcomeProp) => {
           backgroundImage: `url('${getStrapiMedia(background)}')`,
         }}
       >
-        <span className="mask bg-gradient-info opacity-8"></span>
+        <span className="mask bg-gradient-info opacity-4"></span>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">

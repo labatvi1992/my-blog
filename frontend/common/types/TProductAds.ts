@@ -1,7 +1,7 @@
 import { TEcommerceProductItem } from "./TEcommerceProduct"
 import { TMediaItem } from "./TMedia"
 
-type TEcommerceAdsProp = {
+type TProductAdsProp = {
   id: number
   attributes: {
     title: string
@@ -14,4 +14,4 @@ type TEcommerceAdsProp = {
   }
 }
 
-export type { TEcommerceAdsProp }
+export type { TProductAdsProp }
