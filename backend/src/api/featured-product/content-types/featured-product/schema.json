@@ -29,7 +29,12 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "files", "videos", "audios"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -37,6 +42,11 @@
       }
     },
     "productAds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecommerce-product.ecommerce-product"
+    },
+    "saleProducts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::ecommerce-product.ecommerce-product"

@@ -8,7 +8,7 @@ import Swiper from "./swiper"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const ProductAds = (prop: TProductAdsProp) => {
-  const { title, galleryAds, productAds } = prop.attributes || {}
+  const { title, galleryAds, productAds, saleProducts } = prop.attributes || {}
   const { t } = useTranslation("common", { useSuspense: false })
   return (
     <>
@@ -57,6 +57,36 @@ const ProductAds = (prop: TProductAdsProp) => {
                         <div
                           className="d-flex flex-column justify-content-end"
                           style={{ height: 100 }}
+                        >
+                          <div className="text-bold">
+                            {item?.attributes?.name}
+                          </div>
+                          <div>{item?.attributes?.price}</div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </Swiper>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-12 p-1">
+              <Swiper id={"saleProducts"} height={300} slidesPerView={2}>
+                {(saleProducts.data || []).map((item, itemIndex) => {
+                  return (
+                    <div key={itemIndex} className="swiper-slide">
+                      <div className="d-flex flex-column align-items-center">
+                        <img
+                          src={getStrapiMedia(item?.attributes.image)}
+                          className="d-block"
+                          style={{ width: 220, objectFit: "cover" }}
+                          height={220}
+                          alt=""
+                        />
+                        <div
+                          className="d-flex flex-column justify-content-end"
+                          style={{ height: 80 }}
                         >
                           <div className="text-bold">
                             {item?.attributes?.name}

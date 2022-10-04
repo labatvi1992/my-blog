@@ -33,6 +33,7 @@ export async function getStaticProps() {
       populate: {
         galleryAds: { populate: "*" },
         productAds: { populate: "*" },
+        saleProducts: { populate: "*" },
       },
     }),
     fetchAPI("/featured-blog", {

@@ -11,6 +11,9 @@ type TProductAdsProp = {
     productAds: {
       data: TEcommerceProductItem[]
     }
+    saleProducts: {
+      data: TEcommerceProductItem[]
+    }
   }
 }
 
