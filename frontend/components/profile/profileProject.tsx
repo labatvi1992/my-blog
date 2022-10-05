@@ -8,7 +8,6 @@ const ProfileProject = (prop: TProjectProp) => {
   const items = (data || []).map((item) =>
     Object.assign({ title: moment(item.date).format("MMM YYYY") })
   )
-  console.log("project: ", data)
   return (
     <Chrono
       classNames={{

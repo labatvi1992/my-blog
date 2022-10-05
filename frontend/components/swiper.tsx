@@ -4,16 +4,32 @@ import { TSwiperProp } from "@/common/types/TSwiper"
 declare var Swiper: any
 
 const SwiperSlider = (prop: TSwiperProp) => {
-  const { id, width, height, slidesPerView, showNavigation, children } =
-    prop || {}
+  const {
+    id,
+    width,
+    height,
+    slidesPerView,
+    showNavigation,
+    vertical,
+    children,
+  } = prop || {}
 
   useEffect(() => {
     const options = {
       // Optional parameters
+      direction: vertical ? "vertical" : "horizontal",
       slidesPerView: slidesPerView || 1,
       loop: true,
       autoplay: {
         delay: 3000,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+        },
+        1024: {
+          slidesPerView: slidesPerView || 1,
+        },
       },
 
       // If we need pagination

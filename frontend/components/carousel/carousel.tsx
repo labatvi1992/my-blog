@@ -1,23 +1,26 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { TCarouselProp } from "@/common/types/TCarousel"
 
 declare var bootstrap: any
 
 const Carousel = (prop: TCarouselProp) => {
   const { id, height, showIndicators, showArrows, children } = prop || {}
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    var myCarousel = document.querySelector(`#${id}`)
-    var carousel = new bootstrap.Carousel(myCarousel, {
+    var carousel = new bootstrap.Carousel(ref.current, {
       interval: 3000,
       ride: "carousel",
       wrap: true,
     })
-    return () => carousel.dispose()
+    return () => {
+      carousel.pause()
+      carousel.dispose()
+    }
   }, [])
 
   return (
-    <div id={id} className="carousel slide" style={{ height }}>
+    <div id={id} className="carousel slide" style={{ height }} ref={ref}>
       {showIndicators && (
         <div className="carousel-indicators">
           {(children || []).map((item, itemIndex) => {

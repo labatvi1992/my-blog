@@ -42,7 +42,7 @@ const ProductAds = (prop: TProductAdsProp) => {
               </Carousel>
             </div>
             <div className="col-lg-4 col-md-6 p-1">
-              <Swiper id={"productAds"} height={400}>
+              <Swiper id={"productAds"} height={400} vertical>
                 {(productAds.data || []).map((item, itemIndex) => {
                   return (
                     <div key={itemIndex} className="swiper-slide">
@@ -55,10 +55,10 @@ const ProductAds = (prop: TProductAdsProp) => {
                           alt=""
                         />
                         <div
-                          className="d-flex flex-column justify-content-end"
+                          className="d-flex flex-column justify-content-end w-100 px-3"
                           style={{ height: 100 }}
                         >
-                          <div className="text-bold">
+                          <div className="text-gradient text-primary text-bold text-truncate">
                             {item?.attributes?.name}
                           </div>
                           <div>{item?.attributes?.price}</div>
@@ -72,7 +72,7 @@ const ProductAds = (prop: TProductAdsProp) => {
           </div>
           <div className="row">
             <div className="col-lg-12 p-1">
-              <Swiper id={"saleProducts"} height={300} slidesPerView={2}>
+              <Swiper id={"saleProducts"} height={300} slidesPerView={4}>
                 {(saleProducts.data || []).map((item, itemIndex) => {
                   return (
                     <div key={itemIndex} className="swiper-slide">
@@ -80,15 +80,15 @@ const ProductAds = (prop: TProductAdsProp) => {
                         <img
                           src={getStrapiMedia(item?.attributes.image)}
                           className="d-block"
-                          style={{ width: 220, objectFit: "cover" }}
-                          height={220}
+                          style={{ width: 180, objectFit: "cover" }}
+                          height={180}
                           alt=""
                         />
                         <div
-                          className="d-flex flex-column justify-content-end"
+                          className="d-flex flex-column justify-content-end w-100 px-3"
                           style={{ height: 80 }}
                         >
-                          <div className="text-bold">
+                          <div className="text-bold text-truncate">
                             {item?.attributes?.name}
                           </div>
                           <div>{item?.attributes?.price}</div>

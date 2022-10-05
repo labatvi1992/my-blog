@@ -4,6 +4,7 @@ type TSwiperProp = {
   height?: number
   slidesPerView?: number
   showNavigation?: boolean
+  vertical?: boolean
   children?: JSX.Element | JSX.Element[] | React.Component
 }
 
