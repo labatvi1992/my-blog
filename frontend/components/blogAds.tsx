@@ -8,8 +8,15 @@ import { getStrapiMedia } from "@/common/helpers/media"
 import AnimatedText from "./animatedText"
 
 const BlogAds = (prop: TBlogAdsProp) => {
-  const { title, description, articles, banner, postNumber, visiterNumber } =
-    prop?.attributes ?? {}
+  const {
+    title,
+    description,
+    articles,
+    banner,
+    postNumber,
+    visiterNumber,
+    categories,
+  } = prop?.attributes ?? {}
   return (
     <>
       <section className="pt-sm-8 pb-5 position-relative bg-gradient-dark">
@@ -37,7 +44,7 @@ const BlogAds = (prop: TBlogAdsProp) => {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-md-12 text-start mb-5 mt-5">
+            <div className="col-md-12 text-start mb-4 mt-4">
               <h3 className="text-white z-index-1 position-relative">
                 {title}
               </h3>
@@ -45,6 +52,19 @@ const BlogAds = (prop: TBlogAdsProp) => {
                 <AnimatedText text={description?.split(".")} loop />
               </p>
             </div>
+          </div>
+          <div className="row">
+            {(categories.data || []).map((item, itemIndex) => {
+              const { name, description } = item?.attributes || {}
+              return (
+                <div key={itemIndex} className="col-lg-4 mb-4">
+                  <div className="info-horizontal bg-gray-100 border-radius-xl p-5">
+                    <h4 className="text-primary text-bold">{name}</h4>
+                    <p className="text-dark">{description}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
           <div className="row">
             <div className="col-12">
@@ -68,10 +88,12 @@ const BlogAds = (prop: TBlogAdsProp) => {
                           <div className="container-fluid">
                             <div className="row">
                               <div className="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
-                                <h3 className="text-gradient text-primary">
+                                <h4 className="text-gradient text-primary">
                                   {title}
-                                </h3>
-                                <p className="lead pe-5 me-5">{description}</p>
+                                </h4>
+                                <p className="text-dark pe-5 me-5">
+                                  {description}
+                                </p>
                                 <div className="buttons">
                                   <button
                                     type="button"

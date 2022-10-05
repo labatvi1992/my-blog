@@ -40,6 +40,7 @@ export async function getStaticProps() {
       populate: {
         articles: { populate: "*" },
         banner: { populate: "*" },
+        categories: { populate: "*" },
       },
     }),
   ])

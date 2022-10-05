@@ -1,12 +1,13 @@
-type TBlogCategory = {
+type TBlogCategoryItem = {
   id: number
   attributes: {
     name: string
     slug: string
+    description?: string
     children: {
-      data: TBlogCategory[]
+      data: TBlogCategoryItem[]
     }
   }
 }
 
-export type { TBlogCategory }
+export type { TBlogCategoryItem }

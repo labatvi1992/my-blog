@@ -1,3 +1,4 @@
+import { TBlogCategoryItem } from "./TBlogCategory"
 import { TBlogArticleItem } from "./TBlogArticle"
 import { TMediaItem } from "./TMedia"
 
@@ -14,6 +15,9 @@ type TBlogAdsProp = {
     }
     postNumber: number
     visiterNumber: number
+    categories: {
+      data: TBlogCategoryItem[]
+    }
   }
 }
 
