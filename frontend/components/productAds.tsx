@@ -6,15 +6,25 @@ import Carousel from "./carousel/carousel"
 import CarouselItem from "./carousel/carouselItem"
 import Swiper from "./swiper"
 import { getStrapiMedia } from "@/common/helpers/media"
+import { formatNumber } from "@/common/helpers/format"
+import AnimatedText from "./animatedText"
 
 const ProductAds = (prop: TProductAdsProp) => {
-  const { title, galleryAds, productAds, saleProducts } = prop.attributes || {}
-  const { t } = useTranslation("common", { useSuspense: false })
+  const { title, description, galleryAds, productAds, saleProducts } =
+    prop.attributes || {}
+  const { t, i18n } = useTranslation("common", { useSuspense: false })
   return (
     <>
       <Section
         header={{
-          title: <h3 className="text-dark">{title}</h3>,
+          title: (
+            <>
+              <h3 className="text-dark">{title}</h3>
+              <div className="text-dark">
+                <AnimatedText text={`${description}`.split(".")} loop />
+              </div>
+            </>
+          ),
         }}
       >
         <div className="container mb-3 px-3">
@@ -49,7 +59,7 @@ const ProductAds = (prop: TProductAdsProp) => {
                       <div className="d-flex flex-column align-items-center">
                         <img
                           src={getStrapiMedia(item?.attributes.image)}
-                          className="d-block"
+                          className="d-block p-3"
                           style={{ width: 300, objectFit: "cover" }}
                           height={300}
                           alt=""
@@ -58,10 +68,17 @@ const ProductAds = (prop: TProductAdsProp) => {
                           className="d-flex flex-column justify-content-end w-100 px-3"
                           style={{ height: 100 }}
                         >
-                          <div className="text-gradient text-primary text-bold text-truncate">
+                          <div className="text-gradient text-primary text-truncate">
                             {item?.attributes?.name}
                           </div>
-                          <div>{item?.attributes?.price}</div>
+                          <div className="text-bold text-dark">
+                            {formatNumber(
+                              item?.attributes?.price,
+                              0,
+                              i18n.language
+                            )}
+                            đ
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -88,10 +105,17 @@ const ProductAds = (prop: TProductAdsProp) => {
                           className="d-flex flex-column justify-content-end w-100 px-3"
                           style={{ height: 80 }}
                         >
-                          <div className="text-bold text-truncate">
+                          <div className="text-dark text-truncate">
                             {item?.attributes?.name}
                           </div>
-                          <div>{item?.attributes?.price}</div>
+                          <div className="text-bold text-danger">
+                            {formatNumber(
+                              item?.attributes?.price,
+                              0,
+                              i18n.language
+                            )}
+                            đ
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -5,6 +5,7 @@ type TProductAdsProp = {
   id: number
   attributes: {
     title: string
+    description?: string
     galleryAds: {
       data: TMediaItem[]
     }

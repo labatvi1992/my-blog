@@ -5,6 +5,7 @@ import CarouselItem from "./carousel/carouselItem"
 import IncreaseNumber from "./increaseNumber"
 import Swiper from "./swiper"
 import { getStrapiMedia } from "@/common/helpers/media"
+import AnimatedText from "./animatedText"
 
 const BlogAds = (prop: TBlogAdsProp) => {
   const { title, description, articles, banner, postNumber, visiterNumber } =
@@ -40,7 +41,9 @@ const BlogAds = (prop: TBlogAdsProp) => {
               <h3 className="text-white z-index-1 position-relative">
                 {title}
               </h3>
-              <p className="text-white opacity-8 mb-0">{description}</p>
+              <p className="text-white opacity-8 mb-0">
+                <AnimatedText text={description?.split(".")} loop />
+              </p>
             </div>
           </div>
           <div className="row">

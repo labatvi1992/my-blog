@@ -24,6 +24,9 @@ const SwiperSlider = (prop: TSwiperProp) => {
         delay: 3000,
       },
       breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
         768: {
           slidesPerView: 1,
         },
