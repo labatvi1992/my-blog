@@ -1,7 +1,14 @@
 import React, { useEffect, useRef } from "react"
-import { TCarouselProp } from "@/common/types/TCarousel"
+import { TCarouselItemProp, TCarouselProp } from "@/common/types/TCarousel"
 
 declare var bootstrap: any
+
+const CarouselItem = (prop: TCarouselItemProp) => {
+  const { active, children } = prop || {}
+  return (
+    <div className={`carousel-item ${active ? "active" : ""}`}>{children}</div>
+  )
+}
 
 const Carousel = (prop: TCarouselProp) => {
   const { id, height, showIndicators, showArrows, children } = prop || {}
@@ -71,4 +78,5 @@ const Carousel = (prop: TCarouselProp) => {
   )
 }
 
+export { CarouselItem }
 export default Carousel

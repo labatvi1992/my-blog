@@ -1,7 +1,6 @@
 import React from "react"
 import { TBlogAdsProp } from "@/common/types/TBlogAds"
-import Carousel from "../common/carousel"
-import CarouselItem from "../common/carouselItem"
+import Carousel, { CarouselItem } from "../common/carousel"
 import IncreaseNumber from "../common/increaseNumber"
 import Swiper from "../common/swiper"
 import AnimatedText from "../common/animatedText"
@@ -144,7 +143,7 @@ const BlogAds = (prop: TBlogAdsProp) => {
         <div className="container">
           <div className="row mx-auto mb-4 text-center">
             <div className="col-lg-12">
-              <Swiper id="bannerBlogAds" height={150} slidesPerView={3}>
+              <Swiper id="bannerBlogAds" height={150} slidesPerView={4}>
                 {(banner?.data || []).map((item, itemIndex) => {
                   const { url } = item?.attributes || {}
                   return (
