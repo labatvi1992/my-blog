@@ -1,16 +1,16 @@
-import Articles from "../@/components/articles"
-import { fetchAPI } from "../../lib/api"
-import Layout from "../@/components/layout"
-import Seo from "../@/components/seo"
+import Articles from "@/components/blog/articles"
+import { fetchAPI } from "@/common/helpers/api"
+import Layout from "@/components/common/layout"
+import Seo from "@/components/common/seo"
 
-const Category = ({ category, categories }) => {
+const Category = ({ global, category, categories }) => {
   const seo = {
     metaTitle: category?.attributes?.name,
     metaDescription: `All ${category?.attributes?.name} articles`,
   }
 
   return (
-    <Layout categories={categories?.data ?? []}>
+    <Layout global={global}>
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">

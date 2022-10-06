@@ -1,12 +1,12 @@
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "@/common/helpers/api"
-import Layout from "@/components/layout"
-import NextImage from "@/components/image"
-import Seo from "@/components/seo"
+import Layout from "@/components/common/layout"
+import NextImage from "@/components/common/image"
+import Seo from "@/components/common/seo"
 import { getStrapiMedia } from "@/common/helpers/media"
 
-const Article = ({ article, categories }) => {
+const Article = ({ global, article, categories }) => {
   const imageUrl = getStrapiMedia(article?.attributes?.image)
 
   const seo = {
@@ -17,7 +17,7 @@ const Article = ({ article, categories }) => {
   }
 
   return (
-    <Layout categories={categories?.data ?? []}>
+    <Layout global={global}>
       <Seo seo={seo} />
       <div
         id="banner"
