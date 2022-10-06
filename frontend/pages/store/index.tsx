@@ -6,7 +6,7 @@ const Store = ({ global }) => {
   return (
     <Layout global={global}>
       <Seo seo={global?.attributes?.seo} />
-      <section className="py-7 position-relative">
+      <section className="py-7 vh-100">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
