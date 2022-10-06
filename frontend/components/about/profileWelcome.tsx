@@ -1,10 +1,9 @@
 import { useTranslation } from "react-i18next"
-import Link from "next/link"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { TWelcomeProp } from "@/common/types/TWelcome"
-import AnimatedText from "./animatedText"
+import AnimatedText from "../common/animatedText"
 
-const Welcome = (prop: TWelcomeProp) => {
+const ProfileWelcome = (prop: TWelcomeProp) => {
   const { data } = prop || {}
   const { title, content, background, facebook, github, linkedin } = data || {}
   const { t } = useTranslation("common", { useSuspense: false })
@@ -17,21 +16,25 @@ const Welcome = (prop: TWelcomeProp) => {
           backgroundImage: `url('${getStrapiMedia(background)}')`,
         }}
       >
-        <span className="mask bg-gradient-info opacity-4"></span>
-        <div className="container">
+        <span className="mask bg-gradient-info opacity-6"></span>
+        <div className="container mt-10">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">
               <h2 id="welcome-title" className="text-white text-truncate">
                 <AnimatedText text={title.split(".")} loop />
               </h2>
-              <p className="d-none d-lg-block lead mb-4 text-white opacity-8">
+              <p className="d-none d-lg-block lead mb-4 text-white opacity-9">
                 {content}
               </p>
-              <Link href={t("AboutUrl")}>
-                <button type="submit" className="btn bg-white text-dark my-3">
-                  {t("About me")}
+              <a href="#personal">
+                <button
+                  type="submit"
+                  className="btn bg-white text-dark my-3"
+                  autoFocus
+                >
+                  {t("View more")}
                 </button>
-              </Link>
+              </a>
               <h6 className="text-white mt-4 mb-2">{t("Contact")}</h6>
               <div className="d-flex justify-content-center">
                 <a href={facebook} target="_blank">
@@ -116,4 +119,4 @@ const Welcome = (prop: TWelcomeProp) => {
   )
 }
 
-export default Welcome
+export default ProfileWelcome

@@ -1,11 +1,11 @@
 import React from "react"
 import { TBlogAdsProp } from "@/common/types/TBlogAds"
-import Carousel from "./carousel/carousel"
-import CarouselItem from "./carousel/carouselItem"
-import IncreaseNumber from "./increaseNumber"
-import Swiper from "./swiper"
+import Carousel from "../common/carousel"
+import CarouselItem from "../common/carouselItem"
+import IncreaseNumber from "../common/increaseNumber"
+import Swiper from "../common/swiper"
+import AnimatedText from "../common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
-import AnimatedText from "./animatedText"
 
 const BlogAds = (prop: TBlogAdsProp) => {
   const {
@@ -58,7 +58,7 @@ const BlogAds = (prop: TBlogAdsProp) => {
               const { name, description } = item?.attributes || {}
               return (
                 <div key={itemIndex} className="col-lg-4 mb-4">
-                  <div className="info-horizontal bg-gray-100 border-radius-xl p-5">
+                  <div className="info-horizontal bg-gray-100 border-radius-xl p-5 h-100">
                     <h4 className="text-primary text-bold">{name}</h4>
                     <p className="text-dark">{description}</p>
                   </div>

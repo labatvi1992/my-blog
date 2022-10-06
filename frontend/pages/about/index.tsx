@@ -1,7 +1,7 @@
 import React from "react"
-import Layout from "@/components/layout"
-import Seo from "@/components/seo"
-import Profile from "@/components/profile/profile"
+import Layout from "@/components/common/layout"
+import Seo from "@/components/common/seo"
+import Profile from "@/components/about/profile"
 import { fetchAPI } from "@/common/helpers/api"
 
 const About = ({ global, profile }) => {

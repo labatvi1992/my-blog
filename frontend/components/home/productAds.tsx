@@ -1,13 +1,13 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import { TProductAdsProp } from "@/common/types/TProductAds"
-import Section from "./section"
-import Carousel from "./carousel/carousel"
-import CarouselItem from "./carousel/carouselItem"
-import Swiper from "./swiper"
+import Section from "../common/section"
+import Carousel from "../common/carousel"
+import CarouselItem from "../common/carouselItem"
+import Swiper from "../common/swiper"
+import AnimatedText from "../common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { formatNumber } from "@/common/helpers/format"
-import AnimatedText from "./animatedText"
 
 const ProductAds = (prop: TProductAdsProp) => {
   const { title, description, galleryAds, productAds, saleProducts } =
