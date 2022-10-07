@@ -22,9 +22,6 @@ const Carousel = (prop: TCarouselProp) => {
     })
     return () => {
       carousel.pause()
-      setTimeout(() => {
-        carousel.dispose()
-      }, 100)
     }
   }, [])
 
