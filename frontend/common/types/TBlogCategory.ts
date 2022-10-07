@@ -10,4 +10,8 @@ type TBlogCategoryItem = {
   }
 }
 
-export type { TBlogCategoryItem }
+type TBlogCategoryProp = {
+  data?: TBlogCategoryItem[]
+}
+
+export type { TBlogCategoryItem, TBlogCategoryProp }

@@ -10,7 +10,7 @@ const Image = ({ image }) => {
         layout="responsive"
         width={width || "100%"}
         height={height || "100%"}
-        objectFit="contain"
+        objectFit="cover"
         src={src}
         alt={alternativeText || ""}
       />

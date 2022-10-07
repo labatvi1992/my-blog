@@ -5,7 +5,7 @@ const ProfileNav = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      const position = window.scrollY - 570
+      const position = window.scrollY - 250
       const navbarLinks = ref.current?.querySelectorAll(".scrollto") ?? []
       // remove all active class
       navbarLinks.forEach((navbarlink) => {
@@ -33,33 +33,33 @@ const ProfileNav = () => {
 
   return (
     <ul className="profile-nav nav nav-pills flex-column" ref={ref}>
-      <li className="nav-item px-3">
-        <a href="#personal" className="nav-link scrollto active">
-          <i className="fas fa-fw fa-info-circle me-1" aria-hidden="true" />
+      <li className="nav-item">
+        <a href="#personal" className="nav-link scrollto px-4">
+          <i className="fas fa-fw fa-info-circle me-2" aria-hidden="true" />
           Personal
         </a>
       </li>
-      <li className="nav-item px-3">
-        <a href="#overview" className="nav-link scrollto">
-          <i className="fas fa-fw fa-home me-1" aria-hidden="true" />
+      <li className="nav-item">
+        <a href="#overview" className="nav-link scrollto px-4">
+          <i className="fas fa-fw fa-home me-2" aria-hidden="true" />
           Overview
         </a>
       </li>
-      <li className="nav-item px-3">
-        <a href="#education" className="nav-link scrollto">
-          <i className="fas fa-fw fa-user me-1" aria-hidden="true" />
+      <li className="nav-item">
+        <a href="#education" className="nav-link scrollto px-4">
+          <i className="fas fa-fw fa-user me-2" aria-hidden="true" />
           Education
         </a>
       </li>
-      <li className="nav-item px-3">
-        <a href="#workExperiences" className="nav-link scrollto">
-          <i className="fas fa-fw fa-file me-1" aria-hidden="true" />
+      <li className="nav-item">
+        <a href="#workExperiences" className="nav-link scrollto px-4">
+          <i className="fas fa-fw fa-file me-2" aria-hidden="true" />
           Work Experiences
         </a>
       </li>
-      <li className="nav-item px-3">
-        <a href="#projects" className="nav-link scrollto">
-          <i className="fas fa-fw fa-server me-1" aria-hidden="true" />
+      <li className="nav-item">
+        <a href="#projects" className="nav-link scrollto px-4">
+          <i className="fas fa-fw fa-server me-2" aria-hidden="true" />
           Projects
         </a>
       </li>

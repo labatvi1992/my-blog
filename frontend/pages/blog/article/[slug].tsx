@@ -5,6 +5,8 @@ import Layout from "@/components/common/layout"
 import NextImage from "@/components/common/image"
 import Seo from "@/components/common/seo"
 import { getStrapiMedia } from "@/common/helpers/media"
+import Hero from "@/components/common/hero"
+import AnimatedText from "@/components/common/animatedText"
 
 const Article = ({ global, article, categories }) => {
   const imageUrl = getStrapiMedia(article?.attributes?.image)
@@ -19,41 +21,50 @@ const Article = ({ global, article, categories }) => {
   return (
     <Layout global={global}>
       <Seo seo={seo} />
-      <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img
-      >
-        <h1>{article?.attributes?.title}</h1>
-      </div>
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <ReactMarkdown
-            source={article?.attributes?.content}
-            escapeHtml={false}
-          />
-          <hr className="uk-divider-small" />
-          <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-            <div>
-              {article?.attributes?.author?.picture && (
-                <NextImage image={article?.attributes?.author?.picture} />
-              )}
-            </div>
-            <div className="uk-width-expand">
-              <p className="uk-margin-remove-bottom">
-                By {article?.attributes?.author?.name}
-              </p>
-              <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">
-                  {article?.attributes?.published_at}
-                </Moment>
-              </p>
+      <Hero>
+        <h2 id="welcome-title" className="text-white text-truncate">
+          <AnimatedText text={[article?.attributes?.title]} loop />
+        </h2>
+      </Hero>
+      <section className="py-sm-5 py-5 position-relative">
+        <div className="container">
+          <div
+            id="banner"
+            className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+            data-src={imageUrl}
+            data-srcset={imageUrl}
+            data-uk-img
+          >
+            <h1>{article?.attributes?.title}</h1>
+          </div>
+          <div className="uk-section">
+            <div className="uk-container uk-container-small">
+              <ReactMarkdown
+                source={article?.attributes?.content}
+                escapeHtml={false}
+              />
+              <hr className="uk-divider-small" />
+              <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+                <div>
+                  {article?.attributes?.author?.picture && (
+                    <NextImage image={article?.attributes?.author?.picture} />
+                  )}
+                </div>
+                <div className="uk-width-expand">
+                  <p className="uk-margin-remove-bottom">
+                    By {article?.attributes?.author?.name}
+                  </p>
+                  <p className="uk-text-meta uk-margin-remove-top">
+                    <Moment format="MMM Do YYYY">
+                      {article?.attributes?.published_at}
+                    </Moment>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }
