@@ -10,8 +10,8 @@ type TSeoProp = {
 }
 
 const Seo = ({ seo }: TSeoProp) => {
-  const { attributes } = useContext<TGlobalData>(GlobalContext)
-  const { defaultSeo, siteName } = attributes || {}
+  const global = useContext<TGlobalData | null>(GlobalContext)
+  const { defaultSeo, siteName } = global?.attributes || {}
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

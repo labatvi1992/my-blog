@@ -11,7 +11,7 @@ import "../i18n"
 import "../assets/scss/soft-design-system.scss"
 
 // Store Strapi Global object in context
-export const GlobalContext = createContext<TGlobalData>({})
+export const GlobalContext = createContext<TGlobalData | null>(null)
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
@@ -24,7 +24,7 @@ const MyApp = ({ Component, pageProps }) => {
           href={getStrapiMedia(global?.attributes?.favicon)}
         />
       </Head>
-      <GlobalContext.Provider value={global?.attributes}>
+      <GlobalContext.Provider value={global}>
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
