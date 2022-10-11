@@ -5,14 +5,19 @@ import AnimatedText from "@/components/common/animatedText"
 import Categories from "@/components/blog/categories"
 import { fetchAPI } from "@/common/helpers/api"
 import Articles from "@/components/blog/articles"
+import { getStrapiMedia } from "@/common/helpers/media"
 
 const Blog = ({ global, categories, articles }) => {
   console.log("categories: ", categories)
   console.log("articles: ", articles)
   return (
     <Layout global={global}>
-      <Seo seo={global?.attributes?.seo} />
-      <Hero>
+      <Seo seo={global?.attributes?.defaultSeo} />
+      <Hero
+        backgroundImage={getStrapiMedia(
+          global?.attributes?.defaultSeo?.shareImage
+        )}
+      >
         <h2 id="welcome-title" className="text-white text-truncate">
           <AnimatedText text={["Blog"]} loop />
         </h2>

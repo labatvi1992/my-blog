@@ -12,7 +12,7 @@ const Hero = (prop: THeroProp) => {
             : undefined,
         }}
       >
-        <span className="mask bg-gradient-info opacity-5" />
+        <span className="mask bg-gradient-info opacity-4" />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center mx-auto my-auto">
