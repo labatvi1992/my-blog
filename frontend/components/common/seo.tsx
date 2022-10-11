@@ -3,13 +3,15 @@ import { useContext } from "react"
 import { TSeo } from "@/common/types/TSeo"
 import { GlobalContext } from "../../pages/_app"
 import { getStrapiMedia } from "@/common/helpers/media"
+import { TGlobalData } from "@/common/types/TGlobal"
 
 type TSeoProp = {
   seo?: TSeo
 }
 
 const Seo = ({ seo }: TSeoProp) => {
-  const { defaultSeo, siteName } = useContext(GlobalContext)
+  const { attributes } = useContext<TGlobalData>(GlobalContext)
+  const { defaultSeo, siteName } = attributes || {}
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

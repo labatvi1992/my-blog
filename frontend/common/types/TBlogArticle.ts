@@ -1,3 +1,6 @@
+import { TBlogAuthorData } from "./TBlogAuthor"
+import { TBlogCategoryItem } from "./TBlogCategory"
+import { TGlobalData } from "./TGlobal"
 import { TMediaItem } from "./TMedia"
 
 type TBlogArticleItem = {
@@ -10,9 +13,17 @@ type TBlogArticleItem = {
     image?: {
       data: TMediaItem
     }
+    author?: {
+      data: TBlogAuthorData
+    }
+    publishedAt: string
   }
 }
 
-type TBlogArticleProp = {}
+type TBlogArticleProp = {
+  global?: TGlobalData
+  article?: TBlogArticleItem
+  categories?: TBlogCategoryItem[]
+}
 
 export type { TBlogArticleItem, TBlogArticleProp }
