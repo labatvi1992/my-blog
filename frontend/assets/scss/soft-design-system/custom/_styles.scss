@@ -49,3 +49,13 @@ body {
   bottom: 0;
   left: 0;
 }
+
+.categories-nav {
+  cursor: pointer;
+  .nav-item.filter-active {
+    background-image: $text-gradient-bg-info;
+    > a {
+      color: $white !important;
+    }
+  }
+}

@@ -12,6 +12,7 @@ type TBlogCategoryItem = {
 
 type TBlogCategoryProp = {
   data?: TBlogCategoryItem[]
+  children: JSX.Element | JSX.Element[]
 }
 
 export type { TBlogCategoryItem, TBlogCategoryProp }

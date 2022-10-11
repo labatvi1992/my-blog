@@ -40,6 +40,7 @@ class MyDocument extends Document {
           <script src="/js/plugins/typedjs.js" async></script>
           <script src="/js/plugins/aos.js" async></script>
           <script src="/js/plugins/swiper-bundle.min.js" async></script>
+          <script src="/js/plugins/isotope.pkgd.min.js" async></script>
           <script
             src="/js/soft-design-system.min.js?v=1.0.9"
             type="text/javascript"

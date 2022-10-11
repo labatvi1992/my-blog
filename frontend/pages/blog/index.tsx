@@ -22,10 +22,11 @@ const Blog = ({ global, categories, articles }) => {
           <AnimatedText text={["Blog"]} loop />
         </h2>
       </Hero>
-      <section className="py-sm-5 py-5 position-relative">
+      <section className="py-sm-5 py-5 min-vh-100">
         <div className="container">
-          <Categories data={categories?.data ?? []} />
-          <Articles articles={articles?.data ?? []} />
+          <Categories data={categories?.data ?? []}>
+            <Articles articles={articles?.data ?? []} />
+          </Categories>
         </div>
       </section>
     </Layout>
@@ -42,6 +43,7 @@ export async function getStaticProps({ params }) {
   })
   const articles = await fetchAPI("/articles", {
     populate: {
+      category: "*",
       image: {
         populate: "*",
       },
