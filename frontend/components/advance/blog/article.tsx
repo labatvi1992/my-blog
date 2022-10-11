@@ -13,12 +13,13 @@ import AnimatedText from "@/components/common/animatedText"
 const Article = ({ global, article, categories }: TBlogArticleProp) => {
   const { title, content, image, description, author, publishedAt } =
     article?.attributes || {}
+
   const imageUrl = getStrapiMedia(image)
 
   const seo: TSeo = {
     metaTitle: title,
     metaDescription: description,
-    shareImage: image?.data,
+    shareImage: image,
     article: true,
   }
 
@@ -42,7 +43,7 @@ const Article = ({ global, article, categories }: TBlogArticleProp) => {
               <div className="d-flex">
                 {author?.data?.attributes?.picture && (
                   <div
-                    className="border border-4 rounded-circle"
+                    className="border border-4 border-dark rounded-circle"
                     style={{ width: 128, height: 128 }}
                   >
                     <NextImage
@@ -91,6 +92,9 @@ export async function getStaticProps({ params }) {
         populate: {
           picture: "*",
         },
+      },
+      image: {
+        populate: "*",
       },
     },
   })
