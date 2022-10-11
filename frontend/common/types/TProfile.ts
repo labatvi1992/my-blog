@@ -18,7 +18,7 @@ type TProjectProp = {
   data?: TProject[]
 }
 
-type TProfileProp = {
+type TProfileData = {
   id: number
   attributes: {
     name: string
@@ -33,4 +33,14 @@ type TProfileProp = {
   }
 }
 
-export type { TProfileHeaderProp, TProfileProp, TProject, TProjectProp }
+type TProfileProp = {
+  data?: TProfileData
+}
+
+export type {
+  TProfileHeaderProp,
+  TProfileData,
+  TProfileProp,
+  TProject,
+  TProjectProp,
+}

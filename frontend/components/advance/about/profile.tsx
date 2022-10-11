@@ -7,6 +7,7 @@ import ProfileProject from "./profileProject"
 import IncreaseNumber from "../../common/increaseNumber"
 
 const Profile = (prop: TProfileProp) => {
+  const { data } = prop || {}
   const {
     name,
     jobTitle,
@@ -17,7 +18,7 @@ const Profile = (prop: TProfileProp) => {
     education,
     workExperiences,
     projects,
-  } = prop.attributes || {}
+  } = data?.attributes || {}
   return (
     <>
       <ProfileWelcome data={welcome} />
