@@ -1,10 +1,10 @@
 import ReactMarkdown from "react-markdown"
 import { TProfileProp } from "@/common/types/TProfile"
 import { getStrapiMedia } from "@/common/helpers/media"
-import ProfileHeader from "@/components/about/profileHeader"
+import ProfileHeader from "@/components/advance/about/profileHeader"
 import ProfileWelcome from "./profileWelcome"
 import ProfileProject from "./profileProject"
-import IncreaseNumber from "../common/increaseNumber"
+import IncreaseNumber from "../../common/increaseNumber"
 
 const Profile = (prop: TProfileProp) => {
   const {

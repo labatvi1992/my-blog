@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { TWelcomeProp } from "@/common/types/TWelcome"
-import Hero from "../common/hero"
-import AnimatedText from "../common/animatedText"
+import Hero from "../../common/hero"
+import AnimatedText from "../../common/animatedText"
 
 const ProfileWelcome = (prop: TWelcomeProp) => {
   const { data } = prop || {}

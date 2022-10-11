@@ -1,9 +1,9 @@
 import React from "react"
 import { TBlogAdsProp } from "@/common/types/TBlogAds"
-import Carousel, { CarouselItem } from "../common/carousel"
-import IncreaseNumber from "../common/increaseNumber"
-import Swiper from "../common/swiper"
-import AnimatedText from "../common/animatedText"
+import Carousel, { CarouselItem } from "../../common/carousel"
+import IncreaseNumber from "../../common/increaseNumber"
+import Swiper from "../../common/swiper"
+import AnimatedText from "../../common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const BlogAds = (prop: TBlogAdsProp) => {

@@ -1,4 +1,4 @@
-import Articles from "@/components/blog/articles"
+import Articles from "@/components/advance/blog/articles"
 import { fetchAPI } from "@/common/helpers/api"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"

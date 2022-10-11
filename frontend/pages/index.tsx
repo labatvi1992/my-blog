@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
-import Welcome from "@/components/home/welcome"
-import ProductAds from "@/components/home/productAds"
-import BlogAds from "@/components/home/blogAds"
-import Subscribe from "@/components/home/subscribe"
+import Welcome from "@/components/advance/home/welcome"
+import ProductAds from "@/components/advance/home/productAds"
+import BlogAds from "@/components/advance/home/blogAds"
+import Subscribe from "@/components/advance/home/subscribe"
 import { fetchAPI } from "@/common/helpers/api"
 
 const Home = ({ global, homepage, featuredProduct, featuredBlog }) => {

@@ -2,9 +2,9 @@ import Seo from "@/components/common/seo"
 import Layout from "@/components/common/layout"
 import Hero from "@/components/common/hero"
 import AnimatedText from "@/components/common/animatedText"
-import Categories from "@/components/blog/categories"
+import Categories from "@/components/advance/blog/categories"
 import { fetchAPI } from "@/common/helpers/api"
-import Articles from "@/components/blog/articles"
+import Articles from "@/components/advance/blog/articles"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const Blog = ({ global, categories, articles }) => {
