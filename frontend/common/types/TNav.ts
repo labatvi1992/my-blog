@@ -28,8 +28,6 @@ type TNavItem = {
   icon?: string
   active?: boolean
   className?: string
-  parent?: string
-  children?: TNavItem[]
 }
 
 export type { TNavProp, TNavItem, TLanguageProp, TLanguageData, TLanguageItem }
