@@ -8,7 +8,11 @@ import AnimatedText from "../../common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { formatNumber } from "@/common/helpers/format"
 
-const GALLERY_ROW_HEIGHT = 350
+const GALLERY_ROW_HEIGHT = 300
+const GALLERY_TEXT_ROW_HEIGHT = 80
+const SALE_ROW_HEIGHT = 300
+const SALE_IMAGE_ROW_HEIGHT = 180
+const SALE_TEXT_ROW_HEIGHT = 80
 
 const FeaturedProduct = (prop: TFeaturedProductProp) => {
   const { data } = prop || {}
@@ -54,7 +58,7 @@ const FeaturedProduct = (prop: TFeaturedProductProp) => {
               </Carousel>
             </div>
             <div className="col-lg-4 col-md-6 p-1">
-              <Swiper id={"productAds"} height={350} vertical>
+              <Swiper id={"productAds"} height={GALLERY_ROW_HEIGHT} vertical>
                 {(productAds.data || []).map((item, itemIndex) => {
                   return (
                     <div key={itemIndex} className="swiper-slide">
@@ -63,15 +67,15 @@ const FeaturedProduct = (prop: TFeaturedProductProp) => {
                           src={getStrapiMedia(item?.attributes.image)}
                           className="d-block p-3"
                           style={{
-                            width: GALLERY_ROW_HEIGHT - 100,
+                            width: GALLERY_ROW_HEIGHT - GALLERY_TEXT_ROW_HEIGHT,
                             objectFit: "cover",
                           }}
-                          height={GALLERY_ROW_HEIGHT - 100}
+                          height={GALLERY_ROW_HEIGHT - GALLERY_TEXT_ROW_HEIGHT}
                           alt=""
                         />
                         <div
                           className="d-flex flex-column justify-content-end w-100 px-3"
-                          style={{ height: 100 }}
+                          style={{ height: GALLERY_TEXT_ROW_HEIGHT }}
                         >
                           <div className="text-gradient text-primary text-truncate">
                             {item?.attributes?.name}
@@ -94,7 +98,11 @@ const FeaturedProduct = (prop: TFeaturedProductProp) => {
           </div>
           <div className="row">
             <div className="col-lg-12 p-1">
-              <Swiper id={"saleProducts"} height={300} slidesPerView={4}>
+              <Swiper
+                id={"saleProducts"}
+                height={SALE_ROW_HEIGHT}
+                slidesPerView={4}
+              >
                 {(saleProducts.data || []).map((item, itemIndex) => {
                   return (
                     <div key={itemIndex} className="swiper-slide">
@@ -102,13 +110,16 @@ const FeaturedProduct = (prop: TFeaturedProductProp) => {
                         <img
                           src={getStrapiMedia(item?.attributes.image)}
                           className="d-block"
-                          style={{ width: 180, objectFit: "cover" }}
-                          height={180}
+                          style={{
+                            width: SALE_IMAGE_ROW_HEIGHT,
+                            objectFit: "cover",
+                          }}
+                          height={SALE_IMAGE_ROW_HEIGHT}
                           alt=""
                         />
                         <div
                           className="d-flex flex-column justify-content-end w-100 px-3"
-                          style={{ height: 80 }}
+                          style={{ height: SALE_TEXT_ROW_HEIGHT }}
                         >
                           <div className="text-dark text-truncate">
                             {item?.attributes?.name}
