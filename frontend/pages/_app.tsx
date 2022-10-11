@@ -3,7 +3,7 @@ import Head from "next/head"
 
 import React, { createContext } from "react"
 import { fetchAPI } from "@/common/helpers/api"
-import TGlobalContext from "@/common/types/TGlobalContext"
+import { TGlobalData } from "@/common/types/TGlobal"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 import "../i18n"
@@ -11,7 +11,7 @@ import "../i18n"
 import "../assets/scss/soft-design-system.scss"
 
 // Store Strapi Global object in context
-export const GlobalContext = createContext<TGlobalContext>({})
+export const GlobalContext = createContext<TGlobalData>({})
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps

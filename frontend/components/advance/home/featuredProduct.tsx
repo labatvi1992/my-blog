@@ -1,6 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { TProductAdsProp } from "@/common/types/TProductAds"
+import { TFeaturedProductProp } from "@/common/types/TFeaturedProduct"
 import Section from "../../common/section"
 import Carousel, { CarouselItem } from "../../common/carousel"
 import Swiper from "../../common/swiper"
@@ -8,9 +8,12 @@ import AnimatedText from "../../common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { formatNumber } from "@/common/helpers/format"
 
-const ProductAds = (prop: TProductAdsProp) => {
+const GALLERY_ROW_HEIGHT = 350
+
+const FeaturedProduct = (prop: TFeaturedProductProp) => {
+  const { data } = prop || {}
   const { title, description, galleryAds, productAds, saleProducts } =
-    prop.attributes || {}
+    data?.attributes || {}
   const { t, i18n } = useTranslation("common", { useSuspense: false })
   return (
     <>
@@ -31,7 +34,7 @@ const ProductAds = (prop: TProductAdsProp) => {
             <div className="col-lg-8 col-md-6 p-1">
               <Carousel
                 id={"galleryAds"}
-                height={400}
+                height={GALLERY_ROW_HEIGHT}
                 showIndicators
                 showArrows
               >
@@ -41,8 +44,8 @@ const ProductAds = (prop: TProductAdsProp) => {
                       <img
                         src={item?.attributes?.url}
                         className="d-block w-100"
-                        style={{ objectFit: "cover" }}
-                        height={400}
+                        style={{ objectFit: "fill" }}
+                        height={GALLERY_ROW_HEIGHT}
                         alt=""
                       />
                     </CarouselItem>
@@ -51,7 +54,7 @@ const ProductAds = (prop: TProductAdsProp) => {
               </Carousel>
             </div>
             <div className="col-lg-4 col-md-6 p-1">
-              <Swiper id={"productAds"} height={400} vertical>
+              <Swiper id={"productAds"} height={350} vertical>
                 {(productAds.data || []).map((item, itemIndex) => {
                   return (
                     <div key={itemIndex} className="swiper-slide">
@@ -59,8 +62,11 @@ const ProductAds = (prop: TProductAdsProp) => {
                         <img
                           src={getStrapiMedia(item?.attributes.image)}
                           className="d-block p-3"
-                          style={{ width: 300, objectFit: "cover" }}
-                          height={300}
+                          style={{
+                            width: GALLERY_ROW_HEIGHT - 100,
+                            objectFit: "cover",
+                          }}
+                          height={GALLERY_ROW_HEIGHT - 100}
                           alt=""
                         />
                         <div
@@ -129,4 +135,4 @@ const ProductAds = (prop: TProductAdsProp) => {
   )
 }
 
-export default ProductAds
+export default FeaturedProduct

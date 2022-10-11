@@ -2,8 +2,8 @@ import React from "react"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
 import Welcome from "@/components/advance/home/welcome"
-import ProductAds from "@/components/advance/home/productAds"
-import BlogAds from "@/components/advance/home/blogAds"
+import FeaturedProduct from "@/components/advance/home/featuredProduct"
+import FeaturedBlog from "@/components/advance/home/featuredBlog"
 import Subscribe from "@/components/advance/home/subscribe"
 import { fetchAPI } from "@/common/helpers/api"
 
@@ -13,8 +13,8 @@ const Home = ({ global, homepage, featuredProduct, featuredBlog }) => {
     <Layout global={global}>
       <Seo seo={homepage?.attributes?.seo} />
       <Welcome data={welcome} />
-      <ProductAds {...featuredProduct} />
-      <BlogAds {...featuredBlog} />
+      <FeaturedProduct data={featuredProduct} />
+      <FeaturedBlog data={featuredBlog} />
       <Subscribe />
     </Layout>
   )

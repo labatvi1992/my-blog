@@ -2,7 +2,7 @@ import { TBlogCategoryItem } from "./TBlogCategory"
 import { TBlogArticleItem } from "./TBlogArticle"
 import { TMediaItem } from "./TMedia"
 
-type TBlogAdsProp = {
+type TFeaturedBlogData = {
   id: number
   attributes: {
     title: string
@@ -21,4 +21,8 @@ type TBlogAdsProp = {
   }
 }
 
-export type { TBlogAdsProp }
+type TFeaturedBlogProp = {
+  data?: TFeaturedBlogData
+}
+
+export type { TFeaturedBlogData, TFeaturedBlogProp }

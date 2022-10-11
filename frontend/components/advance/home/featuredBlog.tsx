@@ -1,12 +1,13 @@
 import React from "react"
-import { TBlogAdsProp } from "@/common/types/TBlogAds"
+import { TFeaturedBlogProp } from "@/common/types/TFeaturedBlog"
 import Carousel, { CarouselItem } from "../../common/carousel"
 import IncreaseNumber from "../../common/increaseNumber"
 import Swiper from "../../common/swiper"
 import AnimatedText from "../../common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 
-const BlogAds = (prop: TBlogAdsProp) => {
+const FeaturedBlog = (prop: TFeaturedBlogProp) => {
+  const { data } = prop || {}
   const {
     title,
     description,
@@ -15,7 +16,7 @@ const BlogAds = (prop: TBlogAdsProp) => {
     postNumber,
     visiterNumber,
     categories,
-  } = prop?.attributes ?? {}
+  } = data?.attributes ?? {}
   return (
     <>
       <section className="pt-sm-8 pb-5 position-relative bg-gradient-dark">
@@ -58,7 +59,9 @@ const BlogAds = (prop: TBlogAdsProp) => {
               return (
                 <div key={itemIndex} className="col-lg-4 mb-4">
                   <div className="info-horizontal bg-gray-100 border-radius-xl p-5 h-100">
-                    <h4 className="text-primary text-bold">{name}</h4>
+                    <h4 className="text-gradient text-primary text-bold">
+                      {name}
+                    </h4>
                     <p className="text-dark">{description}</p>
                   </div>
                 </div>
@@ -183,4 +186,4 @@ const BlogAds = (prop: TBlogAdsProp) => {
   )
 }
 
-export default BlogAds
+export default FeaturedBlog
