@@ -21,12 +21,12 @@ const Article = ({ global, article, categories }) => {
   return (
     <Layout global={global}>
       <Seo seo={seo} />
-      <Hero>
+      <Hero backgroundImage={imageUrl}>
         <h2 id="welcome-title" className="text-white text-truncate">
           <AnimatedText text={[article?.attributes?.title]} loop />
         </h2>
       </Hero>
-      <section className="py-sm-5 py-5 position-relative">
+      <section className="py-sm-5 py-5 min-vh-100">
         <div className="container">
           <div
             id="banner"

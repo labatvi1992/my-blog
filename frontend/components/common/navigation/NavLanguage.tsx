@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { TLanguageProp } from "@/common/types/TNav"
+import { EnglishLanguage } from "assets/data/NavData"
 
 const NavLanguage = (prop: TLanguageProp) => {
   const { i18n, data } = prop || {}
-  const [language, setLanguage] = useState(i18n.language || "en-US")
+  const [language, setLanguage] = useState(i18n.language || EnglishLanguage)
 
   const onChange = (lang: string) => {
     i18n.changeLanguage(lang, () => {

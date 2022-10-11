@@ -6,7 +6,12 @@ import { TNavItem } from "@/common/types/TNav"
 const NavItem = (prop: TNavItem) => {
   const { name, slug, icon } = prop || {}
   const router = useRouter()
-  const active = router.pathname === slug
+  const active =
+    router.pathname === "/"
+      ? router.pathname === slug
+      : slug === "/"
+      ? router.pathname === slug
+      : router.pathname.startsWith(slug)
 
   return (
     <li className="nav-item my-auto mx-2 my-0 py-0">

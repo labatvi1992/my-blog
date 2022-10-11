@@ -7,13 +7,21 @@ const NavData: TNavItem[] = [
   { id: "Store", name: "Store", slug: "StoreUrl" },
 ]
 
-export const LanguageData: TLanguageData = {
-  "en-US": { id: "en-US", name: "English", icon: "/img/lang/english.svg" },
-  "vi-VN": {
-    id: "vi-VN",
-    name: "Vietnamese",
-    icon: "/img/lang/vietnamese.svg",
-  },
+export const EnglishLanguage = "en-US"
+export const VietnameseLanguage = "vi-VN"
+
+const LanguageData: TLanguageData = {}
+LanguageData[EnglishLanguage] = {
+  id: EnglishLanguage,
+  name: "English",
+  icon: "/img/lang/english.svg",
 }
+LanguageData[VietnameseLanguage] = {
+  id: VietnameseLanguage,
+  name: "Vietnamese",
+  icon: "/img/lang/vietnamese.svg",
+}
+
+export { LanguageData }
 
 export default NavData
