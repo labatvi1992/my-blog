@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
+import { HomeUrl } from "assets/data/NavData"
 import { TNavProp } from "@/common/types/TNav"
 import NavItem from "./NavItem"
 import NavLanguage from "./NavLanguage"
-
-const defaultSlug = "/"
 
 const Nav = (prop: TNavProp) => {
   const { t, i18n } = useTranslation("common", { useSuspense: false })
@@ -41,7 +40,7 @@ const Nav = (prop: TNavProp) => {
             className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow-lg position-absolute start-0 end-0 mx-4"
           >
             <div className="container-fluid px-0">
-              <Link href={t("HomeUrl", defaultSlug)}>
+              <Link href={HomeUrl}>
                 <a className="navbar-brand font-weight-bolder ms-sm-3 h6">
                   {title}
                 </a>
@@ -71,7 +70,7 @@ const Nav = (prop: TNavProp) => {
                       key={item.id}
                       {...item}
                       name={t(item.name)}
-                      slug={t(item.slug, defaultSlug)}
+                      slug={item.slug}
                     />
                   ))}
                   <NavLanguage i18n={i18n} data={languages} />

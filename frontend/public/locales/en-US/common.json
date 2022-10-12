@@ -3,10 +3,6 @@
   "About": "About",
   "Blog": "Blog",
   "Store": "Store",
-  "HomeUrl": "/",
-  "AboutUrl": "/about",
-  "BlogUrl": "/blog",
-  "StoreUrl": "/store",
   "Contact": "Find me on",
   "About me": "About me"
 }
