@@ -1994,13 +1994,6 @@
   "resolved" "https://registry.npmjs.org/https-browserify/-/https-browserify-1.0.0.tgz"
   "version" "1.0.0"
 
-"i18next-browser-languagedetector@^6.1.5":
-  "integrity" "sha512-11t7b39oKeZe4uyMxLSPnfw28BCPNLZgUk7zyufex0zKXZ+Bv+JnmJgoB+IfQLZwDt1d71PM8vwBX1NCgliY3g=="
-  "resolved" "https://registry.npmjs.org/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.5.tgz"
-  "version" "6.1.5"
-  dependencies:
-    "@babel/runtime" "^7.18.9"
-
 "i18next-http-backend@^1.4.4":
   "integrity" "sha512-M4gLPe6JKZ2p1UmE6t4rzWV/sAxgrLThW7ztXAsTpFwFqXoyzhTzX8eYxVv9KjpCQh4K9nwxnEjEi+74C4Thbg=="
   "resolved" "https://registry.npmjs.org/i18next-http-backend/-/i18next-http-backend-1.4.4.tgz"

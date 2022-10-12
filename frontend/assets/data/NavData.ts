@@ -14,8 +14,8 @@ const NavData: TNavItem[] = [
   { id: "Store", name: "Store", slug: StoreUrl },
 ]
 
-export const EnglishLanguage = "en-US"
-export const VietnameseLanguage = "vi-VN"
+export const EnglishLanguage = "en"
+export const VietnameseLanguage = "vi"
 
 const LanguageData: TLanguageData = {}
 LanguageData[EnglishLanguage] = {

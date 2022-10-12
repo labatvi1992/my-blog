@@ -22,7 +22,6 @@ const Home = (prop: THomePageProp) => {
 }
 
 export async function getStaticProps({ locale }) {
-  console.log("locale:", locale)
   // Run API calls in parallel
   const [homepageRes, featuredProductRes, featuredBlogRes] = await Promise.all([
     fetchAPI("/homepage", {

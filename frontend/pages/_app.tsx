@@ -9,6 +9,7 @@ import { getStrapiMedia } from "@/common/helpers/media"
 import "../i18n"
 
 import "../assets/scss/soft-design-system.scss"
+import { getCurrentLocale } from "@/common/helpers/locale"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext<TGlobalData | null>(null)
@@ -39,6 +40,8 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx)
   // Fetch global site settings from Strapi
+  const currentLocale = getCurrentLocale()
+  console.log("current:", currentLocale)
   const globalRes = await fetchAPI("/global", {
     populate: {
       favicon: "*",
@@ -46,6 +49,7 @@ MyApp.getInitialProps = async (ctx) => {
         populate: "*",
       },
     },
+    locale: currentLocale,
   })
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global: globalRes.data } }
