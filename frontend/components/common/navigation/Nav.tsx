@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "next-i18next"
 import { HomeUrl } from "assets/data/NavData"
 import { TNavProp } from "@/common/types/TNav"
 import NavItem from "./NavItem"
 import NavLanguage from "./NavLanguage"
 
 const Nav = (prop: TNavProp) => {
-  const { t, i18n } = useTranslation("common", { useSuspense: false })
+  const { t } = useTranslation("common")
   const { title, navigation, languages } = prop || {}
   const navRef = useRef<HTMLElement>(null)
 
@@ -73,7 +73,7 @@ const Nav = (prop: TNavProp) => {
                       slug={item.slug}
                     />
                   ))}
-                  <NavLanguage i18n={i18n} data={languages} />
+                  <NavLanguage data={languages} />
                 </ul>
               </div>
             </div>

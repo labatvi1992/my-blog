@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next"
 import Link from "next/link"
+import { AboutUrl } from "assets/data/NavData"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { TWelcomeProp } from "@/common/types/TWelcome"
 import Hero from "../../common/hero"
@@ -16,7 +17,7 @@ const Welcome = (prop: TWelcomeProp) => {
         <AnimatedText text={title.split(".")} loop />
       </h2>
       <p className="d-none d-lg-block lead mb-4 text-white">{content}</p>
-      <Link href={t("AboutUrl")}>
+      <Link href={AboutUrl}>
         <button type="submit" className="btn bg-white text-dark my-3">
           {t("About me")}
         </button>

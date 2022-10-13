@@ -1,22 +1,18 @@
+import React, { createContext } from "react"
 import App from "next/app"
 import Head from "next/head"
-
-import React, { createContext } from "react"
+import { appWithTranslation } from "next-i18next"
 import { fetchAPI } from "@/common/helpers/api"
 import { TGlobalData } from "@/common/types/TGlobal"
 import { getStrapiMedia } from "@/common/helpers/media"
 
-import "../i18n"
-
 import "../assets/scss/soft-design-system.scss"
-import { getCurrentLocale } from "@/common/helpers/locale"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext<TGlobalData | null>(null)
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
-
   return (
     <>
       <Head>
@@ -40,8 +36,6 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx)
   // Fetch global site settings from Strapi
-  const currentLocale = getCurrentLocale()
-  console.log("current:", currentLocale)
   const globalRes = await fetchAPI("/global", {
     populate: {
       favicon: "*",
@@ -49,10 +43,9 @@ MyApp.getInitialProps = async (ctx) => {
         populate: "*",
       },
     },
-    locale: currentLocale,
   })
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global: globalRes.data } }
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

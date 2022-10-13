@@ -1,7 +1,7 @@
 import { VietnameseLanguage } from "assets/data/NavData"
 import { getCookie, setCookie } from "cookies-next"
 
-const localeKey = "current_locale"
+const localeKey = "NEXT_LOCALE"
 
 export function getCurrentLocale(): string {
   let currentLocale = getCookie(localeKey)

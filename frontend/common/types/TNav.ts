@@ -1,5 +1,3 @@
-import { Ti18n } from "i18n"
-
 type TLanguageItem = {
   id: string
   name: string
@@ -11,7 +9,6 @@ type TLanguageData = {
 }
 
 type TLanguageProp = {
-  i18n: Ti18n
   data?: TLanguageData
 }
 
