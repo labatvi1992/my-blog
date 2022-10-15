@@ -33,7 +33,7 @@ export async function getStaticProps({ locale }) {
     fetchAPI("/featured-gallery", {
       populate: {
         gallery: { populate: "*" },
-        categories: { populate: "*" },
+        articles: { populate: "*" },
       },
     }),
     fetchAPI("/featured-blog", {

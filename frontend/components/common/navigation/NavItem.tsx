@@ -19,9 +19,10 @@ const NavItem = (prop: TNavItem) => {
         <a className="nav-link nav-link-icon ps-2">
           {icon && (
             <i
-              className={`${icon} text-gradient ${
-                active ? "fw-bolder text-primary" : ""
+              className={`${icon} text-gradient mx-2 ${
+                active ? "fw-bolder text-primary" : "text-dark"
               }`}
+              aria-hidden="true"
             />
           )}
           <p

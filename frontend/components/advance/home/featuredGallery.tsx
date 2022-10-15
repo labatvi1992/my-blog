@@ -5,12 +5,13 @@ import Section from "../../common/section"
 import Carousel, { CarouselItem } from "../../common/carousel"
 import Swiper from "../../common/swiper"
 import AnimatedText from "../../common/animatedText"
+import { getStrapiMedia } from "@/common/helpers/media"
 
 const GALLERY_ROW_HEIGHT = 320
 
 const FeaturedGallery = (prop: TFeaturedGalleryProp) => {
   const { data } = prop || {}
-  const { title, description, gallery, categories } = data?.attributes || {}
+  const { title, description, gallery, articles } = data?.attributes || {}
   const { t, i18n } = useTranslation("common", { useSuspense: false })
   return (
     <>
@@ -52,15 +53,29 @@ const FeaturedGallery = (prop: TFeaturedGalleryProp) => {
             </div>
             <div className="col-lg-4 col-md-6 p-1">
               <Swiper id={"productAds"} height={GALLERY_ROW_HEIGHT} vertical>
-                {(categories.data || []).map((item, itemIndex) => {
-                  const { name, description } = item.attributes || {}
+                {(articles.data || []).map((item, itemIndex) => {
+                  const { title, description, image } = item.attributes || {}
                   return (
-                    <div key={itemIndex} className="swiper-slide">
-                      <div className="info-horizontal bg-gray-100 border-radius-xl p-5 h-100">
-                        <h4 className="text-gradient text-primary text-bold">
-                          {name}
-                        </h4>
-                        <p className="text-dark">{description}</p>
+                    <div
+                      key={itemIndex}
+                      className="swiper-slide page-header border-radius-xl"
+                    >
+                      <div
+                        className="page-header border-radius-xl"
+                        style={{
+                          height: GALLERY_ROW_HEIGHT,
+                          backgroundImage: `url('${getStrapiMedia(image)}')`,
+                        }}
+                      >
+                        <span className="mask bg-gradient-dark opacity-1" />
+                        <div className="d-flex flex-column justify-content-end p-4 h-100">
+                          <h4 className="text-white text-bold text-shadow">
+                            {title}
+                          </h4>
+                          <p className="text-white text-shadow">
+                            {description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   )

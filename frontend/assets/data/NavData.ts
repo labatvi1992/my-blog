@@ -7,9 +7,9 @@ export const BlogCategoryUrl = "/blog/[slug]"
 export const BlogArticleUrl = "/blog/article/[slug]"
 
 const NavData: TNavItem[] = [
-  { id: "Home", name: "Home", slug: HomeUrl },
-  { id: "About", name: "About", slug: AboutUrl },
-  { id: "Blog", name: "Blog", slug: BlogUrl },
+  { id: "Home", name: "Home", slug: HomeUrl, icon: "fas fa-home" },
+  { id: "About", name: "About", slug: AboutUrl, icon: "fas fa-user" },
+  { id: "Blog", name: "Blog", slug: BlogUrl, icon: "fas fa-book" },
 ]
 
 export const EnglishLanguage = "en"

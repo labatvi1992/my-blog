@@ -1,4 +1,4 @@
-import { TBlogCategoryItem } from "./TBlogCategory"
+import { TBlogArticleItem } from "./TBlogArticle"
 import { TMediaItem } from "./TMedia"
 
 type TFeaturedGalleryData = {
@@ -9,8 +9,8 @@ type TFeaturedGalleryData = {
     gallery: {
       data: TMediaItem[]
     }
-    categories: {
-      data: TBlogCategoryItem[]
+    articles: {
+      data: TBlogArticleItem[]
     }
   }
 }
