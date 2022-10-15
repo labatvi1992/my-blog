@@ -11,7 +11,7 @@ const Section = (prop: TSectionProp) => {
             <div
               className={`position-relative border-radius-xl overflow-hidden ${
                 shadow ? "shadow-lg" : ""
-              } mb-3`}
+              }`}
             >
               <div className="container px-2">
                 <div className="row py-3">

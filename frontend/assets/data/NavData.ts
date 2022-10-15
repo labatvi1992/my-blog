@@ -5,13 +5,11 @@ export const AboutUrl = "/about"
 export const BlogUrl = "/blog"
 export const BlogCategoryUrl = "/blog/[slug]"
 export const BlogArticleUrl = "/blog/article/[slug]"
-export const StoreUrl = "/store"
 
 const NavData: TNavItem[] = [
   { id: "Home", name: "Home", slug: HomeUrl },
   { id: "About", name: "About", slug: AboutUrl },
   { id: "Blog", name: "Blog", slug: BlogUrl },
-  { id: "Store", name: "Store", slug: StoreUrl },
 ]
 
 export const EnglishLanguage = "en"

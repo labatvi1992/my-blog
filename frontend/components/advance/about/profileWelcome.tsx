@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "next-i18next"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { TWelcomeProp } from "@/common/types/TWelcome"
 import Hero from "../../common/hero"

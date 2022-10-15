@@ -8,15 +8,8 @@ import { getStrapiMedia } from "@/common/helpers/media"
 
 const FeaturedBlog = (prop: TFeaturedBlogProp) => {
   const { data } = prop || {}
-  const {
-    title,
-    description,
-    articles,
-    banner,
-    postNumber,
-    visiterNumber,
-    categories,
-  } = data?.attributes ?? {}
+  const { title, description, articles, banner, postNumber, visiterNumber } =
+    data?.attributes ?? {}
   return (
     <>
       <section className="pt-sm-8 pb-5 position-relative bg-gradient-dark">
@@ -52,21 +45,6 @@ const FeaturedBlog = (prop: TFeaturedBlogProp) => {
                 <AnimatedText text={description?.split(".")} loop />
               </p>
             </div>
-          </div>
-          <div className="row">
-            {(categories.data || []).map((item, itemIndex) => {
-              const { name, description } = item?.attributes || {}
-              return (
-                <div key={itemIndex} className="col-lg-4 mb-4">
-                  <div className="info-horizontal bg-gray-100 border-radius-xl p-5 h-100">
-                    <h4 className="text-gradient text-primary text-bold">
-                      {name}
-                    </h4>
-                    <p className="text-dark">{description}</p>
-                  </div>
-                </div>
-              )
-            })}
           </div>
           <div className="row">
             <div className="col-12">

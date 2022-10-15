@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "featured_products",
+  "collectionName": "featured_galleries",
   "info": {
-    "singularName": "featured-product",
-    "pluralName": "featured-products",
-    "displayName": "Featured Product",
+    "singularName": "featured-gallery",
+    "pluralName": "featured-galleries",
+    "displayName": "Featured Gallery",
     "description": ""
   },
   "options": {
@@ -33,26 +33,26 @@
       },
       "type": "text"
     },
-    "galleryAds": {
+    "gallery": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "files", "videos", "audios"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "productAds": {
+    "categories": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::ecommerce-product.ecommerce-product"
-    },
-    "saleProducts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ecommerce-product.ecommerce-product"
+      "target": "api::category.category"
     }
   }
 }

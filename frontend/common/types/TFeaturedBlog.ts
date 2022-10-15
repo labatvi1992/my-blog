@@ -15,9 +15,6 @@ type TFeaturedBlogData = {
     }
     postNumber: number
     visiterNumber: number
-    categories: {
-      data: TBlogCategoryItem[]
-    }
   }
 }
 

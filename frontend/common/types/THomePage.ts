@@ -1,5 +1,5 @@
 import { TFeaturedBlogData } from "./TFeaturedBlog"
-import { TFeaturedProductData } from "./TFeaturedProduct"
+import { TFeaturedProductData } from "./TFeaturedGallery"
 import { TGlobalData } from "./TGlobal"
 import { TSeo } from "./TSeo"
 import { TWelcomeData } from "./TWelcome"

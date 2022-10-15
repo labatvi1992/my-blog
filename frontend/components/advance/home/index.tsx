@@ -3,7 +3,7 @@ import { THomePageProp } from "@/common/types/THomePage"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
 import FeaturedBlog from "./featuredBlog"
-import FeaturedProduct from "./featuredProduct"
+import FeaturedProduct from "./featuredGallery"
 import Subscribe from "./subscribe"
 import Welcome from "./welcome"
 
@@ -30,11 +30,10 @@ export async function getStaticProps({ locale }) {
         welcome: { populate: "*" },
       },
     }),
-    fetchAPI("/featured-product", {
+    fetchAPI("/featured-gallery", {
       populate: {
-        galleryAds: { populate: "*" },
-        productAds: { populate: "*" },
-        saleProducts: { populate: "*" },
+        gallery: { populate: "*" },
+        categories: { populate: "*" },
       },
     }),
     fetchAPI("/featured-blog", {
