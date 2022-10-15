@@ -1,24 +1,21 @@
-import React, { useMemo, useState } from "react"
+import React, { useMemo } from "react"
 import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
 import { TLanguageProp } from "@/common/types/TNav"
-import { getCurrentLocale, setCurrentLocale } from "@/common/helpers/locale"
+import { setCurrentLocale } from "@/common/helpers/locale"
 
 const NavLanguage = (prop: TLanguageProp) => {
   const { data } = prop || {}
-  const { t, i18n } = useTranslation("common")
-  const currentLocale = getCurrentLocale()
-
-  const [language, setLanguage] = useState(i18n.language || currentLocale)
+  const router = useRouter()
+  const { t } = useTranslation("common")
 
   const onChange = (lang: string) => {
-    i18n.changeLanguage(lang, () => {
-      setLanguage(lang)
-      setCurrentLocale(lang)
-    })
+    router.replace(router.route, router.route, { locale: lang })
+    setCurrentLocale(lang)
   }
 
   const component = useMemo(() => {
-    const { name, icon } = data[language] || {}
+    const { name, icon } = data[router.locale] || {}
     return (
       <li className="nav-item dropdown dropdown-hover ms-lg-auto mx-2">
         <a
@@ -70,7 +67,7 @@ const NavLanguage = (prop: TLanguageProp) => {
         </ul>
       </li>
     )
-  }, [language])
+  }, [router.locale])
 
   return component
 }

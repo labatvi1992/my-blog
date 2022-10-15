@@ -36,7 +36,8 @@
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::article.article"
+      "target": "api::article.article",
+      "mappedBy": "category"
     },
     "description": {
       "pluginOptions": {

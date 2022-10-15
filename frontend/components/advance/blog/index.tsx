@@ -37,7 +37,10 @@ const Blog = ({ global, categories, articles }: TBlogProp) => {
       </Hero>
       <section className="py-sm-5 py-5 min-vh-100">
         <div className="container">
-          <Categories data={categories?.data ?? []}>
+          <Categories
+            data={categories?.data ?? []}
+            articleCount={articles?.data?.length}
+          >
             <Articles articles={articles?.data ?? []} />
           </Categories>
         </div>

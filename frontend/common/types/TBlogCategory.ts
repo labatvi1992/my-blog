@@ -12,6 +12,7 @@ type TBlogCategoryItem = {
 
 type TBlogCategoryProp = {
   data?: TBlogCategoryItem[]
+  articleCount?: number
   children: JSX.Element | JSX.Element[]
 }
 

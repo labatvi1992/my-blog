@@ -4,7 +4,7 @@ import { TBlogCategoryProp } from "@/common/types/TBlogCategory"
 declare var Isotope: any
 
 const Categories = (prop: TBlogCategoryProp) => {
-  const { data, children } = prop || {}
+  const { data, articleCount, children } = prop || {}
   const tabRef = useRef<HTMLUListElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [isoTope, setIsoTope] = useState(null)
@@ -71,7 +71,7 @@ const Categories = (prop: TBlogCategoryProp) => {
           </div>
         </div>
         <h4 className="my-4">
-          Tìm thấy tất cả <strong>3</strong> bài viết
+          Tìm thấy tất cả <strong>{articleCount ?? 0}</strong> bài viết
         </h4>
         <div ref={containerRef} className="row" data-aos="fade">
           {children}
