@@ -10,4 +10,8 @@ type TGlobalData = {
   }
 }
 
-export type { TGlobalData }
+type TGlobalProp = {
+  children: JSX.Element | JSX.Element[]
+}
+
+export type { TGlobalData, TGlobalProp }

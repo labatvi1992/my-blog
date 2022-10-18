@@ -1,16 +1,14 @@
 import Head from "next/head"
-import { useContext } from "react"
 import { TSeo } from "@/common/types/TSeo"
-import { GlobalContext } from "../../pages/_app"
 import { getStrapiMedia } from "@/common/helpers/media"
-import { TGlobalData } from "@/common/types/TGlobal"
+import { useGlobalContext } from "./globalContext"
 
 type TSeoProp = {
   seo?: TSeo
 }
 
 const Seo = ({ seo }: TSeoProp) => {
-  const global = useContext<TGlobalData | null>(GlobalContext)
+  const global = useGlobalContext()
   const { defaultSeo, siteName } = global?.attributes || {}
   const seoWithDefaults = {
     ...defaultSeo,

@@ -12,8 +12,11 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-boost": "^0.4.9",
     "axios": "^0.27.2",
     "cookies-next": "^2.1.1",
+    "graphql": "^16.6.0",
     "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "next": "^11.0.0",
@@ -21,10 +24,12 @@
     "nextjs-progressbar": "^0.0.15",
     "qs": "^6.10.1",
     "react": "17.0.0",
+    "react-apollo": "^3.1.5",
     "react-chrono": "^1.19.1",
     "react-dom": "17.0.0",
     "react-markdown": "^4.2.2",
-    "react-moment": "^0.9.6"
+    "react-moment": "^0.9.6",
+    "react-toastify": "^9.0.8"
   },
   "license": "MIT",
   "devDependencies": {

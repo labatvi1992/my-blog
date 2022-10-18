@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subcribers",
+  "info": {
+    "singularName": "subcriber",
+    "pluralName": "subcribers",
+    "displayName": "Subcriber"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    }
+  }
+}
