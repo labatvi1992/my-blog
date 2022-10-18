@@ -16,13 +16,13 @@ const MyApp = ({ Component, pageProps }) => {
       <ApolloProvider client={apolloClient}>
         <GlobalContextProvider>
           <Favicon />
-          <NextNProgress
-            options={{ easing: "ease", speed: 500 }}
-            showOnShallow={true}
-          />
           <Component {...pageProps} />
         </GlobalContextProvider>
       </ApolloProvider>
+      <NextNProgress
+        options={{ easing: "ease", speed: 500 }}
+        showOnShallow={true}
+      />
       <ToastContainer />
     </>
   )

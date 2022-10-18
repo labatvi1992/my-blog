@@ -1,7 +1,11 @@
 import { createContext, useContext, useMemo } from "react"
 import { gql } from "@apollo/client"
 import { useQuery } from "@apollo/react-hooks"
-import { TGlobalData, TGlobalProp } from "@/common/types/TGlobal"
+import {
+  TGlobalData,
+  TGlobalProp,
+  TGlobalResponse,
+} from "@/common/types/TGlobal"
 import { showError } from "@/common/helpers/message"
 
 const GLOBAL_QUERY = gql`
@@ -38,15 +42,17 @@ const GlobalContext = createContext<TGlobalData | null>(null)
 
 export const useGlobalContext = () => {
   const context = useContext(GlobalContext)
-
   return context
 }
 
 const GlobalContextProvider = (prop: TGlobalProp) => {
   const { children } = prop || {}
-  const { data, loading, error } = useQuery<TGlobalData | null>(GLOBAL_QUERY, {
-    variables: {},
-  })
+  const { data, loading, error } = useQuery<TGlobalResponse | null>(
+    GLOBAL_QUERY,
+    {
+      variables: {},
+    }
+  )
 
   const contextValue = useMemo(
     () => ({ loading, data, error }),
@@ -55,10 +61,8 @@ const GlobalContextProvider = (prop: TGlobalProp) => {
 
   contextValue.error && showError(JSON.stringify(error))
 
-  console.log("data: ", data)
-
   return (
-    <GlobalContext.Provider value={contextValue.data}>
+    <GlobalContext.Provider value={contextValue.data?.global?.data}>
       {children}
     </GlobalContext.Provider>
   )

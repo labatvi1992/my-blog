@@ -1,16 +1,16 @@
 import { fetchAPI } from "@/common/helpers/api"
-import { TGlobalData } from "@/common/types/TGlobal"
 import { TProfileData } from "@/common/types/TProfile"
+import { useGlobalContext } from "@/components/common/globalContext"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
 import Profile from "./profile"
 
 type TAboutProp = {
-  global?: TGlobalData
   profile?: TProfileData
 }
 
-const About = ({ global, profile }: TAboutProp) => {
+const About = ({ profile }: TAboutProp) => {
+  const global = useGlobalContext()
   return (
     <Layout global={global}>
       <Seo seo={global?.attributes?.defaultSeo} />

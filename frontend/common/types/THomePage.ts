@@ -1,5 +1,5 @@
 import { TFeaturedBlogData } from "./TFeaturedBlog"
-import { TFeaturedProductData } from "./TFeaturedGallery"
+import { TFeaturedGalleryData } from "./TFeaturedGallery"
 import { TGlobalData } from "./TGlobal"
 import { TSeo } from "./TSeo"
 import { TWelcomeData } from "./TWelcome"
@@ -15,7 +15,7 @@ type THomePageData = {
 type THomePageProp = {
   global?: TGlobalData
   homepage?: THomePageData
-  featuredProduct?: TFeaturedProductData
+  featuredGallery?: TFeaturedGalleryData
   featuredBlog?: TFeaturedBlogData
 }
 

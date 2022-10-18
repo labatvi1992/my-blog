@@ -1,20 +1,21 @@
 import { fetchAPI } from "@/common/helpers/api"
 import { THomePageProp } from "@/common/types/THomePage"
+import { useGlobalContext } from "@/components/common/globalContext"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
 import FeaturedBlog from "./featuredBlog"
-import FeaturedProduct from "./featuredGallery"
+import FeaturedGallery from "./featuredGallery"
 import Subscribe from "./subscribe"
 import Welcome from "./welcome"
 
 const Home = (prop: THomePageProp) => {
-  const { global, homepage, featuredProduct, featuredBlog } = prop || {}
-  const welcome = homepage?.attributes?.welcome
+  const global = useGlobalContext()
+  const { homepage, featuredGallery, featuredBlog } = prop || {}
   return (
     <Layout global={global}>
       <Seo seo={homepage?.attributes?.seo} />
-      <Welcome data={welcome} />
-      <FeaturedProduct data={featuredProduct} />
+      <Welcome data={homepage?.attributes?.welcome} />
+      <FeaturedGallery data={featuredGallery} />
       <FeaturedBlog data={featuredBlog} />
       <Subscribe />
     </Layout>
@@ -23,7 +24,7 @@ const Home = (prop: THomePageProp) => {
 
 export async function getStaticProps({ locale }) {
   // Run API calls in parallel
-  const [homepageRes, featuredProductRes, featuredBlogRes] = await Promise.all([
+  const [homepageRes, featuredGalleryRes, featuredBlogRes] = await Promise.all([
     fetchAPI("/homepage", {
       populate: {
         seo: { populate: "*" },
@@ -48,7 +49,7 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       homepage: homepageRes.data,
-      featuredProduct: featuredProductRes.data,
+      featuredGallery: featuredGalleryRes.data,
       featuredBlog: featuredBlogRes.data,
     },
     revalidate: 1,

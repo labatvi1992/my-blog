@@ -2,8 +2,8 @@ import { fetchAPI } from "@/common/helpers/api"
 import { getStrapiMedia } from "@/common/helpers/media"
 import { TBlogArticleItem } from "@/common/types/TBlogArticle"
 import { TBlogCategoryItem } from "@/common/types/TBlogCategory"
-import { TGlobalData } from "@/common/types/TGlobal"
 import AnimatedText from "@/components/common/animatedText"
+import { useGlobalContext } from "@/components/common/globalContext"
 import Hero from "@/components/common/hero"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
@@ -11,7 +11,6 @@ import Articles from "./articles"
 import Categories from "./categories"
 
 type TBlogProp = {
-  global?: TGlobalData
   categories?: {
     data: TBlogCategoryItem[]
   }
@@ -20,9 +19,10 @@ type TBlogProp = {
   }
 }
 
-const Blog = ({ global, categories, articles }: TBlogProp) => {
+const Blog = ({ categories, articles }: TBlogProp) => {
   console.log("categories: ", categories)
   console.log("articles: ", articles)
+  const global = useGlobalContext()
   return (
     <Layout global={global}>
       <Seo seo={global?.attributes?.defaultSeo} />
