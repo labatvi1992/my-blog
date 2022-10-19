@@ -9,11 +9,12 @@ import Seo from "@/components/common/seo"
 import { getStrapiMedia } from "@/common/helpers/media"
 import Hero from "@/components/common/hero"
 import AnimatedText from "@/components/common/animatedText"
+import { useGlobalContext } from "@/components/common/globalContext"
 
-const Article = ({ global, article, categories }: TBlogArticleProp) => {
+const Article = ({ article, categories }: TBlogArticleProp) => {
   const { title, content, image, description, author, publishedAt } =
     article?.attributes || {}
-
+  const global = useGlobalContext()
   const imageUrl = getStrapiMedia(image)
 
   const seo: TSeo = {
@@ -38,7 +39,7 @@ const Article = ({ global, article, categories }: TBlogArticleProp) => {
               <ReactMarkdown source={content} escapeHtml={false} />
             </div>
           </div>
-          <div className="row">
+          <div className="row pt-3 border-top">
             <div className="col-lg-12">
               <div className="d-flex">
                 {author?.data?.attributes?.picture && (
@@ -54,10 +55,10 @@ const Article = ({ global, article, categories }: TBlogArticleProp) => {
                 )}
                 <div className="d-flex flex-column px-3">
                   <p className="lead mb-0">
-                    By {author?.data?.attributes?.name}
+                    Author {author?.data?.attributes?.name}
                   </p>
                   <p className="text-dark">
-                    <Moment format="MMM Do YYYY">{publishedAt}</Moment>
+                    <Moment format="DD/MM/YYYY">{publishedAt}</Moment>
                   </p>
                 </div>
               </div>

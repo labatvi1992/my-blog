@@ -17,6 +17,7 @@ type TGlobalData = {
 }
 
 type TGlobalProp = {
+  locale?: string
   children: JSX.Element | JSX.Element[]
 }
 

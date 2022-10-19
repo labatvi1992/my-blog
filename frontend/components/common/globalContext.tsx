@@ -9,8 +9,8 @@ import {
 import { showError } from "@/common/helpers/message"
 
 const GLOBAL_QUERY = gql`
-  query Global {
-    global {
+  query Global($locale: I18NLocaleCode) {
+    global(locale: $locale) {
       data {
         attributes {
           siteName
@@ -46,11 +46,11 @@ export const useGlobalContext = () => {
 }
 
 const GlobalContextProvider = (prop: TGlobalProp) => {
-  const { children } = prop || {}
+  const { locale, children } = prop || {}
   const { data, loading, error } = useQuery<TGlobalResponse | null>(
     GLOBAL_QUERY,
     {
-      variables: {},
+      variables: { locale },
     }
   )
 

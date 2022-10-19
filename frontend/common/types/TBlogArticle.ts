@@ -1,6 +1,5 @@
 import { TBlogAuthorData } from "./TBlogAuthor"
 import { TBlogCategoryItem } from "./TBlogCategory"
-import { TGlobalData } from "./TGlobal"
 import { TMediaItem } from "./TMedia"
 
 type TBlogArticleItem = {
@@ -21,7 +20,6 @@ type TBlogArticleItem = {
 }
 
 type TBlogArticleProp = {
-  global?: TGlobalData
   article?: TBlogArticleItem
   categories?: TBlogCategoryItem[]
 }

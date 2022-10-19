@@ -10,11 +10,11 @@ import apolloClient from "@/common/helpers/apolloClient"
 import "react-toastify/dist/ReactToastify.min.css"
 import "../assets/scss/soft-design-system.scss"
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, router }) => {
   return (
     <>
       <ApolloProvider client={apolloClient}>
-        <GlobalContextProvider>
+        <GlobalContextProvider locale={router.locale}>
           <Favicon />
           <Component {...pageProps} />
         </GlobalContextProvider>
