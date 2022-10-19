@@ -10,8 +10,8 @@ const NavLanguage = (prop: TLanguageProp) => {
   const { t } = useTranslation("common")
 
   const onChange = (lang: string) => {
-    router.replace(router.route, router.route, { locale: lang })
     setCurrentLocale(lang)
+    router.replace(router.route, router.route, { locale: lang })
   }
 
   const component = useMemo(() => {

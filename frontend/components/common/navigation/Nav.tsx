@@ -61,10 +61,10 @@ const Nav = (prop: TNavProp) => {
                 </span>
               </button>
               <div
-                className="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100"
+                className="collapse navbar-collapse pt-2 pb-2 py-lg-0 w-100"
                 id="navigation"
               >
-                <ul className="navbar-nav navbar-nav-hover ms-lg-12 ps-lg-5 w-100">
+                <ul className="navbar-nav navbar-nav-hover ms-lg-10 ps-lg-5 w-100">
                   {(navigation || []).map((item) => (
                     <NavItem
                       key={item.id}

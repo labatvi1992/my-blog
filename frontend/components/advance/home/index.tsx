@@ -1,4 +1,3 @@
-import { fetchAPI } from "@/common/helpers/api"
 import { THomePageProp } from "@/common/types/THomePage"
 import { useGlobalContext } from "@/components/common/globalContext"
 import Layout from "@/components/common/layout"
@@ -20,40 +19,6 @@ const Home = (prop: THomePageProp) => {
       <Subscribe />
     </Layout>
   )
-}
-
-export async function getStaticProps({ locale }) {
-  // Run API calls in parallel
-  const [homepageRes, featuredGalleryRes, featuredBlogRes] = await Promise.all([
-    fetchAPI("/homepage", {
-      populate: {
-        seo: { populate: "*" },
-        welcome: { populate: "*" },
-      },
-    }),
-    fetchAPI("/featured-gallery", {
-      populate: {
-        gallery: { populate: "*" },
-        articles: { populate: "*" },
-      },
-    }),
-    fetchAPI("/featured-blog", {
-      populate: {
-        articles: { populate: "*" },
-        banner: { populate: "*" },
-        categories: { populate: "*" },
-      },
-    }),
-  ])
-
-  return {
-    props: {
-      homepage: homepageRes.data,
-      featuredGallery: featuredGalleryRes.data,
-      featuredBlog: featuredBlogRes.data,
-    },
-    revalidate: 1,
-  }
 }
 
 export default Home
