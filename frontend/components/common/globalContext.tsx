@@ -1,5 +1,4 @@
 import { createContext, useContext, useMemo } from "react"
-import { gql } from "@apollo/client"
 import { useQuery } from "@apollo/react-hooks"
 import {
   TGlobalData,
@@ -7,36 +6,7 @@ import {
   TGlobalResponse,
 } from "@/common/types/TGlobal"
 import { showError } from "@/common/helpers/message"
-
-const GLOBAL_QUERY = gql`
-  query Global($locale: I18NLocaleCode) {
-    global(locale: $locale) {
-      data {
-        attributes {
-          siteName
-          defaultSeo {
-            metaTitle
-            metaDescription
-            shareImage {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-          favicon {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+import { GLOBAL_QUERY } from "@/common/queries/globalQuery"
 
 const GlobalContext = createContext<TGlobalData | null>(null)
 
