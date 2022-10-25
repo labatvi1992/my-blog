@@ -10,8 +10,8 @@ const NavLanguage = (prop: TLanguageProp) => {
   const { data } = prop || {}
   const { name, icon } = data[router.locale] || {}
 
-  const currentLangComponent = useMemo(
-    () => (
+  const currentLangComponent = useMemo(() => {
+    return (
       <a
         className="nav-link ps-2 d-flex justify-content-stretch cursor-pointer align-items-center"
         id="dropdownMenuLanguage"
@@ -26,9 +26,8 @@ const NavLanguage = (prop: TLanguageProp) => {
           className="arrow ms-2 d-block"
         />
       </a>
-    ),
-    [t(name), icon]
-  )
+    )
+  }, [t(name), icon])
 
   const langListComponent = useMemo(() => {
     const onChange = (lang: string) => {
@@ -70,7 +69,7 @@ const NavLanguage = (prop: TLanguageProp) => {
         </div>
       </ul>
     )
-  }, [data])
+  }, [data, t])
 
   return (
     <li className="nav-item dropdown dropdown-hover ms-lg-auto mx-2">

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useMemo } from "react"
 import { TSwiperProp } from "@/common/types/TSwiper"
 
 declare var Swiper: any
@@ -14,9 +14,8 @@ const SwiperSlider = (prop: TSwiperProp) => {
     children,
   } = prop || {}
 
-  useEffect(() => {
-    const options = {
-      // Optional parameters
+  const options = useMemo(
+    () => ({
       direction: vertical ? "vertical" : "horizontal",
       slidesPerView: slidesPerView || 1,
       loop: true,
@@ -34,29 +33,40 @@ const SwiperSlider = (prop: TSwiperProp) => {
           slidesPerView: slidesPerView || 1,
         },
       },
-
-      // If we need pagination
+      navigation: showNavigation
+        ? {
+            nextEl: `.swiper-button-next-${id}`,
+            prevEl: `.swiper-button-prev-${id}`,
+          }
+        : false,
       pagination: {
         el: `.swiper-pagination-${id}`,
       },
-    }
-    if (showNavigation) {
-      options["navigation"] = {
-        nextEl: `.swiper-button-next-${id}`,
-        prevEl: `.swiper-button-prev-${id}`,
-      }
-    }
-    const swiper = new Swiper(`.${id}`, options)
+    }),
+    [id]
+  )
+  let swiper = undefined
+
+  useEffect(() => {
+    swiper = new Swiper(`#${id}`, options)
     return () => {
-      swiper.destroy()
+      swiper?.destroy(false, false)
     }
-  }, [])
+  }, [children])
+
+  const component = useMemo(
+    () => (
+      <>
+        <div className="swiper-wrapper">{children}</div>
+        <div className={`swiper-pagination swiper-pagination-${id}`} />
+      </>
+    ),
+    [children]
+  )
 
   return (
-    <div className={`swiper ${id}`} style={{ width: width, height: height }}>
-      <div className="swiper-wrapper">{children}</div>
-
-      <div className={`swiper-pagination swiper-pagination-${id}`}></div>
+    <div id={id} className="swiper" style={{ width: width, height: height }}>
+      {component}
       {showNavigation && (
         <>
           <div className={`swiper-button-prev swiper-button-prev-${id}`}></div>

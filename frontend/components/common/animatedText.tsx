@@ -27,7 +27,7 @@ const AnimatedText = (prop: TAnimatedTextProp) => {
       // to prevent memory leaks
       typed.current.destroy()
     }
-  }, [])
+  }, [text])
 
   return <span ref={el} />
 }
