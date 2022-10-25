@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 
-export const GLOBAL_QUERY = gql`
+const GLOBAL_QUERY = gql`
   query Global($locale: I18NLocaleCode) {
     global(locale: $locale) {
       data {
@@ -29,3 +29,5 @@ export const GLOBAL_QUERY = gql`
     }
   }
 `
+
+export default GLOBAL_QUERY

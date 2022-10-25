@@ -1,12 +1,12 @@
 import { createContext, useContext, useMemo } from "react"
-import { useQuery } from "@apollo/react-hooks"
+import { useQuery } from "@apollo/client"
 import {
   TGlobalData,
   TGlobalProp,
   TGlobalResponse,
 } from "@/common/types/TGlobal"
 import { showError } from "@/common/helpers/message"
-import { GLOBAL_QUERY } from "@/common/queries/globalQuery"
+import GLOBAL_QUERY from "@/common/queries/globalQuery"
 
 const GlobalContext = createContext<TGlobalData | null>(null)
 

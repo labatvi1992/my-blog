@@ -1,59 +1,37 @@
-import { fetchAPI } from "@/common/helpers/api"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useGlobalContext } from "@/components/common/globalContext"
-import { THomePageProp } from "@/common/types/THomePage"
+import { THomeData, THomeProp } from "@/common/types/THome"
 import FeaturedBlog from "@/components/advance/home/featuredBlog"
 import FeaturedGallery from "@/components/advance/home/featuredGallery"
 import Subscribe from "@/components/advance/home/subscribe"
 import Welcome from "@/components/advance/home/welcome"
 import Layout from "@/components/common/layout"
 import Seo from "@/components/common/seo"
+import apolloClient from "@/common/helpers/apolloClient"
+import HOME_QUERY from "@/common/queries/homeQuery"
 
-const Home = (prop: THomePageProp) => {
+const Home = (prop: THomeProp) => {
   const global = useGlobalContext()
-  const { homepage, featuredGallery, featuredBlog } = prop || {}
+  const { homepage, featuredGallery, featuredBlog } = prop.data || {}
   return (
     <Layout global={global}>
-      <Seo seo={homepage?.attributes?.seo} />
-      <Welcome data={homepage?.attributes?.welcome} />
-      <FeaturedGallery data={featuredGallery} />
-      <FeaturedBlog data={featuredBlog} />
+      <Seo seo={homepage?.data?.attributes?.seo} />
+      <Welcome data={homepage?.data?.attributes?.welcome} />
+      <FeaturedGallery data={featuredGallery?.data} />
+      <FeaturedBlog data={featuredBlog?.data} />
       <Subscribe />
     </Layout>
   )
 }
 
 export const getServerSideProps = async ({ locale }) => {
-  const [homepageRes, featuredGalleryRes, featuredBlogRes] = await Promise.all([
-    fetchAPI("/homepage", {
-      populate: {
-        seo: { populate: "*" },
-        welcome: { populate: "*" },
-      },
-      locale,
-    }),
-    fetchAPI("/featured-gallery", {
-      populate: {
-        gallery: { populate: "*" },
-        articles: { populate: "*" },
-      },
-      locale,
-    }),
-    fetchAPI("/featured-blog", {
-      populate: {
-        articles: { populate: "*" },
-        banner: { populate: "*" },
-        categories: { populate: "*" },
-      },
-      locale,
-    }),
-  ])
-
+  const response = await apolloClient.query<THomeData | null>({
+    query: HOME_QUERY,
+    variables: { locale },
+  })
   return {
     props: {
-      homepage: homepageRes.data,
-      featuredGallery: featuredGalleryRes.data,
-      featuredBlog: featuredBlogRes.data,
+      ...response,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   }
