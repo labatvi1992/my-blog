@@ -1,4 +1,7 @@
+import { Trans } from "next-i18next"
+
 const Footer = () => {
+  const year = new Date().getFullYear()
   return (
     <footer className="footer py-4 bg-gradient-dark position-relative overflow-hidden">
       <img
@@ -10,15 +13,9 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-12">
             <p className="text-center text-sm text-white opacity-8 mb-0">
-              All rights reserved. Copyright ©{" "}
-              <strong>{new Date().getFullYear()}</strong> by{" "}
-              <a
-                className="text-bold text-white"
-                href="https://www.creative-tim.com/product/soft-ui-design-system"
-                target="_blank"
-              >
-                Creative Tim Soft UI Design
-              </a>
+              <Trans i18nKey="Copyright" ns="common">
+                Copyright © <strong>{{ year }}</strong> by Michael
+              </Trans>
             </p>
           </div>
         </div>

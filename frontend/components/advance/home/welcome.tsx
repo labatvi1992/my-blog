@@ -10,7 +10,7 @@ import AnimatedText from "../../common/animatedText"
 const Welcome = (prop: TWelcomeProp) => {
   const { data } = prop || {}
   const { title, content, background, facebook, github, linkedin } = data || {}
-  const { t } = useTranslation("common")
+  const { t } = useTranslation("home")
 
   const component = useMemo(
     () => (

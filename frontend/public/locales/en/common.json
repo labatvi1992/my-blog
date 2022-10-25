@@ -6,9 +6,6 @@
   "About": "About",
   "Blog": "Blog",
   "Store": "Store",
-  "Contact": "Find me on",
-  "About me": "About me",
-  "Read more": "Read more",
-  "Posts": "Posts",
-  "Visiters": "Visiters"
+  "Scroll to top": "Scroll to top",
+  "Copyright": "Copyright © <1>{{year}}</1> by Michael"
 }

@@ -1,9 +1,11 @@
-import { TScrollToTopProp } from "@/common/types/TScrollToTop"
 import { useEffect, useState } from "react"
+import { useTranslation } from "next-i18next"
+import { TScrollToTopProp } from "@/common/types/TScrollToTop"
 
 const ScrollToTop = (prop: TScrollToTopProp) => {
   const { top = 50, icon = "fas fa-angle-up" } = prop || {}
   const [visible, setVisible] = useState(false)
+  const { t } = useTranslation("common")
 
   const scrollTop = () => {
     window.scrollTo({
@@ -30,7 +32,7 @@ const ScrollToTop = (prop: TScrollToTopProp) => {
           onClick={scrollTop}
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title={"Scroll to top"}
+          title={t("Scroll to top")}
         >
           <i
             className={`d-flex justify-content-center align-items-center text-white fs-3 icon ${icon}`}

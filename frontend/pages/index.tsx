@@ -32,7 +32,7 @@ export const getServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...response,
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common", "home"])),
     },
   }
 }

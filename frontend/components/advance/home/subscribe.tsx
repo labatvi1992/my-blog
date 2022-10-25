@@ -1,4 +1,8 @@
+import { useTranslation } from "next-i18next"
+
 const Subscribe = () => {
+  const { t } = useTranslation("home")
+
   return (
     <section className="py-5">
       <div className="container">
@@ -9,7 +13,7 @@ const Subscribe = () => {
                 <div className="col-lg-7">
                   <form className="p-3" id="contact-form" method="post">
                     <div className="card-header">
-                      <h2>Get new posts delivered to your inbox</h2>
+                      <h3>{t("Get new posts delivered to your inbox")}</h3>
                     </div>
                     <div className="card-body pt-1">
                       <div className="row">
@@ -18,7 +22,7 @@ const Subscribe = () => {
                             <input
                               type="text"
                               className="form-control mb-sm-0"
-                              placeholder="Email"
+                              placeholder={t("Input your email")}
                             />
                           </div>
                         </div>
@@ -27,7 +31,7 @@ const Subscribe = () => {
                             type="button"
                             className="btn bg-gradient-info mb-0 h-100 position-relative z-index-2"
                           >
-                            Subscribe
+                            {t("Subscribe")}
                           </button>
                         </div>
                       </div>
@@ -50,7 +54,9 @@ const Subscribe = () => {
                   <div className="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
                     <div className="mask bg-gradient-info opacity-9"></div>
                     <div className="d-flex align-items-center p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
-                      <h3 className="text-white">Subscribe News</h3>
+                      <h3 className="text-white text-capitalize">
+                        {t("Subscribe news")}
+                      </h3>
                     </div>
                   </div>
                 </div>

@@ -13,7 +13,7 @@ const FeaturedBlog = (prop: TFeaturedBlogProp) => {
   const { data } = prop || {}
   const { title, description, articles, banner, postNumber, visiterNumber } =
     data?.attributes ?? {}
-  const { t } = useTranslation("common")
+  const { t } = useTranslation("home")
 
   const component = useMemo(
     () => (
