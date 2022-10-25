@@ -7,12 +7,12 @@ import AnimatedText from "../../common/animatedText"
 const ProfileWelcome = (prop: TWelcomeProp) => {
   const { data } = prop || {}
   const { title, content, background, facebook, github, linkedin } = data || {}
-  const { t } = useTranslation("common", { useSuspense: false })
+  const { t } = useTranslation("about")
 
   return (
     <Hero backgroundImage={getStrapiMedia(background)}>
       <h2 id="welcome-title" className="text-white text-truncate">
-        <AnimatedText text={title.split(".")} loop />
+        <AnimatedText text={title?.split(".") ?? [""]} loop />
       </h2>
       <p className="d-none d-lg-block lead mb-4 text-white">{content}</p>
       <a href="#personal">

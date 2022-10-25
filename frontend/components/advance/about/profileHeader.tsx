@@ -10,7 +10,7 @@ const ProfileHeader = (prop: TProfileHeaderProp) => {
           style={{ width: 160, height: 160 }}
           width={160}
           height={160}
-          src={avatar}
+          src={avatar || "/img/profile.svg"}
           alt=""
           className="img-fluid rounded-circle border border-5 border-dark mt-3"
         />

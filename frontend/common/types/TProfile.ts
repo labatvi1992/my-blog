@@ -33,6 +33,12 @@ type TProfileData = {
   }
 }
 
+type TProfileResponse = {
+  profile: {
+    data?: TProfileData
+  }
+}
+
 type TProfileProp = {
   data?: TProfileData
 }
@@ -40,6 +46,7 @@ type TProfileProp = {
 export type {
   TProfileHeaderProp,
   TProfileData,
+  TProfileResponse,
   TProfileProp,
   TProject,
   TProjectProp,
