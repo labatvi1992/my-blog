@@ -43,11 +43,25 @@ type TProfileProp = {
   data?: TProfileData
 }
 
+type TProfileDetailProp = {
+  data?: {
+    name: string
+    jobTitle: string
+    avatar?: TMediaItem
+    personal?: string
+    overview?: string
+    education?: string
+    workExperiences?: string
+    projects?: TProject[]
+  }
+}
+
 export type {
   TProfileHeaderProp,
   TProfileData,
   TProfileResponse,
   TProfileProp,
+  TProfileDetailProp,
   TProject,
   TProjectProp,
 }

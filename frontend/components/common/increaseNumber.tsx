@@ -46,7 +46,7 @@ const IncreaseNumber = (prop: TIncreaseNumber) => {
     onScroll()
     document.addEventListener("scroll", onScroll)
     return () => document.removeEventListener("scroll", onScroll)
-  }, [])
+  }, [countTo])
 
   return (
     <span ref={ref} className={className}>

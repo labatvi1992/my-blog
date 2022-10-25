@@ -1,7 +1,9 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useMemo, useRef } from "react"
+import { useTranslation } from "next-i18next"
 
 const ProfileNav = () => {
   const ref = useRef<HTMLUListElement>(null)
+  const { t } = useTranslation("about")
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,40 +33,45 @@ const ProfileNav = () => {
     return () => document.removeEventListener("scroll", onScroll)
   }, [])
 
-  return (
-    <ul className="profile-nav nav nav-pills flex-column" ref={ref}>
-      <li className="nav-item">
-        <a href="#personal" className="nav-link scrollto px-4">
-          <i className="fas fa-fw fa-info-circle me-2" aria-hidden="true" />
-          Personal
-        </a>
-      </li>
-      <li className="nav-item">
-        <a href="#overview" className="nav-link scrollto px-4">
-          <i className="fas fa-fw fa-home me-2" aria-hidden="true" />
-          Overview
-        </a>
-      </li>
-      <li className="nav-item">
-        <a href="#education" className="nav-link scrollto px-4">
-          <i className="fas fa-fw fa-user me-2" aria-hidden="true" />
-          Education
-        </a>
-      </li>
-      <li className="nav-item">
-        <a href="#workExperiences" className="nav-link scrollto px-4">
-          <i className="fas fa-fw fa-file me-2" aria-hidden="true" />
-          Work Experiences
-        </a>
-      </li>
-      <li className="nav-item">
-        <a href="#projects" className="nav-link scrollto px-4">
-          <i className="fas fa-fw fa-server me-2" aria-hidden="true" />
-          Projects
-        </a>
-      </li>
-    </ul>
+  const component = useMemo(
+    () => (
+      <ul className="profile-nav nav nav-pills flex-column" ref={ref}>
+        <li className="nav-item">
+          <a href="#personal" className="nav-link scrollto px-4">
+            <i className="fas fa-fw fa-info-circle me-2" aria-hidden="true" />
+            {t("Personal")}
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#overview" className="nav-link scrollto px-4">
+            <i className="fas fa-fw fa-home me-2" aria-hidden="true" />
+            {t("Overview")}
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#education" className="nav-link scrollto px-4">
+            <i className="fas fa-fw fa-user me-2" aria-hidden="true" />
+            {t("Education")}
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#work-experiences" className="nav-link scrollto px-4">
+            <i className="fas fa-fw fa-file me-2" aria-hidden="true" />
+            {t("Work Experiences")}
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#projects" className="nav-link scrollto px-4">
+            <i className="fas fa-fw fa-server me-2" aria-hidden="true" />
+            {t("Projects")}
+          </a>
+        </li>
+      </ul>
+    ),
+    [t]
   )
+
+  return component
 }
 
 export default ProfileNav

@@ -1,1 +1,9 @@
-{ "View more": "View more", "Contact": "Find me on", "Personal": "Personal" }
+{
+  "View more": "View more",
+  "Contact": "Find me on",
+  "Personal": "Personal",
+  "Overview": "Overview",
+  "Education": "Education",
+  "Work Experiences": "Work Experiences",
+  "Projects": "Projects"
+}
