@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, MouseEvent } from "react"
+import { Trans } from "next-i18next"
 import { TBlogCategoryProp } from "@/common/types/TBlogCategory"
 
 declare var Isotope: any
@@ -37,7 +38,9 @@ const Categories = (prop: TBlogCategoryProp) => {
   return (
     <div className="row">
       <div className="col-lg-12">
-        <h3 className="text-dark text-center mt-3">Danh mục</h3>
+        <h3 className="text-dark text-center mt-3">
+          <Trans ns="blog">Category</Trans>
+        </h3>
         <div className="row" data-aos="fade">
           <div className="col-lg-12 d-flex justify-content-center">
             <div className="nav-wrapper">
@@ -51,7 +54,9 @@ const Categories = (prop: TBlogCategoryProp) => {
                   data-filter="*"
                   onClick={(e) => onLoadData(e)}
                 >
-                  <a className="nav-link mb-0 px-0 py-1">All</a>
+                  <a className="nav-link mb-0 px-0 py-1">
+                    <Trans ns="blog">All</Trans>
+                  </a>
                 </li>
                 {(data || []).map((item, itemIndex) => {
                   const { name } = item?.attributes || {}
