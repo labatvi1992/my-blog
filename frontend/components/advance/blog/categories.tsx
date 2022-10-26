@@ -76,7 +76,9 @@ const Categories = (prop: TBlogCategoryProp) => {
           </div>
         </div>
         <h4 className="my-4">
-          Tìm thấy tất cả <strong>{articleCount ?? 0}</strong> bài viết
+          <Trans i18nKey="Found post" ns="blog">
+            <strong>{{ articleCount }}</strong> posts found
+          </Trans>
         </h4>
         <div ref={containerRef} className="row" data-aos="fade">
           {children}

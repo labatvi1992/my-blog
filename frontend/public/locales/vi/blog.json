@@ -1,5 +1,6 @@
 {
   "Welcome you to my blog": "Chào mừng bạn đến với trang nhật ký của tôi",
   "Category": "Danh mục",
-  "All": "Tất cả"
+  "All": "Tất cả",
+  "Found post": "Tìm thấy <0>{{articleCount}}</0> bài viết"
 }
