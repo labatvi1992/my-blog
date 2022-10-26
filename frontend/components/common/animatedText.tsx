@@ -29,7 +29,7 @@ const AnimatedText = (prop: TAnimatedTextProp) => {
     }
   }, [text])
 
-  return <span ref={el} />
+  return <span className="text-shadow" ref={el} />
 }
 
 export default AnimatedText

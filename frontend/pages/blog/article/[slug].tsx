@@ -1,19 +1,21 @@
-import ReactMarkdown from "react-markdown"
-import Moment from "react-moment"
-import { fetchAPI } from "@/common/helpers/api"
-import { TBlogArticleProp } from "@/common/types/TBlogArticle"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import {
+  TBlogArticleProp,
+  TBlogArticleResponse,
+} from "@/common/types/TBlogArticle"
 import { TSeo } from "@/common/types/TSeo"
 import Layout from "@/components/common/layout"
-import NextImage from "@/components/common/image"
-import Seo from "@/components/common/seo"
+import ArticleWelcome from "@/components/advance/blog/articleWelcome"
+import ArticleSection from "@/components/advance/blog/articleSection"
 import { getStrapiMedia } from "@/common/helpers/media"
-import Hero from "@/components/common/hero"
-import AnimatedText from "@/components/common/animatedText"
 import { useGlobalContext } from "@/components/common/globalContext"
+import { ARTICLE_QUERY } from "@/common/queries/blogQuery"
+import apolloClient from "@/common/helpers/apolloClient"
 
-const Article = ({ article, categories }: TBlogArticleProp) => {
-  const { title, content, image, description, author, publishedAt } =
-    article?.attributes || {}
+const Article = (prop: TBlogArticleProp) => {
+  const { articles, categories } = prop.data || {}
+  const article = articles?.data?.length > 0 ? articles.data[0] : null
+  const { title, image, description } = article?.attributes || {}
   const global = useGlobalContext()
   const imageUrl = getStrapiMedia(image)
 
@@ -26,84 +28,23 @@ const Article = ({ article, categories }: TBlogArticleProp) => {
 
   return (
     <Layout global={global}>
-      <Seo seo={seo} />
-      <Hero backgroundImage={imageUrl}>
-        <h2 id="welcome-title" className="text-white text-truncate">
-          <AnimatedText text={[title]} loop />
-        </h2>
-      </Hero>
-      <section className="py-sm-5 py-5 min-vh-100">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <ReactMarkdown source={content} escapeHtml={false} />
-            </div>
-          </div>
-          <div className="row pt-3 border-top">
-            <div className="col-lg-12">
-              <div className="d-flex">
-                {author?.data?.attributes?.picture && (
-                  <div
-                    className="border border-4 border-dark rounded-circle"
-                    style={{ width: 128, height: 128 }}
-                  >
-                    <NextImage
-                      className="rounded-circle"
-                      image={author?.data?.attributes?.picture}
-                    />
-                  </div>
-                )}
-                <div className="d-flex flex-column px-3">
-                  <p className="lead mb-0">
-                    Author {author?.data?.attributes?.name}
-                  </p>
-                  <p className="text-dark">
-                    <Moment format="DD/MM/YYYY">{publishedAt}</Moment>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ArticleWelcome seo={seo} title={title} image={imageUrl} />
+      <ArticleSection article={article} />
     </Layout>
   )
 }
 
-export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/articles", { fields: ["slug"] })
-
-  return {
-    paths: articlesRes.data.map((article) => ({
-      params: {
-        slug: article?.attributes?.slug,
-      },
-    })),
-    fallback: false,
-  }
-}
-
-export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI("/articles", {
-    filters: {
-      slug: params.slug,
-    },
-    populate: {
-      author: {
-        populate: {
-          picture: "*",
-        },
-      },
-      image: {
-        populate: "*",
-      },
-    },
+export const getServerSideProps = async ({ locale, params }) => {
+  const response = await apolloClient.query<TBlogArticleResponse | null>({
+    query: ARTICLE_QUERY,
+    variables: { locale, slug: params.slug },
   })
-  const categoriesRes = await fetchAPI("/categories")
 
   return {
-    props: { article: articlesRes.data[0], categories: categoriesRes },
-    revalidate: 1,
+    props: {
+      ...response,
+      ...(await serverSideTranslations(locale, ["common", "blog"])),
+    },
   }
 }
 

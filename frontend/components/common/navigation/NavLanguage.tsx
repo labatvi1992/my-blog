@@ -32,7 +32,11 @@ const NavLanguage = (prop: TLanguageProp) => {
   const langListComponent = useMemo(() => {
     const onChange = (lang: string) => {
       setCurrentLocale(lang)
-      router.replace(router.route, router.route, { locale: lang })
+      router.replace(
+        { pathname: router.pathname, query: router.query },
+        router.asPath,
+        { locale: lang }
+      )
     }
     return (
       <ul

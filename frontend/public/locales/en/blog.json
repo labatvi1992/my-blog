@@ -2,5 +2,7 @@
   "Welcome you to my blog": "Welcome you to my blog",
   "Category": "Category",
   "All": "All",
-  "Found post": "<0>{{articleCount}}</0> posts found"
+  "Found post": "<0>{{articleCount}}</0> posts found",
+  "Not found post": "Not found post",
+  "Author": "Author"
 }
