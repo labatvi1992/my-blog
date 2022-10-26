@@ -3,7 +3,8 @@ import Link from "next/link"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const Card = ({ article }) => {
-  const { name, title, image, slug, category } = article?.attributes || {}
+  const { title, image, slug, category, description } =
+    article?.attributes || {}
   return (
     <Link href={`/blog/article/${slug}`}>
       <a className={`col-lg-4 article-item filter-${category?.data?.id}`}>
@@ -13,9 +14,9 @@ const Card = ({ article }) => {
           src={getStrapiMedia(image)}
           alt=""
         />
-        <div className="text-dark">
-          <h2>{name}</h2>
-          <p className="text-dark">{title}</p>
+        <div className="text-dark mt-2">
+          <h4 className="m-0">{title}</h4>
+          <p className="text-dark">{description}</p>
         </div>
       </a>
     </Link>
