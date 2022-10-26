@@ -16,4 +16,21 @@ type TBlogCategoryProp = {
   children: JSX.Element | JSX.Element[]
 }
 
-export type { TBlogCategoryItem, TBlogCategoryProp }
+type TBlogCategoryData = {
+  attributes: {
+    slug: string
+  }
+}
+
+type TBlogCategoryResponse = {
+  categories?: {
+    data?: TBlogCategoryData[]
+  }
+}
+
+export type {
+  TBlogCategoryItem,
+  TBlogCategoryProp,
+  TBlogCategoryData,
+  TBlogCategoryResponse,
+}

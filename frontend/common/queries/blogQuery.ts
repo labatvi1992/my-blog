@@ -37,4 +37,16 @@ const BLOG_QUERY = gql`
   }
 `
 
+export const CATEGORY_QUERY = gql`
+  query Category($locale: I18NLocaleCode) {
+    categories(locale: $locale) {
+      data {
+        attributes {
+          slug
+        }
+      }
+    }
+  }
+`
+
 export default BLOG_QUERY
