@@ -18,6 +18,8 @@ const SwiperSlider = (prop: TSwiperProp) => {
     () => ({
       direction: vertical ? "vertical" : "horizontal",
       slidesPerView: slidesPerView || 1,
+      preventClicks: false,
+      preventClicksPropagation: false,
       loop: true,
       autoplay: {
         delay: 3000,

@@ -16,7 +16,7 @@ const Welcome = (prop: TWelcomeProp) => {
     () => (
       <Hero backgroundImage={getStrapiMedia(background)}>
         <h2 id="welcome-title" className="text-white text-truncate">
-          <AnimatedText text={title.split(".")} loop />
+          <AnimatedText text={title.split(".")} loop shadow />
         </h2>
         <p className="d-none d-lg-block lead mb-4 text-white">{content}</p>
         <Link href={AboutUrl}>

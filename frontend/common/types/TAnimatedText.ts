@@ -1,5 +1,6 @@
 type TAnimatedTextProp = {
   text: string[]
+  shadow?: boolean
   loop?: boolean
 }
 

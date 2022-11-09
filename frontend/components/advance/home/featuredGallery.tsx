@@ -1,9 +1,10 @@
 import React, { useMemo } from "react"
+import Link from "next/link"
 import { TFeaturedGalleryProp } from "@/common/types/TFeaturedGallery"
-import Section from "../../common/section"
-import Carousel, { CarouselItem } from "../../common/carousel"
-import Swiper from "../../common/swiper"
-import AnimatedText from "../../common/animatedText"
+import Section from "@/components/common/section"
+import Carousel, { CarouselItem } from "@/components/common/carousel"
+import Swiper from "@/components/common/swiper"
+import AnimatedText from "@/components/common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const GALLERY_ROW_HEIGHT = 320
@@ -58,8 +59,7 @@ const FeaturedGallery = (prop: TFeaturedGalleryProp) => {
               <div className="col-lg-4 col-md-6 p-1">
                 <Swiper id={"productAds"} height={GALLERY_ROW_HEIGHT} vertical>
                   {(articles.data || []).map((item) => {
-                    const { title, slug, description, image } =
-                      item.attributes || {}
+                    const { title, slug, image } = item.attributes || {}
                     return (
                       <div
                         key={slug}
@@ -74,12 +74,13 @@ const FeaturedGallery = (prop: TFeaturedGalleryProp) => {
                         >
                           <span className="mask bg-gradient-dark opacity-1" />
                           <div className="d-flex flex-column justify-content-end p-4 h-100">
-                            <h4 className="text-white text-bold text-shadow">
-                              {title}
+                            <h4 className="z-index-1 cursor-pointer">
+                              <Link key={slug} href={`/blog/article/${slug}`}>
+                                <a className="text-bold text-shadow text-white">
+                                  {title}
+                                </a>
+                              </Link>
                             </h4>
-                            <p className="text-white text-shadow">
-                              {description}
-                            </p>
                           </div>
                         </div>
                       </div>

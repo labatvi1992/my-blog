@@ -1,10 +1,11 @@
 import React, { useMemo } from "react"
+import Link from "next/link"
 import { useTranslation } from "next-i18next"
 import { TFeaturedBlogProp } from "@/common/types/TFeaturedBlog"
-import Carousel, { CarouselItem } from "../../common/carousel"
-import IncreaseNumber from "../../common/increaseNumber"
-import Swiper from "../../common/swiper"
-import AnimatedText from "../../common/animatedText"
+import Carousel, { CarouselItem } from "@/components/common/carousel"
+import IncreaseNumber from "@/components/common/increaseNumber"
+import Swiper from "@/components/common/swiper"
+import AnimatedText from "@/components/common/animatedText"
 import { getStrapiMedia } from "@/common/helpers/media"
 
 const ROW_HEIGHT = 300
@@ -93,7 +94,11 @@ const FeaturedBlog = (prop: TFeaturedBlogProp) => {
                                       type="button"
                                       className="btn bg-gradient-primary mt-4"
                                     >
-                                      {t("Read more")}
+                                      <Link href={`/blog/article/${slug}`}>
+                                        <a className="text-white">
+                                          {t("Read more")}
+                                        </a>
+                                      </Link>
                                     </button>
                                   </div>
                                 </div>

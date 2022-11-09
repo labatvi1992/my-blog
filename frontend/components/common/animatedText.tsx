@@ -4,7 +4,7 @@ import { TAnimatedTextProp } from "@/common/types/TAnimatedText"
 declare var Typed: any
 
 const AnimatedText = (prop: TAnimatedTextProp) => {
-  const { text, loop = false } = prop || {}
+  const { text, loop = false, shadow } = prop || {}
   // Create reference to store the DOM element containing the animation
   const el = React.useRef(null)
   // Create reference to store the Typed instance itself
@@ -29,7 +29,7 @@ const AnimatedText = (prop: TAnimatedTextProp) => {
     }
   }, [text])
 
-  return <span className="text-shadow" ref={el} />
+  return <span className={shadow ? "text-shadow" : ""} ref={el} />
 }
 
 export default AnimatedText

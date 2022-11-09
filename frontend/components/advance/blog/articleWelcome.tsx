@@ -11,7 +11,7 @@ const ArticleWelcome = (prop: TBlogArticleWelcomeProp) => {
       <Seo seo={seo} />
       <Hero backgroundImage={image}>
         <h2 id="welcome-title" className="text-white text-truncate">
-          <AnimatedText text={[title || ""]} loop />
+          <AnimatedText text={[title || ""]} loop shadow />
         </h2>
       </Hero>
     </>
