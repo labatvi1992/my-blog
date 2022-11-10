@@ -4,5 +4,6 @@
   "All": "All",
   "Found post": "<0>{{articleCount}}</0> posts found",
   "Not found post": "Not found post",
-  "Author": "Author"
+  "Author": "Author",
+  "Filter label": "<0>Filter by blog title</0>"
 }

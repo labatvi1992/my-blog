@@ -4,5 +4,6 @@
   "All": "Tất cả",
   "Found post": "Tìm thấy <0>{{articleCount}}</0> bài viết",
   "Not found post": "Không tìm thấy bài viết",
-  "Author": "Tác giả"
+  "Author": "Tác giả",
+  "Filter label": "<0>Tìm kiếm theo tiêu đề bài viết</0>"
 }

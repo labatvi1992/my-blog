@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState, MouseEvent } from "react"
+import { useEffect, useRef, useState, MouseEvent, ChangeEvent } from "react"
+import { debounce } from "lodash"
+import { useRouter } from "next/router"
 import { Trans } from "next-i18next"
 import { TBlogCategoryProp } from "@/common/types/TBlogCategory"
 
@@ -9,9 +11,9 @@ const Categories = (prop: TBlogCategoryProp) => {
   const tabRef = useRef<HTMLUListElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [isoTope, setIsoTope] = useState(null)
+  const router = useRouter()
 
-  const onLoadData = (e: MouseEvent<HTMLLIElement>, id?: number) => {
-    console.log("load data", id)
+  const onLoadData = (e: MouseEvent<HTMLLIElement>, slug?: string) => {
     e.preventDefault()
     if (tabRef?.current) {
       const navItems = tabRef.current.querySelectorAll("li.nav-item")
@@ -24,7 +26,17 @@ const Categories = (prop: TBlogCategoryProp) => {
         filter: li?.getAttribute("data-filter"),
       })
     }
+    if (slug) {
+      router.push(`/blog/${slug}`, undefined, { scroll: false })
+    } else {
+      router.push("/blog/", undefined, { scroll: false })
+    }
   }
+
+  const onFilter = debounce((e: ChangeEvent<HTMLInputElement>) => {
+    const key = e.target?.value
+    console.log("key: ", key)
+  }, 500)
 
   useEffect(() => {
     const categoriesIsoTope = new Isotope(containerRef?.current, {
@@ -50,7 +62,9 @@ const Categories = (prop: TBlogCategoryProp) => {
                 role="tablist"
               >
                 <li
-                  className="nav-item d-flex align-items-center px-3 rounded-pill filter-active"
+                  className={`nav-item d-flex align-items-center px-3 rounded-pill ${
+                    router.query?.slug ? "" : "filter-active"
+                  }`}
                   data-filter="*"
                   onClick={(e) => onLoadData(e)}
                 >
@@ -59,19 +73,31 @@ const Categories = (prop: TBlogCategoryProp) => {
                   </a>
                 </li>
                 {(data || []).map((item, itemIndex) => {
-                  const { name } = item?.attributes || {}
+                  const { name, slug } = item?.attributes || {}
                   return (
                     <li
-                      className="nav-item d-flex align-items-center px-3 rounded-pill"
+                      className={`nav-item d-flex align-items-center px-3 rounded-pill ${
+                        router.query?.slug === slug ? "filter-active" : ""
+                      }`}
                       key={itemIndex}
                       data-filter={`.filter-${item.id}`}
-                      onClick={(e) => onLoadData(e, item.id)}
+                      onClick={(e) => onLoadData(e, slug)}
                     >
                       <a className={`nav-link mb-0 px-0 py-1`}>{name}</a>
                     </li>
                   )
                 })}
               </ul>
+            </div>
+          </div>
+        </div>
+        <div className="row justify-space-between py-2">
+          <div className="col-lg-4 mx-auto">
+            <div className="form-group form-inline">
+              <Trans i18nKey="Filter label" ns="blog">
+                <label className="me-2">Filter by blog title</label>
+              </Trans>
+              <input type="text" className="form-control" onChange={onFilter} />
             </div>
           </div>
         </div>
